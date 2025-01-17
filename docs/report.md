@@ -16,7 +16,7 @@ product mission statement
 
 Name                 | 1st Choice | 2nd Choice | 3rd Choice
 ---------------------|------------|------------|-----------
-Aarshon Roggy George |            |            | *choice*
+Aarshon Roggy George | Text       | Discord    | *choice*
 Alex Comeaux         |            |            | *choice*
 Ian Anderson         | Text       | Discord    | Email
 Kushagra Dashora     |            |            | *choice*
@@ -29,19 +29,19 @@ If team members are unresponsive for excessive times during meetings, the team m
 
 Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 -----|--------|--------|---------|------------|----------|-------|---------
-09:00 |        |        |         |           |          | I      | *in*
-10:00 | I      |        |         |           |          | I      | I
-11:00 | I      |        |         |           |          | I      | I
-12:00 | I      |        |         |           |          | I      | I
-13:00 | I      |        |         |           |          | I      | I
-14:00 | I      | I      |         | I         |          |        | I
-15:00 | I      | I      | I       | I         | I        |        | I
-16:00 | I      | I      | I       | I         | I        |        | I
-17:00 | I      | I      | I       | I         | I        |        | I
-18:00 | I      | I      | I       | I         | I        |        | I
-19:00 | I      | I      | I       | I         | I        |        | I
-20:00 | I      | I      | I       | I         | I        |        | I
-21:00 | I      |        |         |           |          |        | I
+09:00 |         |        |         |           |           | I       | *in*
+10:00 | I  A    |        |         |           |           | I       | I  A
+11:00 | I  A    |        |         |           |           | I       | I  A
+12:00 | I  A    |        |         |           |           | I       | I  A
+13:00 | I  A    |        |         |           |           | I       | I  
+14:00 | I  A    | I      |         | I         |           |    A    | I  
+15:00 | I  A    | I      | I       | I         | I         |    A    | I  
+16:00 | I  A    | I      | I       | I   A     | I         |    A    | I  
+17:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  
+18:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  
+19:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  A
+20:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  A
+21:00 | I  A    |        |         |     A     |    A      |    A    | I  A
 
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
