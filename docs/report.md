@@ -128,7 +128,7 @@ Peer Accountability
 Each team member is responsible for updating the group on their progress during meetings and flagging potential delays. If someone is falling behind, others will provide support.
 
 Conflict Resolution
-If a disagreement arises, Aarshon will act as a mediator to ensure the team remains focused on the project goals. Decisions will prioritize the project’s success and deadlines.
+If a disagreement arises, Alex will act as a mediator to ensure the team remains focused on the project goals. Decisions will prioritize the project’s success and deadlines.
 
 Feedback Loops
 Weekly peer reviews will allow team members to provide constructive feedback on each other’s work. This ensures everyone stays aligned and that the final product meets high standards.
