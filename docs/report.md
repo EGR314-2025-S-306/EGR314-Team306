@@ -6,7 +6,11 @@ title: Report
 
 ### Charter
 
-charter statement  
+Push the boundaries of our engineering and design expertise to deliver a market-ready solution.
+Demonstrate a prototype that establishes a strong foundation for future engineering projects.
+Develop a product that provides meaningful value to society.
+Leverage on-site PCB printing technology to support product development.
+
 product mission statement
 
 ### Team Goals
@@ -16,7 +20,7 @@ product mission statement
 Name                 | 1st Choice | 2nd Choice | 3rd Choice
 ---------------------|------------|------------|-----------
 Aarshon Roggy George |            |            | *choice*
-Alex Comeaux         |            |            | *choice*
+Alex Comeaux         | Text       | Discord    | Email 
 Ian Anderson         | Text       | Discord    | Email
 Kushagra Dashora     |            |            | *choice*
 
@@ -27,7 +31,7 @@ If team members are unresponsive for excessive times during meetings, the team m
 ### Meeting Schedule
 
 Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
-------|--------|--------|---------|-----------|----------|--------|---------
+-----|--------|--------|---------|------------|----------|-------|---------
 09:00 |        |        |         |           |          | I      | *in*
 10:00 | I      |        |         |           |          | I      | I
 11:00 | I      |        |         |           |          | I      | I
@@ -64,7 +68,7 @@ Meetings will typically be held during *chosen hours* and are preferably in-pers
 Name | Role | Duties
 -----|------|--------
 *name* | Meeting Leader    | Schedules team meetings, creates and distributes an agenda for each meeting
-*name* | Meeting Recorder  | Takes minutes of each team meeting, including attendance, and records action items and to whom they are assigned
+Alex Comeaux | Meeting Recorder  | Takes minutes of each team meeting, including attendance, and records action items and to whom they are assigned
 *name* | Assignment Leader | Coordinates the team's work on a given assignment to Canvas before the due date
 Ian Anderson | Project Monitor   | Tracks the team's progress relative to the project schedule (Gantt Chart) and keeps team members apprised of deadlines and project status
 
