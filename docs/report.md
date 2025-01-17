@@ -44,7 +44,7 @@ Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
-Aarshon Roggy George | A       |                    | (480)876-1337
+Aarshon George       | A       | <anolas97@asu.edu> | (480)876-1337
 Alex Comeaux         | C       |                    | (602)527-7786
 Ian Anderson         | I       | <inanders@asu.edu> | (808)824-1519
 Kushagra Dashora     | K       |                    | (602)632-1229
@@ -52,16 +52,14 @@ Kushagra Dashora     | K       |                    | (602)632-1229
 Communication Methods:
 
 1. Text
-1. thing
-1. thing
+2. Discord
+3. Email
 
 ### Meeting Coordination
 
 Meetings will typically be held during *chosen hours* and are preferably in-person. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in *personal or group* calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
 
-*This is a test message to check if VS code is working with the github repository**
 
-*Test message 2**
 ### Roles & Responsibilities
 
 Name | Role | Duties
