@@ -98,10 +98,12 @@ Assigned roles are subject to change at any time
 ### Team Coordination & Accountability
 
 Roles & Responsibilities
-Each team member will volunteer for a role by articulating their qualifications and reasons for suitability. If two members express interest in the same role, they will engage in discussion and reach a compromise. We plan to rotate roles at least three times—or as needed—to ensure we maximize each individual’s growth and learning opportunities. Roles are assigned based on each person’s qualifications and skills, with regular check-ins to confirm that no one finds their responsibilities overwhelming. The project monitor will maintain a Gantt chart to track the team’s activities and milestones. Technical tasks will be distributed in alignment with each member’s strongest areas of confidence and expertise.
+Each team member will volunteer for a role by articulating their qualifications and reasons for suitability. If two members express interest in the same role, they will engage in discussion and reach a compromise. We plan to rotate roles at least three times—or as needed—to ensure we maximize each individual’s growth and learning opportunities. Roles are assigned based on each person’s qualifications and skills, with regular check-ins to confirm that no one finds their responsibilities overwhelming. Technical tasks will be distributed in alignment with each member’s strongest areas of confidence and expertise.
 
 Team Coordination & Accountability
-To ensure all contributions are properly credited, each member will sign their name at the beginning of every assignment, just as they would for a standard homework task. Additionally, each member will log the assignment name in a shared journal, creating a clear record of individual responsibilities. This method allows us to see if anyone is under-performing and prompts that individual to seek help or clarification as needed. As long as everyone completes their assigned tasks, there should be no hesitation in requesting or offering assistance.
+Roles & Responsibilities
+To ensure all contributions are properly credited, each member will sign their name at the beginning of every assignment, just as they would for a standard homework task. Additionally, each change made to the team website is recorded through github, creating a clear record of individual responsibilities. This method allows us to see if anyone is underperforming and prompts that individual to seek help or clarification as needed. As long as everyone completes their assigned tasks, there should be no hesitation in requesting or offering assistance. Otherwise, if a team member repeatedly fails to complete the tasks assigned to them, the team will be forced to hold this team member accountable.
+
 
 Defined Roles and Responsibilities
 
