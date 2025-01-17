@@ -27,7 +27,7 @@ If team members are unresponsive for excessive times during meetings, the team m
 ### Meeting Schedule
 
 Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
------|--------|--------|---------|------------|----------|-------|---------
+------|--------|--------|---------|-----------|----------|--------|---------
 09:00 |        |        |         |           |          | I      | *in*
 10:00 | I      |        |         |           |          | I      | I
 11:00 | I      |        |         |           |          | I      | I
@@ -58,7 +58,6 @@ Communication Methods:
 ### Meeting Coordination
 
 Meetings will typically be held during *chosen hours* and are preferably in-person. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in *personal or group* calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
-
 
 ### Roles & Responsibilities
 
