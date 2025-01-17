@@ -103,6 +103,40 @@ Each team member will volunteer for a role by articulating their qualifications 
 Team Coordination & Accountability
 To ensure all contributions are properly credited, each member will sign their name at the beginning of every assignment, just as they would for a standard homework task. Additionally, each member will log the assignment name in a shared journal, creating a clear record of individual responsibilities. This method allows us to see if anyone is under-performing and prompts that individual to seek help or clarification as needed. As long as everyone completes their assigned tasks, there should be no hesitation in requesting or offering assistance.
 
+Defined Roles and Responsibilities
+
+Aarshon: Team lead and systems integrator, overseeing overall progress and ensuring the components come together seamlessly.
+Alex: Hardware specialist, responsible for designing, testing, and optimizing the physical and electronic components of the project.
+Ian: Software developer, handling coding, web integration, and system control logic for the interactive aspects.
+Kushagra: User experience designer and tester, focusing on user-centered design, interface development, and end-user feedback.
+Regular Team Check-Ins
+Weekly meetings led by Aarshon to discuss progress, address roadblocks, and review upcoming tasks. Each member provides a brief update on their responsibilities.
+
+Transparent Communication
+Use Slack for daily updates, Trello for task management, and Google Drive for shared documentation. This ensures everyone has access to key information and can collaborate effectively.
+
+Milestone Tracking
+The project will be broken into phases:
+
+Phase 1: Concept development (All team members)
+Phase 2: Hardware prototyping (Alex & Aarshon)
+Phase 3: Software integration (Ian)
+Phase 4: User testing and refinement (Kushagra & Alex)
+Peer Accountability
+Each team member is responsible for updating the group on their progress during meetings and flagging potential delays. If someone is falling behind, others will provide support.
+
+Conflict Resolution
+If a disagreement arises, Aarshon will act as a mediator to ensure the team remains focused on the project goals. Decisions will prioritize the project’s success and deadlines.
+
+Feedback Loops
+Weekly peer reviews will allow team members to provide constructive feedback on each other’s work. This ensures everyone stays aligned and that the final product meets high standards.
+
+Leadership and Decision-Making
+Aarshon will make executive decisions if consensus isn’t reached. However, all decisions will be informed by group discussions to ensure fairness and inclusivity.
+
+Commitment to Deadlines
+Each milestone will have a hard deadline, tracked on Trello. Missed deadlines will require immediate discussion and a revised plan to stay on schedule.
+
 ### Conflict Recognition & Resolution
 
 Our team understands that disagreements will happen in group environments. As such, members are expected to be able to handle conflicts in a mature and civil way. Additional meetings may be arranged upon failure to complete responsibilities, and repeated behavior will be escalated to professors.
