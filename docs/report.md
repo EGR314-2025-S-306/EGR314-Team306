@@ -59,6 +59,7 @@ Communication Methods:
 
 Meetings will typically be held during *chosen hours* and are preferably in-person. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in *personal or group* calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
 
+*This is a test message to check if VS code is working with the github repository**
 ### Roles & Responsibilities
 
 Name | Role | Duties
