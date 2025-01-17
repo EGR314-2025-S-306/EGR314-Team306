@@ -6,21 +6,18 @@ title: Report
 
 ### Charter
 
-Push the boundaries of our engineering and design expertise to deliver a market-ready solution.
-Demonstrate a prototype that establishes a strong foundation for future engineering projects.
-Develop a product that provides meaningful value to society.
-Leverage on-site PCB printing technology to support product development.
-
+charter statement  
 product mission statement
 
 ### Team Goals
+
 
 ### Communication Channels
 
 Name                 | 1st Choice | 2nd Choice | 3rd Choice
 ---------------------|------------|------------|-----------
 Aarshon Roggy George |            |            | *choice*
-Alex Comeaux         | Text       | Discord    | Email 
+Alex Comeaux         |            |            | *choice*
 Ian Anderson         | Text       | Discord    | Email
 Kushagra Dashora     |            |            | *choice*
 
@@ -49,7 +46,7 @@ Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
 Aarshon George       | A       | <anolas97@asu.edu> | (480)876-1337
-Alex Comeaux         | C       | <amcomeau@asu.edu> | (602)527-7786
+Alex Comeaux         | C       |                    | (602)527-7786
 Ian Anderson         | I       | <inanders@asu.edu> | (808)824-1519
 Kushagra Dashora     | K       |                    | (602)632-1229
 
@@ -63,12 +60,13 @@ Communication Methods:
 
 Meetings will typically be held during *chosen hours* and are preferably in-person. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in *personal or group* calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
 
+
 ### Roles & Responsibilities
 
 Name | Role | Duties
 -----|------|--------
 *name* | Meeting Leader    | Schedules team meetings, creates and distributes an agenda for each meeting
-Alex Comeaux | Meeting Recorder  | Takes minutes of each team meeting, including attendance, and records action items and to whom they are assigned
+*name* | Meeting Recorder  | Takes minutes of each team meeting, including attendance, and records action items and to whom they are assigned
 *name* | Assignment Leader | Coordinates the team's work on a given assignment to Canvas before the due date
 Ian Anderson | Project Monitor   | Tracks the team's progress relative to the project schedule (Gantt Chart) and keeps team members apprised of deadlines and project status
 
