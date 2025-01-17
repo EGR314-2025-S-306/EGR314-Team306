@@ -4,13 +4,36 @@ title: Report
 
 ## Team Charter
 
-### Charter
+Charter Statement:
 
-charter statement  
-product mission statement
+Our mission is to design and deliver innovative, sustainable, and modular embedded systems that address educational and STEM-based challenges. This semester, we aim to develop an interactive, web-enabled physical device demonstrating a scientific or engineering concept. The project will prioritize modularity, standards compliance, and user engagement to support K-12 students' interest in STEM fields. Success will be measured by the device's interactivity, educational impact, technical robustness, and adherence to modular design principles.
 
-### Team Goals
+Mission Statement:
 
+ Our goal is to develop an interactive, STEM-themed educational display within four months that engages K-12 students by showcasing a scientific or engineering concept in a fun and intuitive way. The product will emphasize energy efficiency, modularity, and user-friendly design, ensuring both technical excellence and alignment with educational standards. We aim to deliver a sustainable, impactful solution that inspires young learners to explore science, technology, engineering, and mathematics while fostering our team’s growth in professional engineering practices.
+
+Team Goals
+
+1. Develop a Polished, Market-Ready Product
+Create an innovative, STEM-themed, interactive device that’s not only functional but also visually impressive and ready for real-world use. The goal is to deliver a high-quality product that investors and end-users alike will recognize as impactful and valuable.
+
+2. Emphasize Professional Collaboration
+Operate as a professional team by leveraging everyone’s expertise, maintaining clear communication, and working efficiently to meet deadlines. Showcase our ability to collaborate on a complex project and deliver results as a cohesive unit.
+
+3. Prioritize Standards and Scalability
+Build the product with scalability in mind by adhering to industry standards and modular design principles. This ensures the device is easy to maintain, upgrade, and adapt for broader markets, making it appealing for future development and commercialization.
+
+4. Showcase Advanced Technical Skills
+Demonstrate our technical expertise in robotics, embedded systems, and software engineering through a well-executed, innovative project. Highlight cutting-edge solutions to real-world challenges, proving we’re ready for the next step in our careers.
+
+5. Focus on End-User Impact
+Deliver a product that’s intuitive, engaging, and tailored to the needs of the target audience—K-12 students and educators. Make it a standout experience that inspires excitement for STEM while solving specific user pain points.
+
+6. Highlight Sustainability and Innovation
+Incorporate energy-efficient designs, sustainable materials, and forward-thinking features that make the product not only innovative but also environmentally responsible. Investors want to see a future-focused mindset.
+
+7. Deliver On Time and On Budget
+Meet all milestones, stay within budget, and present a fully functional prototype or final product. Show investors that we’re capable of managing resources effectively and delivering a tangible result within a defined time frame.
 
 ### Communication Channels
 
