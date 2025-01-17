@@ -40,7 +40,7 @@ Meet all milestones, stay within budget, and present a fully functional prototyp
 Name                 | 1st Choice | 2nd Choice | 3rd Choice
 ---------------------|------------|------------|-----------
 Aarshon Roggy George | Text       | Discord    | *choice*
-Alex Comeaux         |            |            | *choice*
+Alex Comeaux         | Text       | Discord    | Email
 Ian Anderson         | Text       | Discord    | Email
 Kushagra Dashora     |            |            | *choice*
 
@@ -52,24 +52,24 @@ If team members are unresponsive for excessive times during meetings, the team m
 
 Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 -----|--------|--------|---------|------------|----------|-------|---------
-09:00 |         |        |         |           |           | I       | *in*
-10:00 | I  A    |        |         |           |           | I       | I  A
-11:00 | I  A    |        |         |           |           | I       | I  A
-12:00 | I  A    |        |         |           |           | I       | I  A
+09:00 |         |    C   |         |           |           | I       | *in*
+10:00 | I  A    |    C   |         |           |           | I       | I  A
+11:00 | I  A    |    C   |         |           |           | I       | I  A
+12:00 | I  A    |    C   |         |           |           | I       | I  A
 13:00 | I  A    |        |         |           |           | I       | I  
 14:00 | I  A    | I      |         | I         |           |    A    | I  
 15:00 | I  A    | I      | I       | I         | I         |    A    | I  
-16:00 | I  A    | I      | I       | I   A     | I         |    A    | I  
-17:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  
-18:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  
-19:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  A
-20:00 | I  A    | I      | I       | I   A     | I  A      |    A    | I  A
-21:00 | I  A    |        |         |     A     |    A      |    A    | I  A
+16:00 | I  A    | I      | I       | I   A  C  | I         |    A    | I  
+17:00 | I  A    | I  C   | I       | I   A  C  | I  A  C   |    A C  | I  C
+18:00 | I  A    | I  C   | I       | I   A  C  | I  A  C   |    A C  | I  C
+19:00 | I  A    | I  C   | I       | I   A  C  | I  A  C   |    A C  | I  A
+20:00 | I  A    | I      | I       | I   A  C  | I  A  C   |    A C  | I  A
+21:00 | I  A    |        |         |     A  C  |    A  C   |    A C  | I  A
 
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
 Aarshon George       | A       | <anolas97@asu.edu> | (480)876-1337
-Alex Comeaux         | C       |                    | (602)527-7786
+Alex Comeaux         | C       | <amcomeau@asu.edu> | (602)527-7786
 Ian Anderson         | I       | <inanders@asu.edu> | (808)824-1519
 Kushagra Dashora     | K       |                    | (602)632-1229
 
