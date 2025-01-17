@@ -88,14 +88,20 @@ Meetings will typically be held during *chosen hours* and are preferably in-pers
 
 Name | Role | Duties
 -----|------|--------
-*name* | Meeting Leader    | Schedules team meetings, creates and distributes an agenda for each meeting
-*name* | Meeting Recorder  | Takes minutes of each team meeting, including attendance, and records action items and to whom they are assigned
-*name* | Assignment Leader | Coordinates the team's work on a given assignment to Canvas before the due date
+Kushagra Dashora | Meeting Leader    | Schedules team meetings, creates and distributes an agenda for each meeting
+Alex Comeaux | Meeting Recorder  | Takes minutes of each team meeting, including attendance, and records action items and to whom they are assigned
+Aarshon George| Assignment Leader | Coordinates the team's work on a given assignment to Canvas before the due date
 Ian Anderson | Project Monitor   | Tracks the team's progress relative to the project schedule (Gantt Chart) and keeps team members apprised of deadlines and project status
 
 Assigned roles are subject to change at any time
 
 ### Team Coordination & Accountability
+
+Roles & Responsibilities
+Each team member will volunteer for a role by articulating their qualifications and reasons for suitability. If two members express interest in the same role, they will engage in discussion and reach a compromise. We plan to rotate roles at least three times—or as needed—to ensure we maximize each individual’s growth and learning opportunities. Roles are assigned based on each person’s qualifications and skills, with regular check-ins to confirm that no one finds their responsibilities overwhelming. The project monitor will maintain a Gantt chart to track the team’s activities and milestones. Technical tasks will be distributed in alignment with each member’s strongest areas of confidence and expertise.
+
+Team Coordination & Accountability
+To ensure all contributions are properly credited, each member will sign their name at the beginning of every assignment, just as they would for a standard homework task. Additionally, each member will log the assignment name in a shared journal, creating a clear record of individual responsibilities. This method allows us to see if anyone is under-performing and prompts that individual to seek help or clarification as needed. As long as everyone completes their assigned tasks, there should be no hesitation in requesting or offering assistance.
 
 ### Conflict Recognition & Resolution
 
