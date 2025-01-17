@@ -45,7 +45,7 @@ Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
 Aarshon George       | A       | <anolas97@asu.edu> | (480)876-1337
-Alex Comeaux         | C       |                    | (602)527-7786
+Alex Comeaux         | C       | <amcomeau@asu.edu> | (602)527-7786
 Ian Anderson         | I       | <inanders@asu.edu> | (808)824-1519
 Kushagra Dashora     | K       |                    | (602)632-1229
 
