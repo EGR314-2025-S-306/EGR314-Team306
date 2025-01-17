@@ -6,16 +6,24 @@ title: Report
 
 ### Charter
 
-charter statement  
-product mission statement
+Charter Statement:
+
+Our mission is to design and deliver innovative, sustainable, and modular embedded systems that address educational and STEM-based challenges. This semester, we aim to develop an interactive, web-enabled physical device demonstrating a scientific or engineering concept. The project will prioritize modularity, standards compliance, and user engagement to support K-12 students' interest in STEM fields. Success will be measured by the device's interactivity, educational impact, technical robustness, and adherence to modular design principles.
+
+Mission Statement:
+
+ Our goal is to develop an interactive, STEM-themed educational display within four months that engages K-12 students by showcasing a scientific or engineering concept in a fun and intuitive way. The product will emphasize energy efficiency, modularity, and user-friendly design, ensuring both technical excellence and alignment with educational standards. We aim to deliver a sustainable, impactful solution that inspires young learners to explore science, technology, engineering, and mathematics while fostering our team’s growth in professional engineering practices.
+
+
 
 ### Team Goals
+
 
 ### Communication Channels
 
 Name                 | 1st Choice | 2nd Choice | 3rd Choice
 ---------------------|------------|------------|-----------
-Aarshon Roggy George |            |            | *choice*
+Aarshon Roggy George | Text       |  Discord   | *choice*
 Alex Comeaux         |            |            | *choice*
 Ian Anderson         | Text       | Discord    | Email
 Kushagra Dashora     |            |            | *choice*
@@ -27,7 +35,7 @@ If team members are unresponsive for excessive times during meetings, the team m
 ### Meeting Schedule
 
 Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
-------|--------|--------|---------|-----------|----------|--------|---------
+-----|--------|--------|---------|------------|----------|-------|---------
 09:00 |        |        |         |           |          | I      | *in*
 10:00 | I      |        |         |           |          | I      | I
 11:00 | I      |        |         |           |          | I      | I
@@ -45,7 +53,7 @@ Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
 Aarshon George       | A       | <anolas97@asu.edu> | (480)876-1337
-Alex Comeaux         | C       | <amcomeau@asu.edu> | (602)527-7786
+Alex Comeaux         | C       |                    | (602)527-7786
 Ian Anderson         | I       | <inanders@asu.edu> | (808)824-1519
 Kushagra Dashora     | K       |                    | (602)632-1229
 
@@ -59,13 +67,14 @@ Communication Methods:
 
 Meetings will typically be held during *chosen hours* and are preferably in-person. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in *personal or group* calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
 
+
 ### Roles & Responsibilities
 
 Name | Role | Duties
 -----|------|--------
 *name* | Meeting Leader    | Schedules team meetings, creates and distributes an agenda for each meeting
 *name* | Meeting Recorder  | Takes minutes of each team meeting, including attendance, and records action items and to whom they are assigned
-*name* | Assignment Leader | Coordinates the team's work on a given assignment to Canvas before the due date
+Aarshon George | Assignment Leader | Coordinates the team's work on a given assignment to Canvas before the due date
 Ian Anderson | Project Monitor   | Tracks the team's progress relative to the project schedule (Gantt Chart) and keeps team members apprised of deadlines and project status
 
 Assigned roles are subject to change at any time
