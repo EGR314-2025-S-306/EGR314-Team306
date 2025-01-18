@@ -2,37 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/</loc>
-         <lastmod>2025-01-17</lastmod>
+         <lastmod>2025-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/appendix/</loc>
-         <lastmod>2025-01-17</lastmod>
+         <lastmod>2025-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/charts/</loc>
-         <lastmod>2025-01-17</lastmod>
+         <lastmod>2025-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/report/</loc>
-         <lastmod>2025-01-17</lastmod>
+         <lastmod>2025-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/static/node_modules/mathjax/</loc>
-         <lastmod>2025-01-17</lastmod>
+         <lastmod>2025-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/subfolder/</loc>
-         <lastmod>2025-01-17</lastmod>
+         <lastmod>2025-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://embedded-systems-design.github.io/template_report/subfolder/another-subfile/</loc>
-         <lastmod>2025-01-17</lastmod>
+         <lastmod>2025-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
