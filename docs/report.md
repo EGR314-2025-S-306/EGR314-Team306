@@ -51,18 +51,18 @@ If team members are unresponsive for excessive times during meetings, the team m
 Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 ------|--------|--------|---------|-----------|----------|--------|---------
 09:00 |        | C      |         |           |          | I K    | I
-10:00 | I A K  | C      |         |           |          | I K    | I A
-11:00 | I A K  | C      |         |           |          | I K    | I A
-12:00 | I A K  | C      |         |           |          | I K    | I A
-13:00 | I A K  |        |         |           |          | I K    | I  
-14:00 | I A K  | I      |         | I         |          | K A    | I  
-15:00 | I A K  | I      | I       | I         | I        | K A    | I  
-16:00 | I A K  | I      | I       | I A C     | I        | K A    | I  
-17:00 | I A K  | I C    | I       | I A C     | I A C    | K A C  | I C
-18:00 | I A K  | I C    | I       | I A C     | I A C    | K A C  | I C
-19:00 | I A K  | I C    | I       | I A C     | I A C    | K A C  | I A
-20:00 | I A K  | I      | I       | I A C     | I A C    | K A C  | I A
-21:00 | I A K  |        |         | A C       | A C      | K A C  | I A
+10:00 | A I K  | C      |         |           |          | I K    | A I
+11:00 | A I K  | C      |         |           |          | I K    | A I
+12:00 | A I K  | C      |         |           |          | I K    | A I
+13:00 | A I K  |        |         |           |          | I K    | I  
+14:00 | A I K  | I      |         | I         |          | A K    | I  
+15:00 | A I K  | I      | I       | I         | I        | A K    | I  
+16:00 | A I K  | I      | I       | A C I     | I        | A K    | I  
+17:00 | A I K  | C I    | I       | A C I     | A C I    | A C K  | C I
+18:00 | A I K  | C I    | I       | A C I     | A C I    | A C K  | C I
+19:00 | A I K  | C I    | I       | A C I     | A C I    | A C K  | A I
+20:00 | A I K  | I      | I       | A C I     | A C I    | A C K  | A I
+21:00 | A I K  |        |         | A C       | A C      | A C K  | A I
 
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
