@@ -42,7 +42,7 @@ Name                 | 1st Choice | 2nd Choice | 3rd Choice
 Aarshon Roggy George | Text       | Discord    | *choice*
 Alex Comeaux         | Text       | Discord    | Email
 Ian Anderson         | Text       | Discord    | Email
-Kushagra Dashora     |            |            | *choice*
+Kushagra Dashora     | Text       | Discord    | Slack
 
 Our team will primarily use *chosen method* to facilitate team communication. This allows...
 
@@ -52,26 +52,26 @@ If team members are unresponsive for excessive times during meetings, the team m
 
 Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 -----|--------|--------|---------|------------|----------|-------|---------
-09:00 |         |    C   |         |           |           | I       | *in*
-10:00 | I  A    |    C   |         |           |           | I       | I  A
-11:00 | I  A    |    C   |         |           |           | I       | I  A
-12:00 | I  A    |    C   |         |           |           | I       | I  A
-13:00 | I  A    |        |         |           |           | I       | I  
-14:00 | I  A    | I      |         | I         |           |    A    | I  
-15:00 | I  A    | I      | I       | I         | I         |    A    | I  
-16:00 | I  A    | I      | I       | I   A  C  | I         |    A    | I  
-17:00 | I  A    | I  C   | I       | I   A  C  | I  A  C   |    A C  | I  C
-18:00 | I  A    | I  C   | I       | I   A  C  | I  A  C   |    A C  | I  C
-19:00 | I  A    | I  C   | I       | I   A  C  | I  A  C   |    A C  | I  A
-20:00 | I  A    | I      | I       | I   A  C  | I  A  C   |    A C  | I  A
-21:00 | I  A    |        |         |     A  C  |    A  C   |    A C  | I  A
+09:00 |         |    C   |         |           |           | I  K    | *in*
+10:00 | I  A  K |    C   |         |           |           | I  K    | I  A
+11:00 | I  A  K |    C   |         |           |           | I  K    | I  A
+12:00 | I  A  K |    C   |         |           |           | I  K    | I  A
+13:00 | I  A  K |        |         |           |           | I  K    | I  
+14:00 | I  A  K | I      |         | I         |           | K  A    | I  
+15:00 | I  A  K | I      | I       | I         | I         | K  A    | I  
+16:00 | I  A  K | I      | I       | I   A  C  | I         | K  A    | I  
+17:00 | I  A  K | I  C   | I       | I   A  C  | I  A  C   | K  A C  | I  C
+18:00 | I  A  K | I  C   | I       | I   A  C  | I  A  C   | K  A C  | I  C
+19:00 | I  A  K | I  C   | I       | I   A  C  | I  A  C   | K  A C  | I  A
+20:00 | I  A  K | I      | I       | I   A  C  | I  A  C   | K  A C  | I  A
+21:00 | I  A  K |        |         |     A  C  |    A  C   | K  A C  | I  A
 
 Name                 | Initial | Email              | Phone
 ---------------------|---------|--------------------|---------
 Aarshon George       | A       | <anolas97@asu.edu> | (480)876-1337
 Alex Comeaux         | C       | <amcomeau@asu.edu> | (602)527-7786
 Ian Anderson         | I       | <inanders@asu.edu> | (808)824-1519
-Kushagra Dashora     | K       |                    | (602)632-1229
+Kushagra Dashora     | K       | <kdashora@asu.edu> | (602)632-1229
 
 Communication Methods:
 
