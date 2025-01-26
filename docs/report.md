@@ -1,8 +1,8 @@
 ---
-title: Report
+title: Team Charter
 ---
 
-## Team Charter
+## Team Statements
 
 Charter Statement:
  Our mission is to design and deliver innovative, sustainable, and modular embedded systems that address educational and STEM-based challenges. This semester, we aim to develop an interactive, web-enabled physical device demonstrating a scientific or engineering concept. The project will prioritize modularity, standards compliance, and user engagement to support K-12 students' interest in STEM fields. Success will be measured by the device's interactivity, educational impact, technical robustness, and adherence to modular design principles.
