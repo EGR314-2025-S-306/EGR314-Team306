@@ -4,8 +4,12 @@ title: Ideation & Design Generation
 
 ## Idea & Design Generation
 
-![Stage 1: Ideation](./assets/example.png)
+Raw Idea Generation
+![Stage 1: Ideation](./assets/ideation.png)
 
-![Stage 2: Sorting](./assets/example.png)
+Sorted & Grouped Ideas
+![Stage 2: Sorting](./assets/sorted.png)
 
-![Stage 3: Concept](./assets/example.jpg)
+Concept Sketch
+![Stage 3: Concept](./assets/example.png)
+*sketch description*
