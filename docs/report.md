@@ -79,7 +79,7 @@ Communication Methods:
 
 ### Meeting Coordination
 
-Meetings will typically be held during Wednesday and Thursdsay afternoons, preferably in person and with all members present. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in Google Calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
+Meetings will typically be held during Wednesday and ThSursday afternoons, preferably in person and with all members present. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in Google Calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
 
 ### Roles & Responsibilities
 
