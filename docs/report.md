@@ -8,7 +8,7 @@ Charter Statement:
  Our mission is to design and deliver innovative, sustainable, and modular embedded systems that address educational and STEM-based challenges. This semester, we aim to develop an interactive, web-enabled physical device demonstrating a scientific or engineering concept. The project will prioritize modularity, standards compliance, and user engagement to support K-12 students' interest in STEM fields. Success will be measured by the device's interactivity, educational impact, technical robustness, and adherence to modular design principles.
 
 Mission Statement:
- Our goal is to develop an interactive, STEM-themed educational display within four months that engages K-12 students by showcasing a scientific or engineering concept in a fun and ntuitive way. The product will emphasize energy efficiency, modularity, and user-friendly design, ensuring both technical excellence and alignment with educational standards. We aim to deliver a sustainable, impactful solution that inspires young learners to explore science, technology, engineering, and mathematics while fostering our team's growth in professional engineering practices.
+ Our goal is to develop an interactive, STEM-themed educational display within four months that engages K-12 students by showcasing a scientific or engineering concept in a fun and Intuitive way. The product will emphasize energy efficiency, modularity, and user-friendly design, ensuring both technical excellence and alignment with educational standards. We aim to deliver a sustainable, impactful solution that inspires young learners to explore science, technology, engineering, and mathematics while fostering our team's growth in professional engineering practices.
 
 ### Team Goals
 
@@ -79,7 +79,7 @@ Communication Methods:
 
 ### Meeting Coordination
 
-Meetings will typically be held during Wednesday and ThSursday afternoons, preferably in person and with all members present. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in Google Calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
+Meetings will typically be held during Wednesday and Thursday afternoons, preferably in person and with all members present. If circumstances do not allow for a normal meeting time, a more suitable meeting time should be discussed and agreed upon. Meeting schedule will be kept in Google Calendar for reminders. For more spontaneous meetings, members may not be required to attend if personal reasons arise.
 
 ### Roles & Responsibilities
 
