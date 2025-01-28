@@ -62,7 +62,7 @@ not_in_nav: |
 nav: 
   - Home: index.md
   - Team Charter: report.md
-  - Ideation & Concept Generation: ideation.md
+  - Ideation & Design Generation: ideation.md
   - Appendix: appendix.md
   - charts: charts.md
 
