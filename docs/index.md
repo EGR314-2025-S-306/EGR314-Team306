@@ -16,8 +16,8 @@ Kushagra Dashora
 
 ### Report
 
-[Team Charter](./report.md)
-[Ideation & Concept Generation](./ideation.md)
+[Team Charter](./report.md)  
+[Ideation & Concept Generation](./ideation.md)  
 [Appendix](./appendix.md)
 
 ## ASU

@@ -1,6 +1,6 @@
 ---
 title: Appendix
-- appendix
+ - appendix
 ---
 
 ## Charts

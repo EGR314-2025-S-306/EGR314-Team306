@@ -1,6 +1,6 @@
 ---
 title: Team Charter
-- charter
+ - charter
 ---
 
 ## Team Statements

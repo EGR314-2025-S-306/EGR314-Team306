@@ -1,6 +1,6 @@
 ---
 title: Ideation & Design Generation
-- ideation
+ - ideation
 ---
 
 ## Goal of the Exhibit
