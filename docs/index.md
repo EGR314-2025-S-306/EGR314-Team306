@@ -1,19 +1,27 @@
 ---
-title: Welcome
+title: MacroChip
 tags:
 - tag1
 - tag2
 ---
 
-## *project name* - Team 306
+## Smart Weather Station - Team 306
 
-Member               | Names
----------------------|------------------
-Aarshon Roggy George | Alex Comeaux
-Ian Anderson         | Kushagra Dashora
+### Team Members
 
-### 1/16/2025
+Aarshon George  
+Alex Comeaux  
+Ian Anderson  
+Kushagra Dashora
 
-#### Spring 2025
+### Report
 
-#### ASU   |   EGR 314   |   Dr. Kevin Nichols
+[Team Charter](./report.md)
+[Ideation & Concept Generation](./ideation.md)
+[Appendix](./appendix.md)
+
+## ASU
+
+EGR 314 | Spring 2025
+----|--------
+Dr. Kevin Nichols | 1/16/2025-5/2/2025

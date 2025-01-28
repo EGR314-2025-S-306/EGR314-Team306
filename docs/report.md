@@ -1,5 +1,6 @@
 ---
 title: Team Charter
+- charter
 ---
 
 ## Team Statements
@@ -35,12 +36,12 @@ Meet all milestones, stay within budget, and present a fully functional prototyp
 
 ### Communication Channels
 
-Name                 | 1st Choice | 2nd Choice | 3rd Choice
----------------------|------------|------------|-----------
-Aarshon Roggy George | Text       | Discord    | Email
-Alex Comeaux         | Text       | Discord    | Email
-Ian Anderson         | Text       | Discord    | Email
-Kushagra Dashora     | Text       | Discord    | Slack
+Name             | 1st Choice | 2nd Choice | 3rd Choice
+-----------------|------------|------------|-----------
+Aarshon George   | Text       | Discord    | Email
+Alex Comeaux     | Text       | Discord    | Email
+Ian Anderson     | Text       | Discord    | Email
+Kushagra Dashora | Text       | Discord    | Slack
 
 Our team will primarily use an iMessage group to facilitate team communication. This allows for immediate and direct communication between all group members at once for important notices and discussions.
 
@@ -64,12 +65,12 @@ Time  | Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday
 20:00 | A I K  | I      | I       | A C I     | A C I    | A C K  | A I
 21:00 | A I K  |        |         | A C       | A C      | A C K  | A I
 
-Name                 | Initial | Email              | Phone
----------------------|---------|--------------------|---------
-Aarshon George       | A       | <anolas97@asu.edu> | (480)876-1337
-Alex Comeaux         | C       | <amcomeau@asu.edu> | (602)527-7786
-Ian Anderson         | I       | <inanders@asu.edu> | (808)824-1519
-Kushagra Dashora     | K       | <kdashora@asu.edu> | (602)632-1229
+Name             | Initial | Email              | Phone
+-----------------|---------|--------------------|---------
+Aarshon George   | A       | <anolas97@asu.edu> | (480)876-1337
+Alex Comeaux     | C       | <amcomeau@asu.edu> | (602)527-7786
+Ian Anderson     | I       | <inanders@asu.edu> | (808)824-1519
+Kushagra Dashora | K       | <kdashora@asu.edu> | (602)632-1229
 
 Communication Methods:
 
