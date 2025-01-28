@@ -11,5 +11,7 @@ title: Appendix
 
 ### Other Images
 
-![stage 1](./assets/ideation.png)
-![stage 2](./assets/sorted.png)
+![stage 1](./assets/images/ideation.png)
+![stage 2](./assets/images/sorted.png)
+![stage 3](./assets/images/grouped.png)
+![concept](./assets/images/concept.png)

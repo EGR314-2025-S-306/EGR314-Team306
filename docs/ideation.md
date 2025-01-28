@@ -15,7 +15,7 @@ The exhibit is designed to appeal to a wide range of visitors, including those o
 
 ### Ideation
 
-We immediately followed with meeting to discuss possible ideas and design criteria. All items were given a note on the below board.
+We met together to discuss possible ideas and design criteria. Every idea was accepted to broaden our options. Each idea was given its own note and was place on the below board.
 ![Stage 1: Ideation](./assets/images/ideation.png)
 
 ### Sorting & Grouping Ideas
