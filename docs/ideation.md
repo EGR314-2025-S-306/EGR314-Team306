@@ -10,7 +10,9 @@ We immediately followed with meeting to discuss possible ideas and criteria. Eve
 
 ## Sorted & Grouped Ideas
 
+This was then followed with organizing all of the ideas into three main catagories. The first catagory, depicted in green, is all of the various project ideas that we produced. The magenta notes are critical features or criteria that need to be achieved. The other features shown in blue are not necessary to the final project but would be interesting additions if possible. These groups were then further organized by similarity into columns. We then combined various subgroups to arrive at our concept.
 ![Stage 2: Sorting](./assets/sorted.png)
+![stage 3: Grouping](./assets/grouped.png)
 
 ## Our Concept
 
