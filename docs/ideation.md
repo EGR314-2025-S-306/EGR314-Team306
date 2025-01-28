@@ -22,7 +22,15 @@ The functionality of the weather station is divided among four team members, eac
 
 To ensure ease of use, the weather station uses visual cues, such as LED status indicators, and a simplified graphical interface on a 16x2 LCD screen. Guided by the "Suggested Guidelines for Designing Interactive Exhibits," the controls are ergonomically designed with large, easy-to-use buttons and an interface that avoids complexity. Durability, safety, and comfort are central to the design—each subsystem is weatherproofed, with sturdy enclosures to withstand environmental challenges like rain, wind, and mild debris. Safety features include automatic shutoff and several fuses to prevent overheating and protect against power surges.
 
-The instructional materials will be tailored for K-12 students, offering guidance to meet the needs of younger audiences. For example, clear on-screen instructions and tactile feedback provide multiple ways for users to engage with the exhibit. By combining robust features, intuitive controls, and comprehensive educational resources, the Smart STEM Weather Station not only delivers an engaging and interactive museum experience but also fosters a deeper understanding of environmental science in a fun and rewarding way.
+## Goal of the Exhibit
+
+The Smart STEM Weather Station exhibit's main objective is to create an entertaining and instructive experience that encourages curiosity and an awareness of environmental science. The exhibit was created with accessibility and engagement to make difficult scientific ideas understandable to a wide range of viewers. Visitors are urged to actively investigate weather patterns and environmental elements by integrating real-time data collecting with an easy-to-use interface, transforming abstract data into concrete, significant discoveries. An LCD display, tactile buttons, and sensor demonstrations are examples of hands-on features that guarantee visitors will not only view the exhibit but also engage with it and gain knowledge from it. This adheres to the "Suggested Guidelines for Designing Interactive Exhibits" by emphasizing clarity, simplicity, and an active learning strategy to maintain visitor interest and enhance educational outcomes.
+
+## Target Audience
+
+The exhibit is designed to appeal to a wide range of visitors, including those of all ages, but it focuses especially on K–12 pupils. Its user-friendly design will appeal to younger audiences since it incorporates visual signals like LED indicators, big buttons, and guided directions to make navigation and data interpretation easier. Deeper levels of exploration, such as comprehending how sensors gather data and identifying patterns in environmental changes, are available for older kids and adults in the exhibit. The Smart STEM Weather Station guarantees inclusivity and accessibility by accommodating a variety of learning styles and educational levels. Following the "Suggested Guidelines for Designing Interactive Exhibits," the display also strongly emphasizes making an experience that is cozy, captivating, and long-lasting to draw in visitors, pique their interest, and enable them to learn in a meaningful way.
+
+
 
 Core Functionalities (Sensors):
 The system integrates four key sensors to provide comprehensive environmental monitoring:
