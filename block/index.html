@@ -469,6 +469,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#message-structure" class="md-nav__link">
+    Message Structure
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -553,6 +560,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#message-structure" class="md-nav__link">
+    Message Structure
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -579,7 +593,7 @@
   <h1>Block Diagram, Process Diagram, & Message Structure</h1>
 
 <h2 id="block-diagram">Block Diagram</h2>
-<p>1<a href="./assets/images/block.png">block diagram</a></p>
+<p><a class="glightbox" href="./assets/images/block.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="block diagram" src="./assets/images/block.png" /></a></p>
 <h2 id="process-diagram">Process Diagram</h2>
 <pre class="mermaid"><code>sequenceDiagram
     autonumber
@@ -593,6 +607,40 @@
         Kushagra-&gt;&gt;Ian: data
         Ian-&gt;&gt;Ian: Terminate MSG
     end</code></pre>
+<h2 id="message-structure">Message Structure</h2>
+<table>
+<thead>
+<tr>
+<th>Message type<br>bytes 1-2<br>uint16_t</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>smth</td>
+</tr>
+<tr>
+<td>2</td>
+<td><em>cont.</em></td>
+</tr>
+</tbody>
+</table>
+<p>Message Type: 1</p>
+<table>
+<thead>
+<tr>
+<th>bytes 1-2</th>
+<th>byte 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x01</td>
+<td>more</td>
+</tr>
+</tbody>
+</table>
 
 
 
