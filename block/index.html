@@ -462,6 +462,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#process-diagram" class="md-nav__link">
+    Process Diagram
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -539,6 +546,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#process-diagram" class="md-nav__link">
+    Process Diagram
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -565,6 +579,20 @@
   <h1>Block Diagram, Process Diagram, & Message Structure</h1>
 
 <h2 id="block-diagram">Block Diagram</h2>
+<p>1<a href="./assets/images/block.png">block diagram</a></p>
+<h2 id="process-diagram">Process Diagram</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    autonumber
+    Web--&gt;&gt;Kushagra: data
+    loop Main
+        Ian-&gt;&gt;Alex: data
+        Note over Ian: Transmit Sensor Data
+        Alex-&gt;&gt;Aarshon: data
+        Aarshon--&gt;&gt;User: data
+        Aarshon-&gt;&gt;Kushagra: data
+        Kushagra-&gt;&gt;Ian: data
+        Ian-&gt;&gt;Ian: Terminate MSG
+    end</code></pre>
 
 
 
