@@ -18,6 +18,7 @@ sequenceDiagram
         Alex->>Aarshon: data
         Aarshon-->>User: data
         Aarshon->>Kushagra: data
+        Kushagra-->>Web: data
         Kushagra->>Ian: data
         Ian->>Ian: Terminate MSG
     end
