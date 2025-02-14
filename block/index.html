@@ -602,14 +602,23 @@
     participant c as Alex
     participant k as Kushagra
     actor w as Web
-    loop Main
+    w--&gt;&gt;k: Alignment frequency
+    k-&gt;&gt;a: Kushagra to Alex&lt;br&gt;Set alignment frequency 5min
+    a-&gt;&gt;i: Kushagra to Alex&lt;br&gt;Set alignment frequency 5min
+    i-&gt;&gt;c: Kushagra to Alex&lt;br&gt;Set alignment frequency 5min
+    c-&gt;&gt;c: Set alignment wait period 300s&lt;br&gt;trash msg
+    u--&gt;&gt;a: Shift rotation
+    a-&gt;&gt;i: Aarshon to Alex&lt;br&gt;Shift 10 degrees clockwise
+    i-&gt;&gt;c: Aarshon to Alex&lt;br&gt;Shift 10 degrees clockwise
+    c-&gt;&gt;c: Rotate platform 10 degrees clockwise
+    loop [every second]
         i-&gt;&gt;c: Ian to Alex&lt;br&gt;Solar panel alignment
         c-&gt;&gt;c: Moves solar panel&lt;br&gt;trash msg
         i-&gt;&gt;c: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
         c-&gt;&gt;k: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
-        k-&gt;&gt;w: Temp is 70F &amp; Humidity is 30%
+        k--&gt;&gt;w: Temp is 70F &amp; Humidity is 30%
         k-&gt;&gt;a: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
-        a-&gt;&gt;u: Display data
+        a--&gt;&gt;u: Display data
         a-&gt;&gt;i: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
         i-&gt;&gt;i: Ian to Everyone&lt;br&gt;trash
     end</code></pre>
