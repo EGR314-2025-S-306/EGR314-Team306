@@ -603,47 +603,118 @@
     participant k as Kushagra
     actor w as Web
     loop Main
-        i-&gt;&gt;c: alignment sensor data
-        c-&gt;&gt;c: trash
-        i-&gt;&gt;c: weather sensor data
-        c-&gt;&gt;k: weather sensor data
-        k-&gt;&gt;w: weather sensor data
-        k-&gt;&gt;a: weather sensor data
-        a-&gt;&gt;u: weather sensor data
-        a-&gt;&gt;i: weather sensor data
-        i-&gt;&gt;i: trash
+        i-&gt;&gt;c: Ian to Alex&lt;br&gt;Solar panel alignment
+        c-&gt;&gt;c: Moves solar panel&lt;br&gt;trash msg
+        i-&gt;&gt;c: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
+        c-&gt;&gt;k: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
+        k-&gt;&gt;w: Temp is 70F &amp; Humidity is 30%
+        k-&gt;&gt;a: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
+        a-&gt;&gt;u: Display data
+        a-&gt;&gt;i: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
+        i-&gt;&gt;i: Ian to Everyone&lt;br&gt;trash
     end</code></pre>
 <h2 id="message-structure">Message Structure</h2>
 <table>
 <thead>
 <tr>
-<th>Message type<br>bytes 1-2<br>uint16_t</th>
+<th>Message type<br>byte 1-2<br>uint16_t</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>smth</td>
+<td>print sensor data A B C D</td>
 </tr>
 <tr>
 <td>2</td>
-<td><em>cont.</em></td>
+<td><em>more data msgs</em></td>
+</tr>
+<tr>
+<td>3</td>
+<td>subsystem Z status code</td>
 </tr>
 </tbody>
 </table>
-<p>Message Type: 1</p>
+<p><strong>Message Type 1:</strong> Sensor Data Transmission</p>
 <table>
 <thead>
 <tr>
-<th>bytes 1-2</th>
+<th>byte 1-2</th>
 <th>byte 3</th>
+<th>byte 4</th>
+<th>byte 5</th>
+<th>byte 6</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0x01</td>
-<td>more</td>
+<td>A(uint8_t)</td>
+<td>B(uint8_t)</td>
+<td>C(uint8_t)</td>
+<td>D(uint8_t)</td>
+</tr>
+<tr>
+<td><strong>sensor</strong></td>
+<td>wind speed</td>
+<td>temperature</td>
+<td>humidity</td>
+<td>atm pressure</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 2:</strong></p>
+<table>
+<thead>
+<tr>
+<th>byte 1-2</th>
+<th>byte 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x02</td>
+<td>(uint8_t)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 3:</strong> Subsystem Status Code</p>
+<table>
+<thead>
+<tr>
+<th>byte 1-2</th>
+<th>byte 3</th>
+<th>byte 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x03</td>
+<td>Z(uint_8)</td>
+<td>(uint8_t)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>code number</th>
+<th>meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>full funtionality</td>
+</tr>
+<tr>
+<td>1</td>
+<td>partial funtionality</td>
+</tr>
+<tr>
+<td>2</td>
+<td>no funtionality</td>
 </tr>
 </tbody>
 </table>
