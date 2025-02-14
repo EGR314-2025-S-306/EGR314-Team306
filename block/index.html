@@ -596,17 +596,22 @@
 <p><a class="glightbox" href="./assets/images/block.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="block diagram" src="./assets/images/block.png" /></a></p>
 <h2 id="process-diagram">Process Diagram</h2>
 <pre class="mermaid"><code>sequenceDiagram
-    autonumber
-    Web--&gt;&gt;Kushagra: data
+    actor u as User
+    participant a as Aarshon
+    participant i as Ian
+    participant c as Alex
+    participant k as Kushagra
+    actor w as Web
     loop Main
-        Ian-&gt;&gt;Alex: data
-        Note over Ian: Transmit Sensor Data
-        Alex-&gt;&gt;Aarshon: data
-        Aarshon--&gt;&gt;User: data
-        Aarshon-&gt;&gt;Kushagra: data
-        Kushagra--&gt;&gt;Web: data
-        Kushagra-&gt;&gt;Ian: data
-        Ian-&gt;&gt;Ian: Terminate MSG
+        i-&gt;&gt;c: alignment sensor data
+        c-&gt;&gt;c: trash
+        i-&gt;&gt;c: weather sensor data
+        c-&gt;&gt;k: weather sensor data
+        k-&gt;&gt;w: weather sensor data
+        k-&gt;&gt;a: weather sensor data
+        a-&gt;&gt;u: weather sensor data
+        a-&gt;&gt;i: weather sensor data
+        i-&gt;&gt;i: trash
     end</code></pre>
 <h2 id="message-structure">Message Structure</h2>
 <table>
