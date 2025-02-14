@@ -16,14 +16,23 @@ sequenceDiagram
     participant c as Alex
     participant k as Kushagra
     actor w as Web
-    loop Main
+    w-->>k: Alignment frequency
+    k->>a: Kushagra to Alex<br>Set alignment frequency 5min
+    a->>i: Kushagra to Alex<br>Set alignment frequency 5min
+    i->>c: Kushagra to Alex<br>Set alignment frequency 5min
+    c->>c: Set alignment wait period 300s<br>trash msg
+    u-->>a: Shift rotation
+    a->>i: Aarshon to Alex<br>Shift 10 degrees clockwise
+    i->>c: Aarshon to Alex<br>Shift 10 degrees clockwise
+    c->>c: Rotate platform 10 degrees clockwise
+    loop [every second]
         i->>c: Ian to Alex<br>Solar panel alignment
         c->>c: Moves solar panel<br>trash msg
         i->>c: Ian to Everyone<br>Temp is 70F & Humidity is 30%
         c->>k: Ian to Everyone<br>Temp is 70F & Humidity is 30%
-        k->>w: Temp is 70F & Humidity is 30%
+        k-->>w: Temp is 70F & Humidity is 30%
         k->>a: Ian to Everyone<br>Temp is 70F & Humidity is 30%
-        a->>u: Display data
+        a-->>u: Display data
         a->>i: Ian to Everyone<br>Temp is 70F & Humidity is 30%
         i->>i: Ian to Everyone<br>trash
     end
