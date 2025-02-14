@@ -10,17 +10,22 @@ Title: Block Diagram, Process Diagram, & Message Structure
 
 ``` mermaid
 sequenceDiagram
-    autonumber
-    Web-->>Kushagra: data
+    actor u as User
+    participant a as Aarshon
+    participant i as Ian
+    participant c as Alex
+    participant k as Kushagra
+    actor w as Web
     loop Main
-        Ian->>Alex: data
-        Note over Ian: Transmit Sensor Data
-        Alex->>Aarshon: data
-        Aarshon-->>User: data
-        Aarshon->>Kushagra: data
-        Kushagra-->>Web: data
-        Kushagra->>Ian: data
-        Ian->>Ian: Terminate MSG
+        i->>c: alignment sensor data
+        c->>c: trash
+        i->>c: weather sensor data
+        c->>k: weather sensor data
+        k->>w: weather sensor data
+        k->>a: weather sensor data
+        a->>u: weather sensor data
+        a->>i: weather sensor data
+        i->>i: trash
     end
 ```
 
