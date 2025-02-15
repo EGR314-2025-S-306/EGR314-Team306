@@ -91,6 +91,7 @@ byte 1-2 | byte 3-58
 0x05 | Error Message char(uint8_t)
 
 **Message Type 6:** Navigation Command
+
 Byte 1-2 |Byte 3
 ---|---
 0x06 | (uint8_t) (Navigation Option)
