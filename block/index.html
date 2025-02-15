@@ -294,7 +294,24 @@
   
     
   
-  charts
+  Charts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../blockdiagram.md" class="md-tabs__link">
+        
+  
+    
+  
+  Block Diagram
 
       </a>
     </li>
@@ -513,7 +530,26 @@
         
   
   <span class="md-ellipsis">
-    charts
+    Charts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blockdiagram.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Diagram
   </span>
   
 
@@ -779,10 +815,19 @@
 <tbody>
 <tr>
 <td>0x05</td>
-<td>char(uint8_t)</td>
+<td>Error Message char(uint8_t)</td>
 </tr>
 </tbody>
 </table>
+<p><strong>Message Type 6:</strong> Navigation Command
+Byte 1-2 |Byte 3
+---|---
+0x06 | (uint8_t) (Navigation Option)
+0x07| Show temperature
+0x08 | Show humidity
+0x09 | Show Wind Speed
+0x10 | Show Atmospheric Pressure
+0x11 | Show system status</p>
 
 
 
