@@ -88,4 +88,14 @@ code number | meaning
 
 byte 1-2 | byte 3-58
 ---|---
-0x05 | char(uint8_t)
+0x05 | Error Message char(uint8_t)
+
+**Message Type 6:** Navigation Command
+Byte 1-2 |Byte 3
+---|---
+0x06 | (uint8_t) (Navigation Option)
+0x07| Show temperature
+0x08 | Show humidity
+0x09 | Show Wind Speed
+0x10 | Show Atmospheric Pressure
+0x11 | Show system status
