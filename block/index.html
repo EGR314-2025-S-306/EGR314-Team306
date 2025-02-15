@@ -643,7 +643,15 @@
 </tr>
 <tr>
 <td>3</td>
+<td>set period X</td>
+</tr>
+<tr>
+<td>4</td>
 <td>subsystem Z status code</td>
+</tr>
+<tr>
+<td>5</td>
+<td>subsystem Z error msg</td>
 </tr>
 </tbody>
 </table>
@@ -697,7 +705,26 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 3:</strong> Subsystem Status Code</p>
+<p><strong>Message Type 3:</strong> Alignment frequency</p>
+<table>
+<thead>
+<tr>
+<th>byte 1-2</th>
+<th>byte 3-4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x03</td>
+<td>X(uint16_t)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 4:</strong> Subsystem Status Code</p>
 <table>
 <thead>
 <tr>
@@ -708,7 +735,7 @@
 </thead>
 <tbody>
 <tr>
-<td>0x03</td>
+<td>0x04</td>
 <td>Z(uint_8)</td>
 <td>(uint8_t)</td>
 </tr>
@@ -738,6 +765,21 @@
 <tr>
 <td>2</td>
 <td>no funtionality</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 5:</strong> Subsystem Error Message</p>
+<table>
+<thead>
+<tr>
+<th>byte 1-2</th>
+<th>byte 3-58</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x05</td>
+<td>char(uint8_t)</td>
 </tr>
 </tbody>
 </table>
