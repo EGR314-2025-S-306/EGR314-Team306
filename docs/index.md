@@ -9,7 +9,7 @@ tags:
 
 ### Team Members
 
-Aarshon George - [HMI Interface](https://aarshon.github.io)
+Aarshon George - [HMI Interface](https://aarshon.github.io)  
 Alex Comeaux - 
 Ian Anderson - [Sensor Suite](https://tortoise6323.github.io/Tortoise6323/)  
 Kushagra Dashora
