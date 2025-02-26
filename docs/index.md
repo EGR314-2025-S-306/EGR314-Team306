@@ -9,8 +9,8 @@ tags:
 
 ### Team Members
 
-Aarshon George - [HMI Interface](https://aarshon.github.io)  
-Alex Comeaux - 
+Aarshon George - [HMI Interface](https://aarshon.github.io/)  
+Alex Comeaux - [Solar Actuator](https://alex-co04.github.io/Alex_Comeaux.io/)  
 Ian Anderson - [Sensor Suite](https://tortoise6323.github.io/Tortoise6323/)  
 Kushagra Dashora - [Internet Communication](https://kdashora.github.io/kushagrad.github.io/)
 
