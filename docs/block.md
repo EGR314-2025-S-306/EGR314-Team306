@@ -4,9 +4,13 @@ Title: Block Diagram, Process Diagram, & Message Structure
 
 ## Block Diagram
 
+The station is comprised of four subsystems which are each assigned to a group member. These subsystems are connected through a UART daisy chain that functions as a continuous loop for messages. This daisy chain is also used to transfer power, ground, and other signals between neighboring subsystems.
+
 ![block diagram](./assets/images/block.png)
 
 ## Process Diagram
+
+All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.
 
 ``` mermaid
 sequenceDiagram
@@ -52,6 +56,7 @@ Message type<br>byte 1-2<br>uint16_t | Description
 
 **Message Type 1:** Sensor Data Transmission
 
+Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.  
 byte 1-2 | byte 3 | byte 4 | byte 5 | byte 6
 ---|---|---|---|---
 0x01 | A(uint8_t) | B(uint8_t) | C(uint8_t) | D(uint8_t)
@@ -59,6 +64,7 @@ byte 1-2 | byte 3 | byte 4 | byte 5 | byte 6
 
 **Message Type 2:** Shift Motor
 
+Message type for sending a command to rotate base stepper "Y" degrees.  
 byte 1-2 | byte 3 | byte 4
 ---|---|---
 0x02 | X(uint8_t) | Y(uint8_t)
@@ -66,6 +72,7 @@ byte 1-2 | byte 3 | byte 4
 
 **Message Type 3:** Alignment frequency
 
+Message type for sending a command to set the panel alignment frequency "X" number of seconds.  
 byte 1-2 | byte 3-4
 ---|---
 0x03 | X(uint16_t)
@@ -73,6 +80,7 @@ byte 1-2 | byte 3-4
 
 **Message Type 4:** Subsystem Status Code
 
+Message type for sending status code of subsystem "Z" to be displayed.  
 byte 1-2 | byte 3 | byte 4
 ---|---|---
 0x04 | Z(uint_8) | (uint8_t)
@@ -86,6 +94,7 @@ code number | meaning
 
 **Message Type 5:** Subsystem Error Message
 
+Message type for sending string about subsystem error.  
 byte 1-2 | byte 3-58
 ---|---
 0x05 | Error Message char(uint8_t)
