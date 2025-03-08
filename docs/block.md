@@ -8,6 +8,18 @@ The station is comprised of four subsystems which are each assigned to a group m
 
 ![block diagram](./assets/images/block.png)
 
+Daisy Chain Header Pin Assignment  
+![UART header](./assets/images/uart.png)
+
+1. External Power (+9-12V)
+2. UART Transmit Line (TX/RX)
+3. UART Ready to Send
+4. UART Clear to Send
+5. Subsystem Specific/No Connection
+6. Subsystem Specific/No Connection
+7. Subsystem Specific/No Connection
+8. External Ground
+
 ## Process Diagram
 
 All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.
@@ -46,45 +58,46 @@ sequenceDiagram
 
 ## Message Structure
 
-Message type<br>byte 1-2<br>uint16_t | Description
+Message type<br>byte 2<br>(uint8_t) | Description
 ---|---
 1 | print sensor data A B C D
 2 | move motor X param Y
 3 | set period X
 4 | subsystem Z status code
 5 | subsystem Z error msg
+6 | print local weather X data Y
 
-**Message Type 1:** Sensor Data Transmission
+**Message Type 1:** Sensor Data Transmission  
+Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
 
-Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.  
-byte 1-2 | byte 3 | byte 4 | byte 5 | byte 6
+byte 1 | byte 2-3 | byte 4-5 | byte 6-7 | byte 8-9
 ---|---|---|---|---
-0x01 | A(uint8_t) | B(uint8_t) | C(uint8_t) | D(uint8_t)
-| | wind speed | temperature | humidity | atm pressure
+0x01 | A(uint16_t) | B(uint16_t) | C(uint16_t) | D(uint16_t)
+~ | wind speed | temperature | humidity | atm pressure
 
-**Message Type 2:** Shift Motor
+**Message Type 2:** Shift Motor  
+Message type for sending a command to rotate base stepper "Y" degrees.
 
-Message type for sending a command to rotate base stepper "Y" degrees.  
-byte 1-2 | byte 3 | byte 4
+byte 1 | byte 2 | byte 3
 ---|---|---
 0x02 | X(uint8_t) | Y(uint8_t)
-| | motor # | theta
+~ | motor # | theta
 
-**Message Type 3:** Alignment frequency
+**Message Type 3:** Alignment frequency  
+Message type for sending a command to set the panel alignment frequency "X" number of seconds.
 
-Message type for sending a command to set the panel alignment frequency "X" number of seconds.  
-byte 1-2 | byte 3-4
+byte 1 | byte 2-3
 ---|---
 0x03 | X(uint16_t)
-| | time(sec)
+~ | time(sec)
 
-**Message Type 4:** Subsystem Status Code
+**Message Type 4:** Subsystem Status Code  
+Message type for sending status code of subsystem "Z" to be displayed.
 
-Message type for sending status code of subsystem "Z" to be displayed.  
-byte 1-2 | byte 3 | byte 4
+byte 1 | byte 2 | byte 3
 ---|---|---
-0x04 | Z(uint_8) | (uint8_t)
-| | subsystem # | code
+0x04 | Z(uint8_t) | (uint8_t)
+~ | subsystem # | code
 
 code number | meaning
 ---|---
@@ -92,20 +105,17 @@ code number | meaning
 1 | partial funtionality
 2 | no funtionality
 
-**Message Type 5:** Subsystem Error Message
+**Message Type 5:** Subsystem Error Message  
+Message type for sending string about subsystem error.
 
-Message type for sending string about subsystem error.  
-byte 1-2 | byte 3-58
+byte 1 | byte 2-58
 ---|---
 0x05 | Error Message char(uint8_t)
 
-**Message Type 6:** Navigation Command
+**Message Type 6:** Local Weather Data  
+Message type for sending received local weather data for HMI display
 
-Byte 1-2 |Byte 3
----|---
-0x06 | (uint8_t) (Navigation Option)
-0x07| Show temperature
-0x08 | Show humidity
-0x09 | Show Wind Speed
-0x10 | Show Atmospheric Pressure
-0x11 | Show system status
+Byte 1 | Byte 2 | Byte 3-4
+---|---|---
+0x06 | X(uint8_t) | Y(uint16_t)
+~ | data type | data value
