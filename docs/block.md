@@ -22,7 +22,8 @@ Daisy Chain Header Pin Assignment
 
 ## Process Diagram
 
-All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.
+All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.  
+Relevant message data is differentiated by utilizing the recipient ID and message type bytes. Certain message types are relevant to all subsystems. Messages that don't pertain to the subsystem are passed along down the chain.
 
 ``` mermaid
 sequenceDiagram
@@ -58,7 +59,8 @@ sequenceDiagram
 
 ## Message Structure
 
-All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same 64 byte message structure. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.
+All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same message structure which uses up to 64 bytes. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.  
+If any of the 4 prefix bytes are corrupted, the message is rejected and the upstream CTS line will be set to high. This tells the upstream subsystem to restart the data transmission. Messages are terminated after 64 bytes to stop an open loop upon failure to receive either of the two stop bytes. This will also result in a request upstream for a repeated transmission.
 
 0    | 1    | 2       | 3          | 4 - 61  | 62   | 63
 -----|------|---------|------------|---------|------|---
