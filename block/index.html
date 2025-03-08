@@ -603,6 +603,32 @@
         i-&gt;&gt;i: trash msg
     end</code></pre>
 <h2 id="message-structure">Message Structure</h2>
+<p>All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same 64 byte message structure. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.</p>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4 - 61</th>
+<th>62</th>
+<th>63</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x41</td>
+<td>0x5A</td>
+<td>Send ID</td>
+<td>Receive ID</td>
+<td>Message</td>
+<td>0x59</td>
+<td>0x42</td>
+</tr>
+</tbody>
+</table>
+<p>The following defines the various messages and their structures to be sent within the UART message protocol. The first message byte is used to identify the type of message, and the following 57 bytes contain the data.</p>
 <table>
 <thead>
 <tr>
@@ -663,6 +689,13 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 <td>temperature</td>
 <td>humidity</td>
 <td>atm pressure</td>
+</tr>
+<tr>
+<td>Data Code:</td>
+<td>0x01</td>
+<td>0x02</td>
+<td>0x03</td>
+<td>0x04</td>
 </tr>
 </tbody>
 </table>
