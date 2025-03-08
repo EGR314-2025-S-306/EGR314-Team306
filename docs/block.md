@@ -58,6 +58,14 @@ sequenceDiagram
 
 ## Message Structure
 
+All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same 64 byte message structure. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.
+
+0    | 1    | 2       | 3          | 4 - 61  | 62   | 63
+-----|------|---------|------------|---------|------|---
+0x41 | 0x5A | Send ID | Receive ID | Message | 0x59 | 0x42
+
+The following defines the various messages and their structures to be sent within the UART message protocol. The first message byte is used to identify the type of message, and the following 57 bytes contain the data.
+
 Message type<br>byte 2<br>(uint8_t) | Description
 ---|---
 1 | print sensor data A B C D
@@ -70,34 +78,35 @@ Message type<br>byte 2<br>(uint8_t) | Description
 **Message Type 1:** Sensor Data Transmission  
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
 
-byte 1 | byte 2-3 | byte 4-5 | byte 6-7 | byte 8-9
----|---|---|---|---
-0x01 | A(uint16_t) | B(uint16_t) | C(uint16_t) | D(uint16_t)
-~ | wind speed | temperature | humidity | atm pressure
+byte 1     | byte 2-3    | byte 4-5    | byte 6-7    | byte 8-9
+-----------|-------------|-------------|-------------|---
+0x01       | A(uint16_t) | B(uint16_t) | C(uint16_t) | D(uint16_t)
+~          | wind speed  | temperature | humidity    | atm pressure
+Data Code: | 0x01        | 0x02        | 0x03        | 0x04
 
 **Message Type 2:** Shift Motor  
 Message type for sending a command to rotate base stepper "Y" degrees.
 
-byte 1 | byte 2 | byte 3
----|---|---
-0x02 | X(uint8_t) | Y(uint8_t)
-~ | motor # | theta
+byte 1 | byte 2     | byte 3
+-------|------------|---
+0x02   | X(uint8_t) | Y(uint8_t)
+~      | motor #    | theta
 
 **Message Type 3:** Alignment frequency  
 Message type for sending a command to set the panel alignment frequency "X" number of seconds.
 
 byte 1 | byte 2-3
----|---
-0x03 | X(uint16_t)
-~ | time(sec)
+-------|---
+0x03   | X(uint16_t)
+~      | time(sec)
 
 **Message Type 4:** Subsystem Status Code  
 Message type for sending status code of subsystem "Z" to be displayed.
 
-byte 1 | byte 2 | byte 3
----|---|---
-0x04 | Z(uint8_t) | (uint8_t)
-~ | subsystem # | code
+byte 1 | byte 2      | byte 3
+-------|-------------|---
+0x04   | Z(uint8_t)  | (uint8_t)
+~      | subsystem # | code
 
 code number | meaning
 ---|---
@@ -109,13 +118,13 @@ code number | meaning
 Message type for sending string about subsystem error.
 
 byte 1 | byte 2-58
----|---
-0x05 | Error Message char(uint8_t)
+-------|---
+0x05   | Error Message char(uint8_t)
 
 **Message Type 6:** Local Weather Data  
 Message type for sending received local weather data for HMI display
 
-Byte 1 | Byte 2 | Byte 3-4
----|---|---
-0x06 | X(uint8_t) | Y(uint16_t)
-~ | data type | data value
+Byte 1 | Byte 2     | Byte 3-4
+-------|------------|---
+0x06   | X(uint8_t) | Y(uint16_t)
+~      | data type  | data value
