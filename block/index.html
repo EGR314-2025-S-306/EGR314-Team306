@@ -559,6 +559,18 @@
 <h2 id="block-diagram">Block Diagram</h2>
 <p>The station is comprised of four subsystems which are each assigned to a group member. These subsystems are connected through a UART daisy chain that functions as a continuous loop for messages. This daisy chain is also used to transfer power, ground, and other signals between neighboring subsystems.</p>
 <p><a class="glightbox" href="../assets/images/block.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="block diagram" src="../assets/images/block.png" /></a></p>
+<p>Daisy Chain Header Pin Assignment<br />
+<a class="glightbox" href="../assets/images/uart.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="UART header" src="../assets/images/uart.png" /></a></p>
+<ol>
+<li>External Power (+9-12V)</li>
+<li>UART Transmit Line (TX/RX)</li>
+<li>UART Ready to Send</li>
+<li>UART Clear to Send</li>
+<li>Subsystem Specific/No Connection</li>
+<li>Subsystem Specific/No Connection</li>
+<li>Subsystem Specific/No Connection</li>
+<li>External Ground</li>
+</ol>
 <h2 id="process-diagram">Process Diagram</h2>
 <p>All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.</p>
 <pre class="mermaid"><code>sequenceDiagram
@@ -594,7 +606,7 @@
 <table>
 <thead>
 <tr>
-<th>Message type<br>byte 1-2<br>uint16_t</th>
+<th>Message type<br>byte 2<br>(uint8_t)</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -619,32 +631,107 @@
 <td>5</td>
 <td>subsystem Z error msg</td>
 </tr>
+<tr>
+<td>6</td>
+<td>print local weather X data Y</td>
+</tr>
 </tbody>
 </table>
-<p><strong>Message Type 1:</strong> Sensor Data Transmission</p>
-<p>Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.<br />
-byte 1-2 | byte 3 | byte 4 | byte 5 | byte 6
----|---|---|---|---
-0x01 | A(uint8_t) | B(uint8_t) | C(uint8_t) | D(uint8_t)
-| | wind speed | temperature | humidity | atm pressure</p>
-<p><strong>Message Type 2:</strong> Shift Motor</p>
-<p>Message type for sending a command to rotate base stepper "Y" degrees.<br />
-byte 1-2 | byte 3 | byte 4
----|---|---
-0x02 | X(uint8_t) | Y(uint8_t)
-| | motor # | theta</p>
-<p><strong>Message Type 3:</strong> Alignment frequency</p>
-<p>Message type for sending a command to set the panel alignment frequency "X" number of seconds.<br />
-byte 1-2 | byte 3-4
----|---
-0x03 | X(uint16_t)
-| | time(sec)</p>
-<p><strong>Message Type 4:</strong> Subsystem Status Code</p>
-<p>Message type for sending status code of subsystem "Z" to be displayed.<br />
-byte 1-2 | byte 3 | byte 4
----|---|---
-0x04 | Z(uint_8) | (uint8_t)
-| | subsystem # | code</p>
+<p><strong>Message Type 1:</strong> Sensor Data Transmission<br />
+Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.</p>
+<table>
+<thead>
+<tr>
+<th>byte 1</th>
+<th>byte 2-3</th>
+<th>byte 4-5</th>
+<th>byte 6-7</th>
+<th>byte 8-9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x01</td>
+<td>A(uint16_t)</td>
+<td>B(uint16_t)</td>
+<td>C(uint16_t)</td>
+<td>D(uint16_t)</td>
+</tr>
+<tr>
+<td>~</td>
+<td>wind speed</td>
+<td>temperature</td>
+<td>humidity</td>
+<td>atm pressure</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 2:</strong> Shift Motor<br />
+Message type for sending a command to rotate base stepper "Y" degrees.</p>
+<table>
+<thead>
+<tr>
+<th>byte 1</th>
+<th>byte 2</th>
+<th>byte 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x02</td>
+<td>X(uint8_t)</td>
+<td>Y(uint8_t)</td>
+</tr>
+<tr>
+<td>~</td>
+<td>motor #</td>
+<td>theta</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 3:</strong> Alignment frequency<br />
+Message type for sending a command to set the panel alignment frequency "X" number of seconds.</p>
+<table>
+<thead>
+<tr>
+<th>byte 1</th>
+<th>byte 2-3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x03</td>
+<td>X(uint16_t)</td>
+</tr>
+<tr>
+<td>~</td>
+<td>time(sec)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 4:</strong> Subsystem Status Code<br />
+Message type for sending status code of subsystem "Z" to be displayed.</p>
+<table>
+<thead>
+<tr>
+<th>byte 1</th>
+<th>byte 2</th>
+<th>byte 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x04</td>
+<td>Z(uint8_t)</td>
+<td>(uint8_t)</td>
+</tr>
+<tr>
+<td>~</td>
+<td>subsystem #</td>
+<td>code</td>
+</tr>
+</tbody>
+</table>
 <table>
 <thead>
 <tr>
@@ -667,43 +754,42 @@ byte 1-2 | byte 3 | byte 4
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 5:</strong> Subsystem Error Message</p>
-<p>Message type for sending string about subsystem error.<br />
-byte 1-2 | byte 3-58
----|---
-0x05 | Error Message char(uint8_t)</p>
-<p><strong>Message Type 6:</strong> Navigation Command</p>
+<p><strong>Message Type 5:</strong> Subsystem Error Message<br />
+Message type for sending string about subsystem error.</p>
 <table>
 <thead>
 <tr>
-<th>Byte 1-2</th>
-<th>Byte 3</th>
+<th>byte 1</th>
+<th>byte 2-58</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x05</td>
+<td>Error Message char(uint8_t)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Message Type 6:</strong> Local Weather Data<br />
+Message type for sending received local weather data for HMI display</p>
+<table>
+<thead>
+<tr>
+<th>Byte 1</th>
+<th>Byte 2</th>
+<th>Byte 3-4</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0x06</td>
-<td>(uint8_t) (Navigation Option)</td>
+<td>X(uint8_t)</td>
+<td>Y(uint16_t)</td>
 </tr>
 <tr>
-<td>0x07</td>
-<td>Show temperature</td>
-</tr>
-<tr>
-<td>0x08</td>
-<td>Show humidity</td>
-</tr>
-<tr>
-<td>0x09</td>
-<td>Show Wind Speed</td>
-</tr>
-<tr>
-<td>0x10</td>
-<td>Show Atmospheric Pressure</td>
-</tr>
-<tr>
-<td>0x11</td>
-<td>Show system status</td>
+<td>~</td>
+<td>data type</td>
+<td>data value</td>
 </tr>
 </tbody>
 </table>
