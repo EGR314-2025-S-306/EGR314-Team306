@@ -634,14 +634,14 @@ If any of the 4 prefix bytes are corrupted, the message is rejected and the upst
 <table>
 <thead>
 <tr>
-<th>Message type<br>byte 2<br>(uint8_t)</th>
+<th>Message type<br>byte 1<br>(uint8_t)</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
-<td>print sensor data A B C D</td>
+<td>print sensor X data Y</td>
 </tr>
 <tr>
 <td>2</td>
@@ -671,33 +671,46 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 <thead>
 <tr>
 <th>byte 1</th>
-<th>byte 2-3</th>
-<th>byte 4-5</th>
-<th>byte 6-7</th>
-<th>byte 8-9</th>
+<th>byte 2</th>
+<th>byte 3-4</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0x01</td>
-<td>A(uint16_t)</td>
-<td>B(uint16_t)</td>
-<td>C(uint16_t)</td>
-<td>D(uint16_t)</td>
+<td>X(uint8_t)</td>
+<td>Y(uint16_t)</td>
 </tr>
 <tr>
 <td>~</td>
+<td>sensor number</td>
+<td>data value</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Number Code</th>
+<th>Sensor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
 <td>wind speed</td>
-<td>temperature</td>
-<td>humidity</td>
-<td>atm pressure</td>
 </tr>
 <tr>
-<td>Data Code:</td>
-<td>0x01</td>
-<td>0x02</td>
-<td>0x03</td>
-<td>0x04</td>
+<td>2</td>
+<td>temperature</td>
+</tr>
+<tr>
+<td>3</td>
+<td>humidity</td>
+</tr>
+<tr>
+<td>4</td>
+<td>atm pressure</td>
 </tr>
 </tbody>
 </table>
@@ -825,6 +838,32 @@ Message type for sending received local weather data for HMI display</p>
 <td>~</td>
 <td>data type</td>
 <td>data value</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Number Code</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>wind speed</td>
+</tr>
+<tr>
+<td>2</td>
+<td>temperature</td>
+</tr>
+<tr>
+<td>3</td>
+<td>humidity</td>
+</tr>
+<tr>
+<td>4</td>
+<td>atm pressure</td>
 </tr>
 </tbody>
 </table>
