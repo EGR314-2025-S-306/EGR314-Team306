@@ -86,11 +86,11 @@ byte 1     | byte 2        | byte 3-4
 ~          | sensor number | data value
 
 Number Code | Sensor
----------|------
-1        | wind speed
-2        | temperature
-3        | humidity
-4        | atm pressure
+------------|------
+1           | wind speed
+2           | temperature
+3           | humidity
+4           | atm pressure
 
 **Message Type 2:** Shift Motor  
 Message type for sending a command to rotate base stepper "Y" degrees.
@@ -109,7 +109,7 @@ byte 1 | byte 2-3
 ~      | time(sec)
 
 **Message Type 4:** Subsystem Status Code  
-Message type for sending status code of a subsystem to be displayed.
+Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.
 
 byte 1 | byte 2
 -------|-----------
@@ -117,29 +117,29 @@ byte 1 | byte 2
 ~      | error code
 
 code number | meaning
----|---
+------------|--------
 0 | full funtionality
 1 | partial funtionality
 2 | no funtionality
 
 **Message Type 5:** Subsystem Error Message  
-Message type for sending string about subsystem error.
+Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.
 
 byte 1 | byte 2-58
--------|---
+-------|----------------------------
 0x05   | Error Message char(uint8_t)
 
 **Message Type 6:** Local Weather Data  
 Message type for sending received local weather data for HMI display
 
 Byte 1 | Byte 2     | Byte 3-4
--------|------------|---
+-------|------------|------------
 0x06   | X(uint8_t) | Y(uint16_t)
 ~      | data type  | data value
 
 Number Code | Data
----------|------
-1        | wind speed
-2        | temperature
-3        | humidity
-4        | atm pressure
+------------|------
+1           | wind speed
+2           | temperature
+3           | humidity
+4           | atm pressure
