@@ -68,9 +68,9 @@ If any of the 4 prefix bytes are corrupted, the message is rejected and the upst
 
 The following defines the various messages and their structures to be sent within the UART message protocol. The first message byte is used to identify the type of message, and the following 57 bytes contain the data.
 
-Message type<br>byte 2<br>(uint8_t) | Description
+Message type<br>byte 1<br>(uint8_t) | Description
 ---|---
-1 | print sensor data A B C D
+1 | print sensor X data Y
 2 | move motor X param Y
 3 | set period X
 4 | subsystem Z status code
@@ -80,11 +80,17 @@ Message type<br>byte 2<br>(uint8_t) | Description
 **Message Type 1:** Sensor Data Transmission  
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
 
-byte 1     | byte 2-3    | byte 4-5    | byte 6-7    | byte 8-9
------------|-------------|-------------|-------------|---
-0x01       | A(uint16_t) | B(uint16_t) | C(uint16_t) | D(uint16_t)
-~          | wind speed  | temperature | humidity    | atm pressure
-Data Code: | 0x01        | 0x02        | 0x03        | 0x04
+byte 1     | byte 2        | byte 3-4
+-----------|---------------|------------
+0x01       | X(uint8_t)    | Y(uint16_t)
+~          | sensor number | data value
+
+Number Code | Sensor
+---------|------
+1        | wind speed
+2        | temperature
+3        | humidity
+4        | atm pressure
 
 **Message Type 2:** Shift Motor  
 Message type for sending a command to rotate base stepper "Y" degrees.
@@ -130,3 +136,10 @@ Byte 1 | Byte 2     | Byte 3-4
 -------|------------|---
 0x06   | X(uint8_t) | Y(uint16_t)
 ~      | data type  | data value
+
+Number Code | Data
+---------|------
+1        | wind speed
+2        | temperature
+3        | humidity
+4        | atm pressure
