@@ -73,7 +73,7 @@ Message type<br>byte 1<br>(uint8_t) | Description
 1 | print sensor X data Y
 2 | move motor X param Y
 3 | set period X
-4 | subsystem Z status code
+4 | subsystem status code X
 5 | subsystem Z error msg
 6 | print local weather X data Y
 
@@ -109,12 +109,12 @@ byte 1 | byte 2-3
 ~      | time(sec)
 
 **Message Type 4:** Subsystem Status Code  
-Message type for sending status code of subsystem "Z" to be displayed.
+Message type for sending status code of a subsystem to be displayed.
 
-byte 1 | byte 2      | byte 3
--------|-------------|---
-0x04   | Z(uint8_t)  | (uint8_t)
-~      | subsystem # | code
+byte 1 | byte 2
+-------|-----------
+0x04   | X(uint8_t)
+~      | error code
 
 code number | meaning
 ---|---
