@@ -564,8 +564,8 @@
 <ol>
 <li>External Power (+9-12V)</li>
 <li>UART Transmit Line (TX/RX)</li>
-<li>UART Ready to Send</li>
-<li>UART Clear to Send</li>
+<li>UART Ready to Send (inactive)</li>
+<li>UART Clear to Send (inactive)</li>
 <li>Subsystem Specific/No Connection</li>
 <li>Subsystem Specific/No Connection</li>
 <li>Subsystem Specific/No Connection</li>
@@ -605,7 +605,7 @@ Relevant message data is differentiated by utilizing the recipient ID and messag
     end</code></pre>
 <h2 id="message-structure">Message Structure</h2>
 <p>All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same message structure which uses up to 64 bytes. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.<br />
-If any of the 4 prefix bytes are corrupted, the message is rejected and the upstream CTS line will be set to high. This tells the upstream subsystem to restart the data transmission. Messages are terminated after 64 bytes to stop an open loop upon failure to receive either of the two stop bytes. This will also result in a request upstream for a repeated transmission.</p>
+If any of the 4 prefix bytes are corrupted, the message is rejected. Messages are terminated after 64 bytes to stop an open loop upon failure to receive either of the two stop bytes.</p>
 <table>
 <thead>
 <tr>
@@ -620,13 +620,43 @@ If any of the 4 prefix bytes are corrupted, the message is rejected and the upst
 </thead>
 <tbody>
 <tr>
-<td>0x41</td>
-<td>0x5A</td>
+<td><code>0x41</code></td>
+<td><code>0x5A</code></td>
 <td>Send ID</td>
 <td>Receive ID</td>
 <td>Message</td>
-<td>0x59</td>
-<td>0x42</td>
+<td><code>0x59</code></td>
+<td><code>0x42</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Team Member</th>
+<th>Subsystem ID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Broadcast</td>
+<td><code>0x58 'X'</code></td>
+</tr>
+<tr>
+<td>Aarshon George</td>
+<td><code>0x61 'a'</code></td>
+</tr>
+<tr>
+<td>Alex Comeaux</td>
+<td><code>0x63 'c'</code></td>
+</tr>
+<tr>
+<td>Ian Anderson</td>
+<td><code>0x69 'i'</code></td>
+</tr>
+<tr>
+<td>Kushagra Dashora</td>
+<td><code>0x6B 'k'</code></td>
 </tr>
 </tbody>
 </table>
@@ -634,33 +664,33 @@ If any of the 4 prefix bytes are corrupted, the message is rejected and the upst
 <table>
 <thead>
 <tr>
-<th>Message type<br>byte 1<br>(uint8_t)</th>
+<th>Message type<br>byte[5]<br>(<code>uint8_t</code>)</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td>1 <code>0x49</code></td>
 <td>print sensor X data Y</td>
 </tr>
 <tr>
-<td>2</td>
+<td>2 <code>0x50</code></td>
 <td>move motor X param Y</td>
 </tr>
 <tr>
-<td>3</td>
+<td>3 <code>0x51</code></td>
 <td>set period X</td>
 </tr>
 <tr>
-<td>4</td>
+<td>4 <code>0x52</code></td>
 <td>subsystem status code X</td>
 </tr>
 <tr>
-<td>5</td>
+<td>5 <code>0x53</code></td>
 <td>subsystem Z error msg</td>
 </tr>
 <tr>
-<td>6</td>
+<td>6 <code>0x54</code></td>
 <td>print local weather X data Y</td>
 </tr>
 </tbody>
@@ -677,9 +707,9 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 </thead>
 <tbody>
 <tr>
-<td>0x01</td>
-<td>X(uint8_t)</td>
-<td>Y(uint16_t)</td>
+<td><code>0x49</code></td>
+<td>X(<code>uint8_t</code>)</td>
+<td>Y(<code>uint16_t</code>)</td>
 </tr>
 <tr>
 <td>~</td>
@@ -697,19 +727,19 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td><code>0x49</code></td>
 <td>wind speed</td>
 </tr>
 <tr>
-<td>2</td>
+<td><code>0x50</code></td>
 <td>temperature</td>
 </tr>
 <tr>
-<td>3</td>
+<td><code>0x51</code></td>
 <td>humidity</td>
 </tr>
 <tr>
-<td>4</td>
+<td><code>0x52</code></td>
 <td>atm pressure</td>
 </tr>
 </tbody>
@@ -726,9 +756,9 @@ Message type for sending a command to rotate base stepper "Y" degrees.</p>
 </thead>
 <tbody>
 <tr>
-<td>0x02</td>
-<td>X(uint8_t)</td>
-<td>Y(uint8_t)</td>
+<td><code>0x50</code></td>
+<td>X(<code>uint8_t</code>)</td>
+<td>Y(<code>uint8_t</code>)</td>
 </tr>
 <tr>
 <td>~</td>
@@ -748,8 +778,8 @@ Message type for sending a command to set the panel alignment frequency "X" numb
 </thead>
 <tbody>
 <tr>
-<td>0x03</td>
-<td>X(uint16_t)</td>
+<td><code>0x51</code></td>
+<td>X(<code>uint16_t</code>)</td>
 </tr>
 <tr>
 <td>~</td>
@@ -768,8 +798,8 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </thead>
 <tbody>
 <tr>
-<td>0x04</td>
-<td>X(uint8_t)</td>
+<td><code>0x52</code></td>
+<td>X(<code>uint8_t</code>)</td>
 </tr>
 <tr>
 <td>~</td>
@@ -786,15 +816,15 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </thead>
 <tbody>
 <tr>
-<td>0</td>
+<td>0 <code>0x49</code></td>
 <td>full funtionality</td>
 </tr>
 <tr>
-<td>1</td>
+<td>1 <code>0x50</code></td>
 <td>partial funtionality</td>
 </tr>
 <tr>
-<td>2</td>
+<td>2 <code>0x51</code></td>
 <td>no funtionality</td>
 </tr>
 </tbody>
@@ -810,8 +840,8 @@ Message type for sending string about subsystem error. Sender ID is used to dete
 </thead>
 <tbody>
 <tr>
-<td>0x05</td>
-<td>Error Message char(uint8_t)</td>
+<td><code>0x53</code></td>
+<td>Error Message char(<code>uint8_t</code>)</td>
 </tr>
 </tbody>
 </table>
@@ -827,9 +857,9 @@ Message type for sending received local weather data for HMI display</p>
 </thead>
 <tbody>
 <tr>
-<td>0x06</td>
-<td>X(uint8_t)</td>
-<td>Y(uint16_t)</td>
+<td><code>0x54</code></td>
+<td>X(<code>uint8_t</code>)</td>
+<td>Y(<code>uint16_t</code>)</td>
 </tr>
 <tr>
 <td>~</td>
@@ -847,19 +877,19 @@ Message type for sending received local weather data for HMI display</p>
 </thead>
 <tbody>
 <tr>
-<td>1</td>
+<td>1 <code>0x49</code></td>
 <td>wind speed</td>
 </tr>
 <tr>
-<td>2</td>
+<td>2 <code>0x50</code></td>
 <td>temperature</td>
 </tr>
 <tr>
-<td>3</td>
+<td>3 <code>0x51</code></td>
 <td>humidity</td>
 </tr>
 <tr>
-<td>4</td>
+<td>4 <code>0x52</code></td>
 <td>atm pressure</td>
 </tr>
 </tbody>
