@@ -670,27 +670,27 @@ If any of the 4 prefix bytes are corrupted, the message is rejected. Messages ar
 </thead>
 <tbody>
 <tr>
-<td>1 <code>0x49</code></td>
+<td>1 <code>0x31</code></td>
 <td>print sensor X data Y</td>
 </tr>
 <tr>
-<td>2 <code>0x50</code></td>
+<td>2 <code>0x32</code></td>
 <td>move motor X param Y</td>
 </tr>
 <tr>
-<td>3 <code>0x51</code></td>
+<td>3 <code>0x33</code></td>
 <td>set period X</td>
 </tr>
 <tr>
-<td>4 <code>0x52</code></td>
+<td>4 <code>0x34</code></td>
 <td>subsystem status code X</td>
 </tr>
 <tr>
-<td>5 <code>0x53</code></td>
+<td>5 <code>0x35</code></td>
 <td>subsystem Z error msg</td>
 </tr>
 <tr>
-<td>6 <code>0x54</code></td>
+<td>6 <code>0x36</code></td>
 <td>print local weather X data Y</td>
 </tr>
 </tbody>
@@ -707,7 +707,7 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 </thead>
 <tbody>
 <tr>
-<td><code>0x49</code></td>
+<td><code>0x31</code></td>
 <td>X(<code>uint8_t</code>)</td>
 <td>Y(<code>uint16_t</code>)</td>
 </tr>
@@ -727,19 +727,19 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 </thead>
 <tbody>
 <tr>
-<td><code>0x49</code></td>
+<td>'1' <code>0x31</code></td>
 <td>wind speed</td>
 </tr>
 <tr>
-<td><code>0x50</code></td>
+<td>'2' <code>0x32</code></td>
 <td>temperature</td>
 </tr>
 <tr>
-<td><code>0x51</code></td>
+<td>'3' <code>0x33</code></td>
 <td>humidity</td>
 </tr>
 <tr>
-<td><code>0x52</code></td>
+<td>'4' <code>0x34</code></td>
 <td>atm pressure</td>
 </tr>
 </tbody>
@@ -756,7 +756,7 @@ Message type for sending a command to rotate base stepper "Y" degrees.</p>
 </thead>
 <tbody>
 <tr>
-<td><code>0x50</code></td>
+<td><code>0x32</code></td>
 <td>X(<code>uint8_t</code>)</td>
 <td>Y(<code>uint8_t</code>)</td>
 </tr>
@@ -778,7 +778,7 @@ Message type for sending a command to set the panel alignment frequency "X" numb
 </thead>
 <tbody>
 <tr>
-<td><code>0x51</code></td>
+<td><code>0x33</code></td>
 <td>X(<code>uint16_t</code>)</td>
 </tr>
 <tr>
@@ -798,7 +798,7 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </thead>
 <tbody>
 <tr>
-<td><code>0x52</code></td>
+<td><code>0x34</code></td>
 <td>X(<code>uint8_t</code>)</td>
 </tr>
 <tr>
@@ -816,15 +816,15 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </thead>
 <tbody>
 <tr>
-<td>0 <code>0x49</code></td>
+<td>'0' <code>0x30</code></td>
 <td>full funtionality</td>
 </tr>
 <tr>
-<td>1 <code>0x50</code></td>
+<td>'1' <code>0x31</code></td>
 <td>partial funtionality</td>
 </tr>
 <tr>
-<td>2 <code>0x51</code></td>
+<td>'2' <code>0x32</code></td>
 <td>no funtionality</td>
 </tr>
 </tbody>
@@ -840,7 +840,7 @@ Message type for sending string about subsystem error. Sender ID is used to dete
 </thead>
 <tbody>
 <tr>
-<td><code>0x53</code></td>
+<td><code>0x35</code></td>
 <td>Error Message char(<code>uint8_t</code>)</td>
 </tr>
 </tbody>
@@ -857,7 +857,7 @@ Message type for sending received local weather data for HMI display</p>
 </thead>
 <tbody>
 <tr>
-<td><code>0x54</code></td>
+<td><code>0x36</code></td>
 <td>X(<code>uint8_t</code>)</td>
 <td>Y(<code>uint16_t</code>)</td>
 </tr>
@@ -877,19 +877,19 @@ Message type for sending received local weather data for HMI display</p>
 </thead>
 <tbody>
 <tr>
-<td>1 <code>0x49</code></td>
+<td>'1' <code>0x31</code></td>
 <td>wind speed</td>
 </tr>
 <tr>
-<td>2 <code>0x50</code></td>
+<td>'2' <code>0x32</code></td>
 <td>temperature</td>
 </tr>
 <tr>
-<td>3 <code>0x51</code></td>
+<td>'3' <code>0x33</code></td>
 <td>humidity</td>
 </tr>
 <tr>
-<td>4 <code>0x52</code></td>
+<td>'4' <code>0x34</code></td>
 <td>atm pressure</td>
 </tr>
 </tbody>
