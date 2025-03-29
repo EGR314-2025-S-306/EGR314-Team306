@@ -78,34 +78,34 @@ The following defines the various messages and their structures to be sent withi
 
 Message type<br>byte[5]<br>(`uint8_t`) | Description
 ---------|---------------------------
-1 `0x49` | print sensor X data Y
-2 `0x50` | move motor X param Y
-3 `0x51` | set period X
-4 `0x52` | subsystem status code X
-5 `0x53` | subsystem Z error msg
-6 `0x54` | print local weather X data Y
+1 `0x31` | print sensor X data Y
+2 `0x32` | move motor X param Y
+3 `0x33` | set period X
+4 `0x34` | subsystem status code X
+5 `0x35` | subsystem Z error msg
+6 `0x36` | print local weather X data Y
 
 **Message Type 1:** Sensor Data Transmission  
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
 
 byte 1 | byte 2        | byte 3-4
 -------|---------------|------------
-`0x49` | X(`uint8_t`)  | Y(`uint16_t`)
+`0x31` | X(`uint8_t`)  | Y(`uint16_t`)
 ~      | sensor number | data value
 
 Number Code | Sensor
 ------------|------
-`0x49`      | wind speed
-`0x50`      | temperature
-`0x51`      | humidity
-`0x52`      | atm pressure
+'1' `0x31`  | wind speed
+'2' `0x32`  | temperature
+'3' `0x33`  | humidity
+'4' `0x34`  | atm pressure
 
 **Message Type 2:** Shift Motor  
 Message type for sending a command to rotate base stepper "Y" degrees.
 
 byte 1 | byte 2       | byte 3
 -------|--------------|---
-`0x50` | X(`uint8_t`) | Y(`uint8_t`)
+`0x32` | X(`uint8_t`) | Y(`uint8_t`)
 ~      | motor #      | theta
 
 **Message Type 3:** Alignment frequency  
@@ -113,7 +113,7 @@ Message type for sending a command to set the panel alignment frequency "X" numb
 
 byte 1 | byte 2-3
 -------|-----------
-`0x51` | X(`uint16_t`)
+`0x33` | X(`uint16_t`)
 ~      | time(sec)
 
 **Message Type 4:** Subsystem Status Code  
@@ -121,33 +121,33 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 
 byte 1 | byte 2
 -------|-----------
-`0x52` | X(`uint8_t`)
+`0x34` | X(`uint8_t`)
 ~      | error code
 
 code number | meaning
 ------------|----------------
-0 `0x49`    | full funtionality
-1 `0x50`    | partial funtionality
-2 `0x51`    | no funtionality
+'0' `0x30`  | full funtionality
+'1' `0x31`  | partial funtionality
+'2' `0x32`  | no funtionality
 
 **Message Type 5:** Subsystem Error Message  
 Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.
 
 byte 1 | byte 2-58
 -------|----------------------------
-`0x53` | Error Message char(`uint8_t`)
+`0x35` | Error Message char(`uint8_t`)
 
 **Message Type 6:** Local Weather Data  
 Message type for sending received local weather data for HMI display
 
 Byte 1 | Byte 2       | Byte 3-4
 -------|--------------|------------
-`0x54` | X(`uint8_t`) | Y(`uint16_t`)
+`0x36` | X(`uint8_t`) | Y(`uint16_t`)
 ~      | data type    | data value
 
 Number Code | Data
 ------------|------
-1 `0x49`    | wind speed
-2 `0x50`    | temperature
-3 `0x51`    | humidity
-4 `0x52`    | atm pressure
+'1' `0x31`  | wind speed
+'2' `0x32`  | temperature
+'3' `0x33`  | humidity
+'4' `0x34`  | atm pressure
