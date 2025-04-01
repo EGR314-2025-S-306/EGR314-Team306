@@ -664,33 +664,33 @@ If any of the 4 prefix bytes are corrupted, the message is rejected. Messages ar
 <table>
 <thead>
 <tr>
-<th>Message type<br>byte[5]<br>(<code>uint8_t</code>)</th>
+<th>Message type<br>byte[5]<br>(<code>char</code>)</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>1 <code>0x31</code></td>
+<td>1</td>
 <td>print sensor X data Y</td>
 </tr>
 <tr>
-<td>2 <code>0x32</code></td>
+<td>2</td>
 <td>move motor X param Y</td>
 </tr>
 <tr>
-<td>3 <code>0x33</code></td>
+<td>3</td>
 <td>set period X</td>
 </tr>
 <tr>
-<td>4 <code>0x34</code></td>
+<td>4</td>
 <td>subsystem status code X</td>
 </tr>
 <tr>
-<td>5 <code>0x35</code></td>
+<td>5</td>
 <td>subsystem Z error msg</td>
 </tr>
 <tr>
-<td>6 <code>0x36</code></td>
+<td>6</td>
 <td>print local weather X data Y</td>
 </tr>
 </tbody>
@@ -727,20 +727,34 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 </thead>
 <tbody>
 <tr>
-<td>'1' <code>0x31</code></td>
+<td>'1' <code>0x01</code></td>
 <td>wind speed</td>
 </tr>
 <tr>
-<td>'2' <code>0x32</code></td>
+<td>'2' <code>0x02</code></td>
 <td>temperature</td>
 </tr>
 <tr>
-<td>'3' <code>0x33</code></td>
+<td>'3' <code>0x03</code></td>
 <td>humidity</td>
 </tr>
 <tr>
-<td>'4' <code>0x34</code></td>
+<td>'4' <code>0x04</code></td>
 <td>atm pressure</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Sender</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ian <code>'i'</code></td>
+<td>broadcast <code>'X'</code></td>
 </tr>
 </tbody>
 </table>
@@ -767,6 +781,20 @@ Message type for sending a command to rotate base stepper "Y" degrees.</p>
 </tr>
 </tbody>
 </table>
+<table>
+<thead>
+<tr>
+<th>Senders</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aarshon <code>'a'</code><br>Kushagra <code>'k'</code></td>
+<td>Alex <code>'c'</code></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Message Type 3:</strong> Alignment frequency<br />
 Message type for sending a command to set the panel alignment frequency "X" number of seconds.</p>
 <table>
@@ -784,6 +812,20 @@ Message type for sending a command to set the panel alignment frequency "X" numb
 <tr>
 <td>~</td>
 <td>time(sec)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Senders</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aarshon <code>'a'</code><br>Kushagra <code>'k'</code></td>
+<td>Alex <code>'c'</code></td>
 </tr>
 </tbody>
 </table>
@@ -816,16 +858,30 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </thead>
 <tbody>
 <tr>
-<td>'0' <code>0x30</code></td>
+<td>'1' <code>0x01</code></td>
 <td>full funtionality</td>
 </tr>
 <tr>
-<td>'1' <code>0x31</code></td>
+<td>'2' <code>0x02</code></td>
 <td>partial funtionality</td>
 </tr>
 <tr>
-<td>'2' <code>0x32</code></td>
+<td>'3' <code>0x03</code></td>
 <td>no funtionality</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Senders</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alex <code>'c'</code><br>Ian <code>'i'</code><br>Kushagra <code>'k'</code></td>
+<td>Aarshon <code>'a'</code></td>
 </tr>
 </tbody>
 </table>
@@ -842,6 +898,20 @@ Message type for sending string about subsystem error. Sender ID is used to dete
 <tr>
 <td><code>0x35</code></td>
 <td>Error Message char(<code>uint8_t</code>)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Senders</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alex <code>'c'</code><br>Ian <code>'i'</code><br>Kushagra <code>'k'</code></td>
+<td>Aarshon <code>'a'</code></td>
 </tr>
 </tbody>
 </table>
@@ -877,20 +947,34 @@ Message type for sending received local weather data for HMI display</p>
 </thead>
 <tbody>
 <tr>
-<td>'1' <code>0x31</code></td>
+<td>'1' <code>0x01</code></td>
 <td>wind speed</td>
 </tr>
 <tr>
-<td>'2' <code>0x32</code></td>
+<td>'2' <code>0x02</code></td>
 <td>temperature</td>
 </tr>
 <tr>
-<td>'3' <code>0x33</code></td>
+<td>'3' <code>0x03</code></td>
 <td>humidity</td>
 </tr>
 <tr>
-<td>'4' <code>0x34</code></td>
+<td>'4' <code>0x04</code></td>
 <td>atm pressure</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Sender</th>
+<th>Destination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kushagra <code>'k'</code></td>
+<td>Aarshon <code>'a'</code></td>
 </tr>
 </tbody>
 </table>
