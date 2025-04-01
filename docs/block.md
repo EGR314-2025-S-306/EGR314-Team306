@@ -76,14 +76,14 @@ Kushagra Dashora | `0x6B 'k'`
 
 The following defines the various messages and their structures to be sent within the UART message protocol. The first message byte is used to identify the type of message, and the following 57 bytes contain the data.
 
-Message type<br>byte[5]<br>(`uint8_t`) | Description
+Message type<br>byte[5]<br>(`char`) | Description
 ---------|---------------------------
-1 `0x31` | print sensor X data Y
-2 `0x32` | move motor X param Y
-3 `0x33` | set period X
-4 `0x34` | subsystem status code X
-5 `0x35` | subsystem Z error msg
-6 `0x36` | print local weather X data Y
+1 | print sensor X data Y
+2 | move motor X param Y
+3 | set period X
+4 | subsystem status code X
+5 | subsystem Z error msg
+6 | print local weather X data Y
 
 **Message Type 1:** Sensor Data Transmission  
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
@@ -95,10 +95,14 @@ byte 1 | byte 2        | byte 3-4
 
 Number Code | Sensor
 ------------|------
-'1' `0x31`  | wind speed
-'2' `0x32`  | temperature
-'3' `0x33`  | humidity
-'4' `0x34`  | atm pressure
+'1' `0x01`  | wind speed
+'2' `0x02`  | temperature
+'3' `0x03`  | humidity
+'4' `0x04`  | atm pressure
+
+Sender | Destination
+---|---
+Ian `'i'` | broadcast `'X'`
 
 **Message Type 2:** Shift Motor  
 Message type for sending a command to rotate base stepper "Y" degrees.
@@ -108,6 +112,10 @@ byte 1 | byte 2       | byte 3
 `0x32` | X(`uint8_t`) | Y(`uint8_t`)
 ~      | motor #      | theta
 
+Senders | Destination
+---|---
+Aarshon `'a'`<br>Kushagra `'k'` | Alex `'c'`
+
 **Message Type 3:** Alignment frequency  
 Message type for sending a command to set the panel alignment frequency "X" number of seconds.
 
@@ -115,6 +123,10 @@ byte 1 | byte 2-3
 -------|-----------
 `0x33` | X(`uint16_t`)
 ~      | time(sec)
+
+Senders | Destination
+---|---
+Aarshon `'a'`<br>Kushagra `'k'` | Alex `'c'`
 
 **Message Type 4:** Subsystem Status Code  
 Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.
@@ -126,9 +138,13 @@ byte 1 | byte 2
 
 code number | meaning
 ------------|----------------
-'0' `0x30`  | full funtionality
-'1' `0x31`  | partial funtionality
-'2' `0x32`  | no funtionality
+'1' `0x01`  | full funtionality
+'2' `0x02`  | partial funtionality
+'3' `0x03`  | no funtionality
+
+Senders | Destination
+---|---
+Alex `'c'`<br>Ian `'i'`<br>Kushagra `'k'` | Aarshon `'a'`
 
 **Message Type 5:** Subsystem Error Message  
 Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.
@@ -136,6 +152,10 @@ Message type for sending string about subsystem error. Sender ID is used to dete
 byte 1 | byte 2-58
 -------|----------------------------
 `0x35` | Error Message char(`uint8_t`)
+
+Senders | Destination
+---|---
+Alex `'c'`<br>Ian `'i'`<br>Kushagra `'k'` | Aarshon `'a'`
 
 **Message Type 6:** Local Weather Data  
 Message type for sending received local weather data for HMI display
@@ -147,7 +167,11 @@ Byte 1 | Byte 2       | Byte 3-4
 
 Number Code | Data
 ------------|------
-'1' `0x31`  | wind speed
-'2' `0x32`  | temperature
-'3' `0x33`  | humidity
-'4' `0x34`  | atm pressure
+'1' `0x01`  | wind speed
+'2' `0x02`  | temperature
+'3' `0x03`  | humidity
+'4' `0x04`  | atm pressure
+
+Sender | Destination
+---|---
+Kushagra `'k'` | Aarshon `'a'`
