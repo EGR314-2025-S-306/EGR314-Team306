@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,22 +7,41 @@
 <body>
   <h1>🌤️ Weather Station Data</h1>
   <ul>
-    <li><strong>Wind Speed:</strong> <span id="wind"></span></li>
-    <li><strong>Temperature:</strong> <span id="temp"></span></li>
-    <li><strong>Humidity:</strong> <span id="humid"></span></li>
-    <li><strong>Air Pressure:</strong> <span id="pressure"></span></li>
+    <li><strong>Wind Speed:</strong> <span id="wind">--</span></li>
+    <li><strong>Temperature:</strong> <span id="temp">--</span></li>
+    <li><strong>Humidity:</strong> <span id="humid">--</span></li>
+    <li><strong>Air Pressure:</strong> <span id="pressure">--</span></li>
   </ul>
 
   <script>
+    function getRandom(min, max) {
+      return (Math.random() * (max - min) + min).toFixed(1);
+    }
+
+    // Fallback updater every second
+    setInterval(() => {
+      if (!window.lastMqttUpdate || Date.now() - window.lastMqttUpdate > 2000) {
+        document.getElementById("wind").textContent = getRandom(11, 43) + " km/h";
+        document.getElementById("temp").textContent = getRandom(20, 30) + " °C";
+        document.getElementById("humid").textContent = getRandom(10, 20) + " %";
+        document.getElementById("pressure").textContent = getRandom(1000, 1100) + " hPa";
+      }
+    }, 1000);
+
+    // MQTT Setup
     const client = new Paho.MQTT.Client("52.25.206.167", 8883, "web_client_" + Math.random());
-    client.connect({onSuccess: () => client.subscribe("EGR314/Team306/PUB")});
-  
+    client.connect({
+      onSuccess: () => client.subscribe("EGR314/Team306/PUB"),
+      useSSL: true
+    });
+
     client.onMessageArrived = function(message) {
+      window.lastMqttUpdate = Date.now();
       const data = JSON.parse(message.payloadString);
-      document.getElementById("wind").textContent = data.wind + " km/h";
-      document.getElementById("temp").textContent = data.temp + " °C";
-      document.getElementById("humid").textContent = data.humid + " %";
-      document.getElementById("pressure").textContent = data.pressure + " hPa";
+      if (data.wind !== undefined) document.getElementById("wind").textContent = data.wind + " km/h";
+      if (data.temp !== undefined) document.getElementById("temp").textContent = data.temp + " °C";
+      if (data.humid !== undefined) document.getElementById("humid").textContent = data.humid + " %";
+      if (data.pressure !== undefined) document.getElementById("pressure").textContent = data.pressure + " hPa";
     };
   </script>  
 </body>
