@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Station Dashboard</title>
+  <script src="https://unpkg.com/paho-mqtt/mqtt.min.js"></script>
+</head>
+<body>
+  <h1>🌤️ Weather Station Data</h1>
+  <ul>
+    <li><strong>Wind Speed:</strong> <span id="wind"></span></li>
+    <li><strong>Temperature:</strong> <span id="temp"></span></li>
+    <li><strong>Humidity:</strong> <span id="humid"></span></li>
+    <li><strong>Air Pressure:</strong> <span id="pressure"></span></li>
+  </ul>
+
+  <script>
+    const client = new Paho.MQTT.Client("52.25.206.167", 9001, "web_client_" + Math.random());
+    client.connect({onSuccess: () => client.subscribe("EGR314/Team309/PUB")});
+  
+    client.onMessageArrived = function(message) {
+      const data = JSON.parse(message.payloadString);
+      document.getElementById("wind").textContent = data.wind + " km/h";
+      document.getElementById("temp").textContent = data.temp + " °C";
+      document.getElementById("humid").textContent = data.humid + " %";
+      document.getElementById("pressure").textContent = data.pressure + " hPa";
+    };
+  </script>  
+</body>
+</html>
