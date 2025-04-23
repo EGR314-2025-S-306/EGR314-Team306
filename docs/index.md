@@ -27,5 +27,5 @@ EGR 314 | Spring 2025
 ----|--------
 Dr. Kevin Nichols | 1/16/2025-5/2/2025
 
-[🌤️ Live Weather Dashboard](docs/weather_dashboard.html)
+[🌤️ Live Weather Dashboard](weather_dashboard.html)
 
