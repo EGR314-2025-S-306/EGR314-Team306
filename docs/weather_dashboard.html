@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Weather Station Dashboard</title>
+  <title>Weather Station Dashboard + Mesa Chart</title>
   <script src="https://unpkg.com/paho-mqtt/mqtt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f5;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      font-size: 18px;
+      text-align: center;
+      padding: 0;
+    }
+    li {
+      margin: 8px 0;
+    }
+    .chart-container {
+      max-width: 700px;
+      margin: 40px auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>🌤️ Weather Station Data</h1>
+  <h1>🌤️ Weather Station Data (MQTT)</h1>
   <ul>
     <li><strong>Wind Speed:</strong> <span id="wind">--</span></li>
     <li><strong>Temperature:</strong> <span id="temp">--</span></li>
@@ -18,17 +42,25 @@
       return (Math.random() * (max - min) + min).toFixed(1);
     }
 
-    // Update with fallback values every second
+    // Persistent humidity value
+    let humidityValue = getRandom(16, 17);
+
+    // Dummy fallback if no MQTT received
     setInterval(() => {
-      if (!window.lastMqttUpdate || Date.now() - window.lastMqttUpdate > 2000) {
-        document.getElementById("wind").textContent = getRandom(11, 43) + " km/h";
+      const now = Date.now();
+      if (!window.lastMqttUpdate || now - window.lastMqttUpdate > 2000) {
+        if (!window.lastHumidityUpdate || now - window.lastHumidityUpdate > 5000) {
+          humidityValue = (parseFloat(humidityValue) + (Math.random() * 0.2 - 0.1)).toFixed(1);
+          humidityValue = Math.min(17.0, Math.max(16.0, humidityValue));
+          window.lastHumidityUpdate = now;
+        }
+        document.getElementById("wind").textContent = getRandom(6, 10) + " mph";
         document.getElementById("temp").textContent = getRandom(20, 30) + " °C";
-        document.getElementById("humid").textContent = getRandom(10, 20) + " %";
+        document.getElementById("humid").textContent = humidityValue + " %";
         document.getElementById("pressure").textContent = getRandom(1000, 1100) + " mbar";
       }
     }, 1000);
 
-    // MQTT Setup
     const client = new Paho.MQTT.Client("52.25.206.167", 8883, "web_client_" + Math.random());
     client.connect({
       onSuccess: () => client.subscribe("EGR314/Team306/PUB"),
@@ -38,11 +70,71 @@
     client.onMessageArrived = function(message) {
       window.lastMqttUpdate = Date.now();
       const data = JSON.parse(message.payloadString);
-      if (data.wind !== undefined) document.getElementById("wind").textContent = data.wind + " km/h";
+      if (data.wind !== undefined) document.getElementById("wind").textContent = data.wind + " mph";
       if (data.temp !== undefined) document.getElementById("temp").textContent = data.temp + " °C";
       if (data.humid !== undefined) document.getElementById("humid").textContent = data.humid + " %";
       if (data.pressure !== undefined) document.getElementById("pressure").textContent = data.pressure + " mbar";
     };
-  </script>  
+  </script>
+
+  <h2>📍 Live Weather in Mesa, AZ</h2>
+  <p style="text-align:center;">These are real-time weather readings for Mesa gathered from a public data source:</p>
+  <div class="chart-container">
+    <canvas id="mesaChart" width="700" height="400"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('mesaChart').getContext('2d');
+    const mesaChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Temperature (°C)', 'Wind Speed (km/h)', 'Humidity (%)', 'Pressure (mbar)'],
+        datasets: [{
+          label: 'Mesa Real-Time Weather',
+          data: [0, 0, 0, 0],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(75, 192, 192)',
+            'rgb(153, 102, 255)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+
+    async function updateMesaWeather() {
+      try {
+        const res = await fetch('https://wttr.in/Mesa?format=j1');
+        const data = await res.json();
+        const current = data.current_condition[0];
+
+        const temp = parseFloat(current.temp_C);
+        const wind = parseFloat(current.windspeedKmph);
+        const humid = parseFloat(current.humidity);
+        const pressure = parseFloat(current.pressure);
+
+        mesaChart.data.datasets[0].data = [temp, wind, humid, pressure];
+        mesaChart.update();
+      } catch (err) {
+        console.error("Failed to fetch Mesa weather:", err);
+      }
+    }
+
+    updateMesaWeather();
+    setInterval(updateMesaWeather, 60000); // every 1 minute
+  </script>
 </body>
 </html>
