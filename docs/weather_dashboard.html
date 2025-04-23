@@ -15,7 +15,7 @@
   </ul>
 
   <script>
-    const client = new Paho.MQTT.Client("52.25.206.167", 9001, "web_client_" + Math.random());
+    const client = new Paho.MQTT.Client("52.25.206.167", 8883, "web_client_" + Math.random());
     client.connect({onSuccess: () => client.subscribe("EGR314/Team309/PUB")});
   
     client.onMessageArrived = function(message) {
