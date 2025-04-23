@@ -18,13 +18,13 @@
       return (Math.random() * (max - min) + min).toFixed(1);
     }
 
-    // Fallback updater every second
+    // Update with fallback values every second
     setInterval(() => {
       if (!window.lastMqttUpdate || Date.now() - window.lastMqttUpdate > 2000) {
         document.getElementById("wind").textContent = getRandom(11, 43) + " km/h";
         document.getElementById("temp").textContent = getRandom(20, 30) + " °C";
         document.getElementById("humid").textContent = getRandom(10, 20) + " %";
-        document.getElementById("pressure").textContent = getRandom(1000, 1100) + " hPa";
+        document.getElementById("pressure").textContent = getRandom(1000, 1100) + " mbar";
       }
     }, 1000);
 
@@ -41,7 +41,7 @@
       if (data.wind !== undefined) document.getElementById("wind").textContent = data.wind + " km/h";
       if (data.temp !== undefined) document.getElementById("temp").textContent = data.temp + " °C";
       if (data.humid !== undefined) document.getElementById("humid").textContent = data.humid + " %";
-      if (data.pressure !== undefined) document.getElementById("pressure").textContent = data.pressure + " hPa";
+      if (data.pressure !== undefined) document.getElementById("pressure").textContent = data.pressure + " mbar";
     };
   </script>  
 </body>
