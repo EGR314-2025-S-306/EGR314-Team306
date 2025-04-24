@@ -586,6 +586,10 @@ Relevant message data is differentiated by utilizing the recipient ID and messag
     a-&gt;&gt;i: Kushagra to Alex&lt;br&gt;Set alignment frequency to 5min
     i-&gt;&gt;c: Kushagra to Alex&lt;br&gt;Set alignment frequency to 5min
     c-&gt;&gt;c: Set wait period&lt;br&gt;trash msg
+    w--&gt;&gt;k: Local temperature
+    k-&gt;&gt;a: Kushagra to Aarshon&lt;br&gt;Local Temperature: 73F
+    a--&gt;&gt;u: Display temperature
+    a-&gt;&gt;a: trash msg
     u--&gt;&gt;a: Shift base rotation
     a-&gt;&gt;i: Aarshon to Alex&lt;br&gt;Shift 10 deg clockwise
     i-&gt;&gt;c: Aarshon to Alex&lt;br&gt;Shift 10 deg clockwise
@@ -594,13 +598,17 @@ Relevant message data is differentiated by utilizing the recipient ID and messag
         i-&gt;&gt;c: Ian to Alex&lt;br&gt;Solar panel alignment
         c-&gt;&gt;c: Moves solar panel&lt;br&gt;trash msg
     end
+    c-&gt;&gt;k: Alex to Aarshon&lt;br&gt;Subsystem malfunction
+    k-&gt;&gt;a: Alex to Aarshon&lt;br&gt;Subsystem malfunction
+    a--&gt;&gt;u: Display error
+    a-&gt;&gt;a: trash msg
     loop [every second]
-        i-&gt;&gt;c: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
-        c-&gt;&gt;k: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
-        k--&gt;&gt;w: Temp is 70F &amp; Humidity is 30%
-        k-&gt;&gt;a: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
+        i-&gt;&gt;c: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
+        c-&gt;&gt;k: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
+        k--&gt;&gt;w: Wind Speed is 10 mph
+        k-&gt;&gt;a: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
         a--&gt;&gt;u: Display data
-        a-&gt;&gt;i: Ian to Everyone&lt;br&gt;Temp is 70F &amp; Humidity is 30%
+        a-&gt;&gt;i: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
         i-&gt;&gt;i: trash msg
     end</code></pre>
 <h2 id="message-structure">Message Structure</h2>
