@@ -666,32 +666,60 @@ If any of the 4 prefix bytes are corrupted, the message is rejected. Messages ar
 <tr>
 <th>Message type<br>byte[5]<br>(<code>char</code>)</th>
 <th>Description</th>
+<th>Ian<br>Role: Sensor<br><code>'i'</code></th>
+<th>Alex<br>Role: Actuator<br><code>'c'</code></th>
+<th>KD<br>Role: MQTT Server<br><code>'k'</code></th>
+<th>Aarshon<br>Role: HMI<br><code>'a'</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1</td>
 <td>print sensor X data Y</td>
+<td>Send</td>
+<td>~</td>
+<td>Receive</td>
+<td>Receive</td>
 </tr>
 <tr>
 <td>2</td>
 <td>move motor X param Y</td>
+<td>~</td>
+<td>Receive</td>
+<td>Send</td>
+<td>Send</td>
 </tr>
 <tr>
 <td>3</td>
 <td>set period X</td>
+<td>~</td>
+<td>Receive</td>
+<td>Send</td>
+<td>Send</td>
 </tr>
 <tr>
 <td>4</td>
 <td>subsystem status code X</td>
+<td>Send</td>
+<td>Send</td>
+<td>Receive</td>
+<td>Send</td>
 </tr>
 <tr>
 <td>5</td>
 <td>subsystem Z error msg</td>
+<td>Send</td>
+<td>Send</td>
+<td>Receive</td>
+<td>Send</td>
 </tr>
 <tr>
 <td>6</td>
 <td>print local weather X data Y</td>
+<td>~</td>
+<td>~</td>
+<td>Receive</td>
+<td>Send</td>
 </tr>
 </tbody>
 </table>
@@ -702,7 +730,7 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 <tr>
 <th>byte 1</th>
 <th>byte 2</th>
-<th>byte 3-4</th>
+<th>byte 3-4<br>[15:8][7:0]</th>
 </tr>
 </thead>
 <tbody>
