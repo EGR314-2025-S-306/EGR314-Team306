@@ -76,19 +76,19 @@ Kushagra Dashora | `0x6B 'k'`
 
 The following defines the various messages and their structures to be sent within the UART message protocol. The first message byte is used to identify the type of message, and the following 57 bytes contain the data.
 
-Message type<br>byte[5]<br>(`char`) | Description
----------|---------------------------
-1 | print sensor X data Y
-2 | move motor X param Y
-3 | set period X
-4 | subsystem status code X
-5 | subsystem Z error msg
-6 | print local weather X data Y
+Message type<br>byte[5]<br>(`char`) | Description | Ian<br>Role: Sensor<br>`'i'` | Alex<br>Role: Actuator<br>`'c'` | KD<br>Role: MQTT Server<br>`'k'` | Aarshon<br>Role: HMI<br>`'a'`
+---------|---------------------------|---|---|---|---
+1 | print sensor X data Y            | Send | ~       | Receive | Receive
+2 | move motor X param Y             | ~    | Receive | Send    | Send
+3 | set period X                     | ~    | Receive | Send    | Send
+4 | subsystem status code X          | Send | Send    | Receive | Send
+5 | subsystem Z error msg            | Send | Send    | Receive | Send
+6 | print local weather X data Y     | ~    | ~       | Receive | Send
 
 **Message Type 1:** Sensor Data Transmission  
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
 
-byte 1 | byte 2        | byte 3-4
+byte 1 | byte 2        | byte 3-4<br>[15:8][7:0]
 -------|---------------|------------
 `0x31` | X(`uint8_t`)  | Y(`uint16_t`)
 ~      | sensor number | data value
