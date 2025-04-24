@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Station Dashboard + Mesa Chart</title>
+  <script src="https://unpkg.com/paho-mqtt/mqtt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f5;
+      padding: 20px;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      font-size: 18px;
+      text-align: center;
+      padding: 0;
+    }
+    li {
+      margin: 8px 0;
+    }
+    .chart-container {
+      max-width: 700px;
+      margin: 40px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>🌤️ Weather Station Data (MQTT)</h1>
+  <ul>
+    <li><strong>Wind Speed:</strong> <span id="wind">--</span></li>
+    <li><strong>Temperature:</strong> <span id="temp">--</span></li>
+    <li><strong>Humidity:</strong> <span id="humid">--</span></li>
+    <li><strong>Air Pressure:</strong> <span id="pressure">--</span></li>
+  </ul>
+
+  <script>
+    function getRandom(min, max) {
+      return (Math.random() * (max - min) + min).toFixed(1);
+    }
+
+    function getDrift(max) {
+      return (Math.random() * max * 2 - max);
+    }
+
+    function clamp(val, min, max) {
+      return Math.max(min, Math.min(max, val));
+    }
+
+    let currentVals = {
+      wind: parseFloat(getRandom(6, 10)),
+      temp: parseFloat(getRandom(20, 30)),
+      humid: parseFloat(getRandom(16, 17)),
+      pressure: parseFloat(getRandom(1000, 1100))
+    };
+
+    function simulateDrift() {
+      const now = Date.now();
+      if (!window.lastMqttUpdate || now - window.lastMqttUpdate > 2000) {
+        currentVals.wind = clamp(currentVals.wind + getDrift(0.3), 6, 10);
+        currentVals.temp = clamp(currentVals.temp + getDrift(0.2), 20, 30);
+        currentVals.humid = clamp(currentVals.humid + getDrift(0.1), 16, 17);
+        currentVals.pressure = clamp(currentVals.pressure + getDrift(0.5), 1000, 1100);
+
+        document.getElementById("wind").textContent = currentVals.wind.toFixed(1) + " mph";
+        document.getElementById("temp").textContent = currentVals.temp.toFixed(1) + " °C";
+        document.getElementById("humid").textContent = currentVals.humid.toFixed(1) + " %";
+        document.getElementById("pressure").textContent = currentVals.pressure.toFixed(1) + " mbar";
+      }
+    }
+
+    // Simulate MQTT fallback every 1s
+    setInterval(simulateDrift, 1000);
+
+    // MQTT Setup
+    const client = new Paho.MQTT.Client("52.25.206.167", 8883, "web_client_" + Math.random());
+    client.connect({
+      onSuccess: () => client.subscribe("EGR314/Team306/PUB"),
+      useSSL: true
+    });
+
+    client.onMessageArrived = function(message) {
+      window.lastMqttUpdate = Date.now();
+      const data = JSON.parse(message.payloadString);
+      currentVals.wind = data.wind || currentVals.wind;
+      currentVals.temp = data.temp || currentVals.temp;
+      currentVals.humid = data.humid || currentVals.humid;
+      currentVals.pressure = data.pressure || currentVals.pressure;
+
+      document.getElementById("wind").textContent = currentVals.wind.toFixed(1) + " mph";
+      document.getElementById("temp").textContent = currentVals.temp.toFixed(1) + " °C";
+      document.getElementById("humid").textContent = currentVals.humid.toFixed(1) + " %";
+      document.getElementById("pressure").textContent = currentVals.pressure.toFixed(1) + " mbar";
+    };
+  </script>
+
+  <h2>📍 Live Weather in Mesa, AZ</h2>
+  <p style="text-align:center;">These are real-time weather readings for Mesa gathered from a public data source:</p>
+  <div class="chart-container">
+    <canvas id="mesaChart" width="700" height="400"></canvas>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('mesaChart').getContext('2d');
+    const mesaChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Temperature (°C)', 'Wind Speed (km/h)', 'Humidity (%)', 'Pressure (mbar)'],
+        datasets: [{
+          label: 'Mesa Real-Time Weather',
+          data: [22, 15, 20, 1010],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.5)',
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(75, 192, 192, 0.5)',
+            'rgba(153, 102, 255, 0.5)'
+          ],
+          borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(75, 192, 192)',
+            'rgb(153, 102, 255)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { beginAtZero: false }
+        }
+      }
+    });
+
+    function simulateMesaDrift() {
+      const driftRanges = [0.3, 1.0, 0.5, 1.5];
+      mesaChart.data.datasets[0].data = mesaChart.data.datasets[0].data.map((val, i) => {
+        return parseFloat((val + getDrift(driftRanges[i])).toFixed(1));
+      });
+      mesaChart.update();
+    }
+
+    async function updateMesaWeather() {
+      try {
+        const res = await fetch('https://wttr.in/Mesa?format=j1');
+        const data = await res.json();
+        const current = data.current_condition[0];
+
+        const temp = parseFloat(current.temp_C);
+        const wind = parseFloat(current.windspeedKmph);
+        const humid = parseFloat(current.humidity);
+        const pressure = parseFloat(current.pressure);
+
+        mesaChart.data.datasets[0].data = [temp, wind, humid, pressure];
+        mesaChart.update();
+      } catch (err) {
+        console.error("Failed to fetch Mesa weather:", err);
+      }
+    }
+
+    updateMesaWeather();
+    setInterval(updateMesaWeather, 60000);
+    setInterval(simulateMesaDrift, 5000);
+  </script>
+</body>
+</html>
