@@ -38,6 +38,10 @@ sequenceDiagram
     a->>i: Kushagra to Alex<br>Set alignment frequency to 5min
     i->>c: Kushagra to Alex<br>Set alignment frequency to 5min
     c->>c: Set wait period<br>trash msg
+    w-->>k: Local temperature
+    k->>a: Kushagra to Aarshon<br>Local Temperature: 73F
+    a-->>u: Display temperature
+    a->>a: trash msg
     u-->>a: Shift base rotation
     a->>i: Aarshon to Alex<br>Shift 10 deg clockwise
     i->>c: Aarshon to Alex<br>Shift 10 deg clockwise
@@ -46,13 +50,17 @@ sequenceDiagram
         i->>c: Ian to Alex<br>Solar panel alignment
         c->>c: Moves solar panel<br>trash msg
     end
+    c->>k: Alex to Aarshon<br>Subsystem malfunction
+    k->>a: Alex to Aarshon<br>Subsystem malfunction
+    a-->>u: Display error
+    a->>a: trash msg
     loop [every second]
-        i->>c: Ian to Everyone<br>Temp is 70F & Humidity is 30%
-        c->>k: Ian to Everyone<br>Temp is 70F & Humidity is 30%
-        k-->>w: Temp is 70F & Humidity is 30%
-        k->>a: Ian to Everyone<br>Temp is 70F & Humidity is 30%
+        i->>c: Ian to Everyone<br>Wind Speed is 10 mph
+        c->>k: Ian to Everyone<br>Wind Speed is 10 mph
+        k-->>w: Wind Speed is 10 mph
+        k->>a: Ian to Everyone<br>Wind Speed is 10 mph
         a-->>u: Display data
-        a->>i: Ian to Everyone<br>Temp is 70F & Humidity is 30%
+        a->>i: Ian to Everyone<br>Wind Speed is 10 mph
         i->>i: trash msg
     end
 ```
