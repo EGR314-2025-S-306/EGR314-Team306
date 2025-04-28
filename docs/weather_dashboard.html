@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Station Dashboard + Motor Control</title>
+  <title>Weather Dashboard + Motor Control</title>
   <script src="https://unpkg.com/paho-mqtt/mqtt.min.js"></script>
   <style>
     body { font-family: Arial, sans-serif; text-align: center; margin-top: 30px; }
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <h1>🌤️ Weather Station Live Dashboard</h1>
+  <h1>🌤️ Weather Station Dashboard + Motor Control</h1>
 
   <div class="sensor"><strong>Wind Speed:</strong> <span id="wind">--</span> mph</div>
   <div class="sensor"><strong>Temperature:</strong> <span id="temp">--</span> °C</div>
@@ -33,16 +33,21 @@
   </div>
 
   <script>
-    // Connect to MQTT broker
     const clientID = "webclient_" + Math.random().toString(16).substr(2, 8);
-    const client = new Paho.MQTT.Client("52.25.206.167", Number(8883), clientID);
+    const client = new Paho.MQTT.Client("52.25.206.167", 8883, clientID);
 
     client.connect({
+      userName: "student",
+      password: "egr3x4",
+      useSSL: true,
       onSuccess: function() {
-        console.log("[MQTT] Connected");
-        client.subscribe("sensor/weather");
+        console.log("[MQTT] Connected securely");
+        client.subscribe("EGR314/Team309/PUB");
+        client.subscribe("EGR314/Team309/SUB");
       },
-      useSSL: false
+      onFailure: function(e) {
+        console.error("[MQTT] Connection failed", e);
+      }
     });
 
     client.onMessageArrived = function(message) {
@@ -55,21 +60,21 @@
         if (data.pressure !== undefined) document.getElementById("pressure").textContent = data.pressure;
         document.getElementById("timestamp").textContent = "Last Updated: " + new Date().toLocaleTimeString();
       } catch (e) {
-        console.error("[Error Parsing JSON]", e);
+        console.error("[JSON Parse Error]", e);
       }
     };
 
     function sendAngle() {
       const angle = document.getElementById("angle-input").value;
       if (angle === "" || isNaN(angle) || angle < 0 || angle > 360) {
-        alert("Please enter a valid angle between 0-360.");
+        alert("Please enter a valid angle between 0 and 360.");
         return;
       }
       const msg = new Paho.MQTT.Message(angle);
-      msg.destinationName = "control/angle";
+      msg.destinationName = "EGR314/Team309/SUB";
       client.send(msg);
-      console.log("[ACTION] Sent Angle", angle);
-      alert("Angle " + angle + " sent to motor!");
+      console.log("[ACTION] Sent angle", angle);
+      alert("Angle " + angle + "° sent to motor!");
     }
   </script>
 
