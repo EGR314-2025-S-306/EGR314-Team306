@@ -119,6 +119,8 @@ byte 1 | byte 2       | byte 3
 -------|--------------|---
 `0x32` | X(`uint8_t`) | Y(`uint8_t`)
 ~      | direction      | theta
+Minimum|1             |0
+Maximum|2             |180
 
 Senders | Destination
 ---|---
