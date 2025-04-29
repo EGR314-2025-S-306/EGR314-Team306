@@ -118,25 +118,13 @@ Message type for sending a command to rotate base stepper "Y" degrees.
 byte 1 | byte 2       | byte 3
 -------|--------------|---
 `0x32` | X(`uint8_t`) | Y(`uint8_t`)
-~      | motor #      | theta
+~      | direction      | theta
 
 Senders | Destination
 ---|---
 Aarshon `'a'`<br>Kushagra `'k'` | Alex `'c'`
 
-**Message Type 3:** Alignment frequency  
-Message type for sending a command to set the panel alignment frequency "X" number of seconds.
-
-byte 1 | byte 2-3
--------|-----------
-`0x33` | X(`uint16_t`)
-~      | time(sec)
-
-Senders | Destination
----|---
-Aarshon `'a'`<br>Kushagra `'k'` | Alex `'c'`
-
-**Message Type 4:** Subsystem Status Code  
+**Message Type 3:** Subsystem Status Code  
 Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.
 
 byte 1 | byte 2
@@ -154,7 +142,7 @@ Senders | Destination
 ---|---
 Alex `'c'`<br>Ian `'i'`<br>Kushagra `'k'` | Aarshon `'a'`
 
-**Message Type 5:** Subsystem Error Message  
+**Message Type 4:** Subsystem Error Message  
 Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.
 
 byte 1 | byte 2-58
@@ -164,22 +152,3 @@ byte 1 | byte 2-58
 Senders | Destination
 ---|---
 Alex `'c'`<br>Ian `'i'`<br>Kushagra `'k'` | Aarshon `'a'`
-
-**Message Type 6:** Local Weather Data  
-Message type for sending received local weather data for HMI display
-
-Byte 1 | Byte 2       | Byte 3-4
--------|--------------|------------
-`0x36` | X(`uint8_t`) | Y(`uint16_t`)
-~      | data type    | data value
-
-Number Code | Data
-------------|------
-'1' `0x01`  | wind speed
-'2' `0x02`  | temperature
-'3' `0x03`  | humidity
-'4' `0x04`  | atm pressure
-
-Sender | Destination
----|---
-Kushagra `'k'` | Aarshon `'a'`
