@@ -812,7 +812,7 @@ Message type for sending a command to rotate base stepper "Y" degrees.</p>
 </tr>
 <tr>
 <td>~</td>
-<td>motor #</td>
+<td>direction</td>
 <td>theta</td>
 </tr>
 </tbody>
@@ -831,41 +831,7 @@ Message type for sending a command to rotate base stepper "Y" degrees.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 3:</strong> Alignment frequency<br />
-Message type for sending a command to set the panel alignment frequency "X" number of seconds.</p>
-<table>
-<thead>
-<tr>
-<th>byte 1</th>
-<th>byte 2-3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0x33</code></td>
-<td>X(<code>uint16_t</code>)</td>
-</tr>
-<tr>
-<td>~</td>
-<td>time(sec)</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Senders</th>
-<th>Destination</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Aarshon <code>'a'</code><br>Kushagra <code>'k'</code></td>
-<td>Alex <code>'c'</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Message Type 4:</strong> Subsystem Status Code<br />
+<p><strong>Message Type 3:</strong> Subsystem Status Code<br />
 Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.</p>
 <table>
 <thead>
@@ -921,7 +887,7 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 5:</strong> Subsystem Error Message<br />
+<p><strong>Message Type 4:</strong> Subsystem Error Message<br />
 Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.</p>
 <table>
 <thead>
@@ -947,69 +913,6 @@ Message type for sending string about subsystem error. Sender ID is used to dete
 <tbody>
 <tr>
 <td>Alex <code>'c'</code><br>Ian <code>'i'</code><br>Kushagra <code>'k'</code></td>
-<td>Aarshon <code>'a'</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Message Type 6:</strong> Local Weather Data<br />
-Message type for sending received local weather data for HMI display</p>
-<table>
-<thead>
-<tr>
-<th>Byte 1</th>
-<th>Byte 2</th>
-<th>Byte 3-4</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0x36</code></td>
-<td>X(<code>uint8_t</code>)</td>
-<td>Y(<code>uint16_t</code>)</td>
-</tr>
-<tr>
-<td>~</td>
-<td>data type</td>
-<td>data value</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Number Code</th>
-<th>Data</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>'1' <code>0x01</code></td>
-<td>wind speed</td>
-</tr>
-<tr>
-<td>'2' <code>0x02</code></td>
-<td>temperature</td>
-</tr>
-<tr>
-<td>'3' <code>0x03</code></td>
-<td>humidity</td>
-</tr>
-<tr>
-<td>'4' <code>0x04</code></td>
-<td>atm pressure</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Sender</th>
-<th>Destination</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Kushagra <code>'k'</code></td>
 <td>Aarshon <code>'a'</code></td>
 </tr>
 </tbody>
