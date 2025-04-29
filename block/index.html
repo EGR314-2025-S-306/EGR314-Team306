@@ -699,14 +699,6 @@ If any of the 4 prefix bytes are corrupted, the message is rejected. Messages ar
 </tr>
 <tr>
 <td>3</td>
-<td>set period X</td>
-<td>~</td>
-<td>Receive</td>
-<td>Send</td>
-<td>Send</td>
-</tr>
-<tr>
-<td>4</td>
 <td>subsystem status code X</td>
 <td>Send</td>
 <td>Send</td>
@@ -714,18 +706,10 @@ If any of the 4 prefix bytes are corrupted, the message is rejected. Messages ar
 <td>Send</td>
 </tr>
 <tr>
-<td>5</td>
+<td>4</td>
 <td>subsystem Z error msg</td>
 <td>Send</td>
 <td>Send</td>
-<td>Receive</td>
-<td>Send</td>
-</tr>
-<tr>
-<td>6</td>
-<td>print local weather X data Y</td>
-<td>~</td>
-<td>~</td>
 <td>Receive</td>
 <td>Send</td>
 </tr>
@@ -738,7 +722,7 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 <tr>
 <th>byte 1</th>
 <th>byte 2</th>
-<th>byte 3-4<br>[15:8][7:0]</th>
+<th>byte 3-4<br>big endian</th>
 </tr>
 </thead>
 <tbody>
@@ -842,7 +826,7 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </thead>
 <tbody>
 <tr>
-<td><code>0x34</code></td>
+<td><code>0x33</code></td>
 <td>X(<code>uint8_t</code>)</td>
 </tr>
 <tr>
@@ -898,7 +882,7 @@ Message type for sending string about subsystem error. Sender ID is used to dete
 </thead>
 <tbody>
 <tr>
-<td><code>0x35</code></td>
+<td><code>0x34</code></td>
 <td>Error Message char(<code>uint8_t</code>)</td>
 </tr>
 </tbody>
