@@ -116,9 +116,7 @@ Message type for sending a command to rotate base stepper "Y" degrees.
 byte 1 | byte 2       | byte 3
 -------|--------------|---
 `0x32` | X(`uint8_t`) | Y(`uint8_t`)
-~      | direction      | theta
-Minimum|1             |0
-Maximum|2             |180
+~      | direction<br>0x01 = clockwise<br>0x02 = counterclockwise | degree shift
 
 Senders | Destination
 ---|---
