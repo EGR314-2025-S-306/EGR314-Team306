@@ -88,15 +88,13 @@ Message type<br>byte[5]<br>(`char`) | Description | Ian<br>Role: Sensor<br>`'i'`
 ---------|---------------------------|---|---|---|---
 1 | print sensor X data Y            | Send | ~       | Receive | Receive
 2 | move motor X param Y             | ~    | Receive | Send    | Send
-3 | set period X                     | ~    | Receive | Send    | Send
-4 | subsystem status code X          | Send | Send    | Receive | Send
-5 | subsystem Z error msg            | Send | Send    | Receive | Send
-6 | print local weather X data Y     | ~    | ~       | Receive | Send
+3 | subsystem status code X          | Send | Send    | Receive | Send
+4 | subsystem Z error msg            | Send | Send    | Receive | Send
 
 **Message Type 1:** Sensor Data Transmission  
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
 
-byte 1 | byte 2        | byte 3-4<br>[15:8][7:0]
+byte 1 | byte 2        | byte 3-4<br>big endian
 -------|---------------|------------
 `0x31` | X(`uint8_t`)  | Y(`uint16_t`)
 ~      | sensor number | data value
@@ -131,7 +129,7 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 
 byte 1 | byte 2
 -------|-----------
-`0x34` | X(`uint8_t`)
+`0x33` | X(`uint8_t`)
 ~      | error code
 
 code number | meaning
@@ -149,7 +147,7 @@ Message type for sending string about subsystem error. Sender ID is used to dete
 
 byte 1 | byte 2-58
 -------|----------------------------
-`0x35` | Error Message char(`uint8_t`)
+`0x34` | Error Message char(`uint8_t`)
 
 Senders | Destination
 ---|---
