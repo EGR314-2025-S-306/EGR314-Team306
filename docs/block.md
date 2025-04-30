@@ -34,19 +34,15 @@ sequenceDiagram
     participant k as Kushagra
     actor w as Web
     w-->>k: Alignment frequency
-    k->>a: Kushagra to Alex<br>Set alignment frequency to 5min
-    a->>i: Kushagra to Alex<br>Set alignment frequency to 5min
-    i->>c: Kushagra to Alex<br>Set alignment frequency to 5min
-    c->>c: Set wait period<br>trash msg
-    w-->>k: Local temperature
-    k->>a: Kushagra to Aarshon<br>Local Temperature: 73F
-    a-->>u: Display temperature
-    a->>a: trash msg
+    k->>a: Kushagra to Alex<br>Shift motor 90 deg counterclockwise
+    a->>i: Kushagra to Alex<br>Shift motor 90 deg counterclockwise
+    i->>c: Kushagra to Alex<br>Shift motor 90 deg counterclockwise
+    c->>c: Rotate base 90 degrees ccw<br>trash msg
     u-->>a: Shift base rotation
-    a->>i: Aarshon to Alex<br>Shift 10 deg clockwise
-    i->>c: Aarshon to Alex<br>Shift 10 deg clockwise
-    c->>c: Rotate base 10deg clockwise<br>trash msg
-    loop [every second]
+    a->>i: Aarshon to Alex<br>Shift motor 10 deg clockwise
+    i->>c: Aarshon to Alex<br>Shift motor 10 deg clockwise
+    c->>c: Rotate base 10 degrees cw<br>trash msg
+    loop every second
         i->>c: Ian to Alex<br>Solar panel alignment
         c->>c: Moves solar panel<br>trash msg
     end
@@ -54,7 +50,7 @@ sequenceDiagram
     k->>a: Alex to Aarshon<br>Subsystem malfunction
     a-->>u: Display error
     a->>a: trash msg
-    loop [every second]
+    loop every 5 seconds]<br>[sensor broadcast
         i->>c: Ian to Everyone<br>Wind Speed is 10 mph
         c->>k: Ian to Everyone<br>Wind Speed is 10 mph
         k-->>w: Wind Speed is 10 mph
