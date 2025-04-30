@@ -582,19 +582,15 @@ Relevant message data is differentiated by utilizing the recipient ID and messag
     participant k as Kushagra
     actor w as Web
     w--&gt;&gt;k: Alignment frequency
-    k-&gt;&gt;a: Kushagra to Alex&lt;br&gt;Set alignment frequency to 5min
-    a-&gt;&gt;i: Kushagra to Alex&lt;br&gt;Set alignment frequency to 5min
-    i-&gt;&gt;c: Kushagra to Alex&lt;br&gt;Set alignment frequency to 5min
-    c-&gt;&gt;c: Set wait period&lt;br&gt;trash msg
-    w--&gt;&gt;k: Local temperature
-    k-&gt;&gt;a: Kushagra to Aarshon&lt;br&gt;Local Temperature: 73F
-    a--&gt;&gt;u: Display temperature
-    a-&gt;&gt;a: trash msg
+    k-&gt;&gt;a: Kushagra to Alex&lt;br&gt;Shift motor 90 deg counterclockwise
+    a-&gt;&gt;i: Kushagra to Alex&lt;br&gt;Shift motor 90 deg counterclockwise
+    i-&gt;&gt;c: Kushagra to Alex&lt;br&gt;Shift motor 90 deg counterclockwise
+    c-&gt;&gt;c: Rotate base 90 degrees ccw&lt;br&gt;trash msg
     u--&gt;&gt;a: Shift base rotation
-    a-&gt;&gt;i: Aarshon to Alex&lt;br&gt;Shift 10 deg clockwise
-    i-&gt;&gt;c: Aarshon to Alex&lt;br&gt;Shift 10 deg clockwise
-    c-&gt;&gt;c: Rotate base 10deg clockwise&lt;br&gt;trash msg
-    loop [every second]
+    a-&gt;&gt;i: Aarshon to Alex&lt;br&gt;Shift motor 10 deg clockwise
+    i-&gt;&gt;c: Aarshon to Alex&lt;br&gt;Shift motor 10 deg clockwise
+    c-&gt;&gt;c: Rotate base 10 degrees cw&lt;br&gt;trash msg
+    loop every second
         i-&gt;&gt;c: Ian to Alex&lt;br&gt;Solar panel alignment
         c-&gt;&gt;c: Moves solar panel&lt;br&gt;trash msg
     end
@@ -602,7 +598,7 @@ Relevant message data is differentiated by utilizing the recipient ID and messag
     k-&gt;&gt;a: Alex to Aarshon&lt;br&gt;Subsystem malfunction
     a--&gt;&gt;u: Display error
     a-&gt;&gt;a: trash msg
-    loop [every second]
+    loop every 5 seconds]&lt;br&gt;[sensor broadcast
         i-&gt;&gt;c: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
         c-&gt;&gt;k: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
         k--&gt;&gt;w: Wind Speed is 10 mph
