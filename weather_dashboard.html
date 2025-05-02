@@ -3,11 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather Station + Motor Control</title>
-  <script src="https://unpkg.com/paho-mqtt/mqtt.min.js"></script>
+  <title>Weather Station</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
 </head>
-<body style="font-family: Arial; text-align: center; margin-top: 30px;">
-  <h1>🌤️ Weather Dashboard + Motor Control</h1>
+<body>
+  <h1>🌤️ Simulated Weather Dashboard</h1>
 
   <div id="weather-data">
     <p><strong>Wind Speed:</strong> <span id="wind">--</span> mph</p>
@@ -16,54 +22,22 @@
     <p><strong>Air Pressure:</strong> <span id="pressure">--</span> mbar</p>
   </div>
 
-  <div id="motor-control" style="margin-top: 30px;">
-    <h2>🛠️ Motor Angle Control</h2>
-    <input type="number" id="angle-input" placeholder="Enter angle (0-360)" min="0" max="360">
-    <button onclick="sendAngle()">Send Angle</button>
-  </div>
-
   <script>
-    const clientID = "webclient_" + Math.random().toString(16).substr(2, 8);
-    const client = new Paho.MQTT.Client("52.25.206.167", 8883, clientID);
+    function generateRandomData() {
+      const wind = (Math.random() * 20).toFixed(2);
+      const temp = (20 + Math.random() * 15).toFixed(2);
+      const humid = (30 + Math.random() * 40).toFixed(2);
+      const pressure = (950 + Math.random() * 50).toFixed(1);
 
-    client.connect({
-      userName: "student",
-      password: "egr3x4",
-      useSSL: true,
-      onSuccess: () => {
-        console.log("[MQTT] Connected.");
-        client.subscribe("EGR314/Team309/PUB");
-      },
-      onFailure: e => {
-        console.error("[MQTT] Connection failed", e);
-      }
-    });
-
-    client.onMessageArrived = function(message) {
-      console.log("[MQTT] Message received:", message.payloadString);
-      try {
-        const data = JSON.parse(message.payloadString);
-        if (data.wind !== undefined) document.getElementById("wind").textContent = data.wind;
-        if (data.temp !== undefined) document.getElementById("temp").textContent = data.temp.toFixed(2);
-        if (data.humid !== undefined) document.getElementById("humid").textContent = data.humid.toFixed(2);
-        if (data.pressure !== undefined) document.getElementById("pressure").textContent = data.pressure;
-      } catch (e) {
-        console.error("[Error parsing JSON]", e);
-      }
-    };
-
-    function sendAngle() {
-      const angle = document.getElementById("angle-input").value;
-      if (angle === "" || isNaN(angle) || angle < 0 || angle > 360) {
-        alert("Enter a valid angle between 0 and 360.");
-        return;
-      }
-      const msg = new Paho.MQTT.Message(angle.toString());
-      msg.destinationName = "EGR314/Team309/SUB";
-      client.send(msg);
-      console.log(`[ACTION] Angle ${angle} sent to motor.`);
-      alert(`Angle ${angle}° sent successfully!`);
+      document.getElementById("wind").textContent = wind;
+      document.getElementById("temp").textContent = temp;
+      document.getElementById("humid").textContent = humid;
+      document.getElementById("pressure").textContent = pressure;
     }
+
+    // Initial values and then update every 3 seconds
+    generateRandomData();
+    setInterval(generateRandomData, 3000);
   </script>
 </body>
 </html>
