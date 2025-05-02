@@ -10,6 +10,17 @@
       text-align: center;
       margin-top: 40px;
     }
+    .highlight {
+      animation: flash 0.8s ease;
+    }
+    @keyframes flash {
+      0% { background-color: #e3f2fd; color: #0d47a1; }
+      100% { background-color: transparent; color: black; }
+    }
+    span {
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 <body>
@@ -23,21 +34,28 @@
   </div>
 
   <script>
-    function generateRandomData() {
-      const wind = (Math.random() * 20).toFixed(2);
-      const temp = (20 + Math.random() * 15).toFixed(2);
-      const humid = (30 + Math.random() * 40).toFixed(2);
-      const pressure = (950 + Math.random() * 50).toFixed(1);
-
-      document.getElementById("wind").textContent = wind;
-      document.getElementById("temp").textContent = temp;
-      document.getElementById("humid").textContent = humid;
-      document.getElementById("pressure").textContent = pressure;
+    function getRandomInRange(min, max, decimals) {
+      const factor = Math.pow(10, decimals);
+      return (Math.random() * (max - min) + min).toFixed(decimals);
     }
 
-    // Initial values and then update every 3 seconds
+    function updateValue(id, newValue) {
+      const el = document.getElementById(id);
+      el.textContent = newValue;
+      el.classList.remove("highlight");
+      void el.offsetWidth;  // Trigger reflow for animation restart
+      el.classList.add("highlight");
+    }
+
+    function generateRandomData() {
+      updateValue("wind", getRandomInRange(0.0, 0.5, 2));
+      updateValue("temp", getRandomInRange(23.1, 23.8, 2));
+      updateValue("humid", getRandomInRange(14.5, 15.5, 2));
+      updateValue("pressure", getRandomInRange(1004.5, 1005.5, 1));
+    }
+
     generateRandomData();
-    setInterval(generateRandomData, 3000);
+    setInterval(generateRandomData, 5000);
   </script>
 </body>
 </html>
