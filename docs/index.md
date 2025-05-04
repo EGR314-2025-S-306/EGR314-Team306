@@ -8,6 +8,9 @@ tags:
 **place logo here**
 # MacroChip STEM Weather Station – Team 306
 
+## [🌤️ Live Weather Dashboard - Click Here!](weather_dashboard.html)
+
+
 #### Navigation
 
 - [Team Charter](./report.md)  
@@ -18,8 +21,6 @@ tags:
 - [Resources](./resources.md)
 - [Innovation Showcase Poster](./showcase-poster.md)
 
-
-## [🌤️ Live Weather Dashboard - Click Here!](weather_dashboard.html)
 
 ## Home
 
