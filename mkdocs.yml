@@ -63,7 +63,7 @@ nav:
   - Home: index.md
   - Team Charter: report.md
   - Ideation & Design Generation: ideation.md
-  - Block Diagram, Process Diagram, & Message Structure: block.md
+  - Block Diagram & Process Diagram: block.md
   - Appendix: appendix.md
   - Showcase Poster: showcase-poster.md
   - Resources: resources.md

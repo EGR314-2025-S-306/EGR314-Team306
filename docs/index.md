@@ -18,8 +18,9 @@ tags:
 - [Block & Process Diagrams](./block.md)  
 - [API - Message Structure](./message-structure.md)
 - [Reflection & Version 2.0](./reflection-version20.md)
-- [Resources](./resources.md)
 - [Innovation Showcase Poster](./showcase-poster.md)
+- [Appendix](./appendix.md)
+- [Resources](./resources.md)
 
 
 ## Home
