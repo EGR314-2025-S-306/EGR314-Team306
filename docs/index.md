@@ -18,6 +18,13 @@ By combining sensor technology, interactive controls, and cloud connectivity, th
 
 **Final Project Image to be inserted here**
 
+#### Navigation
+
+[Team Charter](./report.md)  
+[Ideation & Concept Generation](./ideation.md)  
+[Block & Process Diagrams](./block.md)  
+[Appendix](./appendix.md)
+
 ## Team Members and Roles:
 
 [Aarshon George](https://aarshon.github.io/) – HMI Interface Lead – Developed the user interface (keypad and OLED display) and integrated system controls.
@@ -29,12 +36,6 @@ By combining sensor technology, interactive controls, and cloud connectivity, th
 [Kushagra Dashora](https://kdashora.github.io/kushagrad.github.io/) – Internet Communication Specialist – Established Wi-Fi/MQTT connectivity and web dashboard integration.
 
 
-#### Navigation
-
-[Team Charter](./report.md)  
-[Ideation & Concept Generation](./ideation.md)  
-[Block & Process Diagrams](./block.md)  
-[Appendix](./appendix.md)
 
 ## Team Organization & Charter
 
