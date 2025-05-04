@@ -15,3 +15,12 @@ The complete source code for each microcontroller is available for download. Thi
 
 #### 3. Demo Video:
 We have included a short video clip demonstrating the weather station in action. In the video, a user cycles through different data views on the HMI screen, and the solar panel automatically adjusts as a flashlight is moved around it (simulating the sun). This video is meant to provide a quick overview for those who couldn’t see the project in person. It’s linked via YouTube for easy streaming. 
+
+** attach all of them here with labels **
+
+#### Project Report and Diagrams:
+In addition to the content on this site, we offer a compiled PDF report containing our entire documentation (proposal, design report, and final paper). All important diagrams – such as the system block diagram, process flow (sequence diagram), and message structure table – are included in the report. This is useful for educators or students who want to study the project offline. We also include our team’s presentation slides used in our final presentation, which concisely summarize the project’s results and lessons. 
+
+
+
+***By making these resources available, we hope to encourage further learning and possibly inspire future projects. Whether it’s reusing our code for an IoT dashboard or examining our circuit for the solar tracker, these files are there to help others build upon what we learned.***
