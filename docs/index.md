@@ -5,7 +5,7 @@ tags:
 - tag2
 ---
 
-**place logo somewhere**
+**place logo here**
 # MacroChip STEM Weather Station – Team 306
 
 #### Navigation
