@@ -8,6 +8,16 @@ tags:
 **place logo somewhere**
 # MacroChip STEM Weather Station – Team 306
 
+#### Navigation
+
+- [Team Charter](./report.md)  
+- [Ideation & Concept Generation](./ideation.md)  
+- [Block & Process Diagrams](./block.md)  
+- [API - Message Structure](./message-structure.md)
+- [Reflection & Version 2.0](./reflection-version20.md)
+- [Resources](./resources.md)
+
+
 ## [🌤️ Live Weather Dashboard - Click Here!](weather_dashboard.html)
 
 ## Home
@@ -16,14 +26,9 @@ tags:
 > The MacroChip team’s Smart STEM Weather Station is an interactive, web-enabled weather monitoring system designed to engage K-12 students in hands-on learning. This exhibit collects real-time environmental data (such as temperature, humidity, wind speed, and air pressure) and displays it on an intuitive Human-Machine Interface (HMI). A solar panel on the station actively tracks sunlight to demonstrate renewable energy principles, while an onboard Wi-Fi module publishes the weather data to an online dashboard for remote viewing. The device emphasizes accessibility, modular design, and educational value, allowing visitors to navigate through different weather metrics using a simple keypad and to see live data both on the local display and via the internet
 By combining sensor technology, interactive controls, and cloud connectivity, the MacroChip Weather Station transforms abstract environmental science concepts into tangible, engaging experiences for learners of all ages.
 
+
 **Final Project Image to be inserted here**
 
-#### Navigation
-
-[Team Charter](./report.md)  
-[Ideation & Concept Generation](./ideation.md)  
-[Block & Process Diagrams](./block.md)  
-[Appendix](./appendix.md)
 
 ## Team Members and Roles:
 
