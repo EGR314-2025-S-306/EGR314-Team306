@@ -15,8 +15,12 @@ The exhibit is designed to appeal to a wide range of visitors, including those o
 
 ### Ideation
 
-We met together to discuss possible ideas and design criteria. Every idea was accepted to broaden our options. Each idea was given its own note and was place on the below board.
+We met together to discuss possible ideas and design criteria. Every idea was accepted to broaden our options. Each idea was given its own note and was place on the below board. Design Brainstorming: At the project’s outset, the team engaged in extensive brainstorming to generate a wide range of exhibit ideas and features. All ideas were recorded on notes and grouped by themes such as potential exhibit concepts, critical features, and “nice-to-have” additions
+
 ![Stage 1: Ideation](./assets/images/ideation.png)
+
+We considered various STEM demonstration concepts before converging on a weather station with a solar energy component. Key criteria that guided our concept selection were educational value, interactivity, feasibility, and coherence with the STEM theme. By sorting and combining subgroups of ideas, we arrived at the integrated concept of the Smart Weather Station – a hybrid exhibit showcasing both environmental sensing and renewable energy harvesting.This concept merged our strongest ideas: real-time weather data display, a solar panel that reacts to environmental conditions, and internet connectivity for broader engagement.
+
 
 ### Sorting & Grouping Ideas
 
@@ -37,6 +41,20 @@ The Smart STEM Weather Station is designed to captivate and educate museum visit
 The functionality of the weather station is divided among four team members, each contributing to an individual subsystem. One teammate will handle internet-based two-way communication using the ESP32 microcontroller, enabling data retrieval and updates from an API that stores local weather data. Another will design the human-machine interface (HMI), developing the interactive LCD display and control buttons for navigating the data and controlling the system. The third teammate will focus on the sensor subsystem, integrating temperature, humidity, ultraviolet, air pressure, air quality, and wind speed sensors to collect real-time environmental data for the purposes of demonstration. The fourth member will manage the actuator-based response, implementing a solar array that tracks sunlight using the acquired weather data.
 
 To ensure ease of use, the weather station uses visual cues, such as LED status indicators, and a simplified graphical interface on a 16x2 LCD screen. Guided by the "Suggested Guidelines for Designing Interactive Exhibits," the controls are ergonomically designed with large, easy-to-use buttons and an interface that avoids complexity. Durability, safety, and comfort are central to the design—each subsystem is weatherproofed, with sturdy enclosures to withstand environmental challenges like rain, wind, and mild debris. Safety features include automatic shutoff and several fuses to prevent overheating and protect against power surges.
+
+## Final Concept Selection:
+
+**Final Concept :** The chosen concept emphasizes an **interactive weather station** that not only measures weather parameters but also dynamically responds (via the solar panel tracker). We selected this design because it met multiple goals: it engages users with live data, includes a visually interesting movement (the panel tracking the “sun”), and teaches multiple STEM topics in one exhibit. The final decision was reached by consensus after evaluating which idea best satisfied our mission statement and the project requirements. We found that the weather station concept could incorporate most of the team’s ideas (sensors, displays, moving parts, connectivity) in a cohesive way, rather than building separate exhibits for each idea.
+
+Evolution from Initial Ideas: There were a few deviations between our early concept and the final implementation. Initially, the concept description imagined features like an LCD screen with big buttons, LED indicators, and possibly additional sensors (e.g., ultraviolet index, air quality) for comprehensive coverage.
+
+In practice, we refined the scope to ensure reliability and clarity. For example, we replaced the simple 16×2 text LCD with a higher-resolution 128×64 OLED display for a more versatile and engaging interface (allowing graphics and better readability)
+
+Some envisioned sensors (such as UV and air quality) were not included in the final build due to time and budget constraints; instead we focused on core sensors (temperature, humidity, pressure, wind) that provide plenty of learning opportunities.
+
+The idea of retrieving local weather data from an online API for comparison was discussed early on, but the final design prioritized live data from our own sensors to keep the experience authentic and self-contained. Additionally, our approach to solar tracking shifted from possibly using external data or complex logic to a simpler, robust method: two photoresistors and a hardware comparator now determine the sun’s direction, which directly drives the panel alignment mechanism. 
+
+These adjustments ensured that the final implementation remained achievable and dependable while still fulfilling the spirit of our original concept. In summary, the ideation process yielded a strong concept which we honed to balance ambition with practicality, resulting in a successful final design.
 
 ## Concept Presentation
 
