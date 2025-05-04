@@ -16,6 +16,7 @@ tags:
 - [API - Message Structure](./message-structure.md)
 - [Reflection & Version 2.0](./reflection-version20.md)
 - [Resources](./resources.md)
+- [Innovation Showcase Poster](./showcase-poster.md)
 
 
 ## [🌤️ Live Weather Dashboard - Click Here!](weather_dashboard.html)
