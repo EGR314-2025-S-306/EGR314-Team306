@@ -477,18 +477,44 @@
     Block Diagram
   </a>
   
+    <nav class="md-nav" aria-label="Block Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daisy-chain-header-pin-assignment" class="md-nav__link">
+    Daisy Chain Header Pin Assignment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-block-diagram" class="md-nav__link">
+    Overview of Block Diagram
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of Block Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-5-software-design-changes" class="md-nav__link">
+    Top 5 Software Design Changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#process-diagram" class="md-nav__link">
     Process Diagram
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#message-structure" class="md-nav__link">
-    Message Structure
   </a>
   
 </li>
@@ -587,18 +613,44 @@
     Block Diagram
   </a>
   
+    <nav class="md-nav" aria-label="Block Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#daisy-chain-header-pin-assignment" class="md-nav__link">
+    Daisy Chain Header Pin Assignment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-of-block-diagram" class="md-nav__link">
+    Overview of Block Diagram
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview of Block Diagram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#top-5-software-design-changes" class="md-nav__link">
+    Top 5 Software Design Changes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#process-diagram" class="md-nav__link">
     Process Diagram
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#message-structure" class="md-nav__link">
-    Message Structure
   </a>
   
 </li>
@@ -631,8 +683,11 @@
 <h2 id="block-diagram">Block Diagram</h2>
 <p>The station is comprised of four subsystems which are each assigned to a group member. These subsystems are connected through a UART daisy chain that functions as a continuous loop for messages. This daisy chain is also used to transfer power, ground, and other signals between neighboring subsystems.</p>
 <p><a class="glightbox" href="../assets/images/block.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="block diagram" src="../assets/images/block.png" /></a></p>
-<p>Daisy Chain Header Pin Assignment<br />
-<a class="glightbox" href="../assets/images/uart.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="UART header" src="../assets/images/uart.png" /></a></p>
+<p>The MacroChip Weather Station is organized into four interconnected subsystems, each handled by a different team member: the HMI Module, Sensor Suite, Solar Actuator, and Internet Communication module. These subsystems are linked in a daisy-chain bus topology.</p>
+<p>Physically, each custom PCB has an upstream and downstream 8-pin header that passes power and communication signals to the next board in line.</p>
+<p>The chain is powered from a single external supply (9V DC input), which is regulated on each board to the required voltage (5V or 3.3V depending on components). This simplifies wiring – we can power all modules from one source – and ensures that every board can easily connect in series during demonstrations.</p>
+<h4 id="daisy-chain-header-pin-assignment">Daisy Chain Header Pin Assignment</h4>
+<p><a class="glightbox" href="../assets/images/uart.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="UART header" src="../assets/images/uart.png" /></a></p>
 <ol>
 <li>External Power (+9-12V)</li>
 <li>UART Transmit Line (TX/RX)</li>
@@ -643,9 +698,39 @@
 <li>Subsystem Specific/No Connection</li>
 <li>External Ground</li>
 </ol>
+<h3 id="overview-of-block-diagram">Overview of Block Diagram</h3>
+<p>In the final block diagram, power from a barrel jack adapter flows into each board’s regulator circuit (for example, a switching buck regulator on the HMI and Wi-Fi boards for 3.3V, and dual regulators on the Actuator board for 5V and 3.3V). The HMI Interface (Aarshon’s subsystem) features an ESP32-S3 microcontroller that reads a 4×4 matrix keypad for user input and drives a 0.96″ OLED display for output.</p>
+<p>The Sensor Suite (Ian’s subsystem) uses a PIC18F27Q10 8-bit microcontroller to interface with multiple environment sensors via I²C: a humidity/temperature sensor, a barometric pressure sensor, and a wind speed sensor (hall-effect based anemometer)</p>
+<p>The sensor board also includes two analog light sensors (photoresistors) whose signals feed into a comparator; this comparator outputs a single digital signal indicating which direction the solar panel should turn to face the brighter light</p>
+<p>The Actuator Subsystem (Alex’s module) is built around a PIC18F47Q10 microcontroller, chosen for its ample I/O and familiarity, which controls two types of motors for the solar panel: a stepper motor for panning the panel and a DC motor for any additional motion (e.g. tilting or a demo wind turbine). The stepper motor is driven through a ULN2003 driver array, and the DC motor uses an Infineon IFX9201 SG driver over an SPI interface.</p>
+<p>Finally, the Internet Communication Subsystem (Kushagra’s board) uses an ESP32-S3-WROOM module as well, focused on Wi-Fi connectivity. It receives data from the chain and publishes sensor readings to an MQTT server (updating a GitHub-hosted web dashboard), and can also inject commands from the web back into the chain.</p>
+<h4 id="top-5-software-design-changes">Top 5 Software Design Changes</h4>
+<p>Throughout development, the team encountered several necessary pivots and improvements to the software architecture. Below is a numbered list of the five most significant changes to our software design compared to the initial project proposal, along with explanations and supporting details:</p>
+<ul>
+<li>
+<p><strong>Adoption of a Unified ESP32 Platform for HMI:</strong> In the proposal, the HMI subsystem was planned around a PIC18 microcontroller with a simple text LCD. We discovered early on that using an ESP32-S3 microcontroller for the HMI would vastly improve performance and flexibility. This change meant rewriting HMI firmware (originally envisioned in C for PIC) to the ESP32 environment (MicroPython for rapid UI development) and leveraging the ESP32’s built-in libraries for driving the display.  It also standardized two of our subsystems (HMI and Wi-Fi) on the same MCU family, which helped with cross-programming and debugging. This change was reflected in our UML diagrams by introducing new classes for OLED graphics handling and removing PIC-specific MCC-generated code modules.</p>
+</li>
+<li>
+<p><strong>Overhaul of the Inter-Subsystem Communication Protocol:</strong> Our initial design treated the serial chain more like a daisy-chained point-to-point link without a formal protocol (e.g., we thought of simply passing raw sensor values around in a fixed order). As the project evolved, we realized this would not scale or handle errors well. We therefore designed the comprehensive message protocol described above, introducing structured packets with IDs, types, and start/stop bytes. This was a major software design change – essentially implementing a mini networking stack for our system. In software, this meant developing a parser state machine on each microcontroller to assemble bytes into messages and a message handler to act on them based on type and target. In summary, moving from an complicated communication approach to a formal UART messaging API was a foundational software improvement that impacted every subsystem’s code (each got a message parser/formatter module).</p>
+</li>
+<li>
+<p><strong>Simplification of Sensor Data Handling and Reduction of Scope:</strong> Initially, our software design for the sensor suite aimed to accommodate a larger variety of sensors (UV index, air quality) and possibly perform local data logging. We planned for more complex data calibration routines and even retrieval of reference data from the internet (to compare our readings with real forecasts). Midway, we decided to trim the sensor scope to four main sensors and offload any advanced analysis to the cloud if needed. This resulted in a leaner embedded software design: the Sensor MCU’s code was simplified to just read the I²C sensors we have and format the data for broadcasting.
+Relevant message data is differentiated by utilizing the recipient ID and message type bytes. Certain message types are relevant to all subsystems. Messages that don't pertain to the subsystem are passed along down the chain. We removed tentative code for the UV and air quality sensors (which were never added to hardware) and dropped the feature where the Wi-Fi module would fetch external weather API data. 
+This focus helped ensure we delivered a working set of features on time and made the system more robust (each sensor routine was thoroughly tested and tuned, rather than having many partially implemented ones).</p>
+</li>
+<li>
+<p><strong>Integration of Analog Sun-Tracking with Digital Control Loop:</strong> Our initial concept for solar panel control was to use computed sun position or rely solely on the web input to adjust the panel, possibly with a pre-programmed schedule. During development, we pivoted to a more direct feedback mechanism using the photoresistor comparator on the sensor board to continuously guide the panel. This introduced a hybrid control approach: a hardware-driven signal combined with software logic.
+ The result of this change is a more robust solar tracking that combines fast hardware response with coordinated software commands. It did complicate the actuator’s state machine (added a state for “auto-tracking mode” vs “manual mode”), which we reflected in a revised statechart UML diagram for the Actuator subsystem. This adjustment was a response to real-world testing feedback and made our system demonstration more impressive.</p>
+</li>
+<li>
+<p><strong>Enhanced Error Handling and User Feedback Mechanisms:</strong> The original software plan did not emphasize error reporting; we assumed each subsystem would mostly operate independently and errors could be handled ad-hoc. As we integrated, we recognized the need for a unified error/status framework so that, for example, a sensor failure could be communicated to the user and logged.
+We thus introduced subsystem status codes and error messages into the protocol and developed a corresponding software feature in each module. Concretely, this meant each microcontroller now has an error check routine and can send a standardized message if something is wrong (for instance, sensor MCU checks if sensor read fails or goes out of range, actuator MCU checks if motor current draw is too high, etc.).
+On the HMI side, software was added to listen for any incoming error codes/messages and display them clearly (overriding the normal screen with an alert until acknowledged). It was a significant enhancement to the software that wasn’t in the proposal but became essential after observing the system in action.</p>
+</li>
+</ul>
+<p>Each of these changes was documented and supported by UML diagrams or flowcharts to ensure the team had a shared understanding of the updates. The end result was a more robust, maintainable software design that could meet the project’s evolving requirements and real-world testing conditions.</p>
 <h2 id="process-diagram">Process Diagram</h2>
-<p>All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.<br />
-Relevant message data is differentiated by utilizing the recipient ID and message type bytes. Certain message types are relevant to all subsystems. Messages that don't pertain to the subsystem are passed along down the chain.</p>
+<p>All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.  </p>
 <pre class="mermaid"><code>sequenceDiagram
     actor u as User
     participant a as Aarshon
@@ -679,296 +764,6 @@ Relevant message data is differentiated by utilizing the recipient ID and messag
         a-&gt;&gt;i: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
         i-&gt;&gt;i: trash msg
     end</code></pre>
-<h2 id="message-structure">Message Structure</h2>
-<p>All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same message structure which uses up to 64 bytes. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.<br />
-If any of the 4 prefix bytes are corrupted, the message is rejected. Messages are terminated after 64 bytes to stop an open loop upon failure to receive either of the two stop bytes.</p>
-<table>
-<thead>
-<tr>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4 - 61</th>
-<th>62</th>
-<th>63</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0x41</code></td>
-<td><code>0x5A</code></td>
-<td>Send ID</td>
-<td>Receive ID</td>
-<td>Message</td>
-<td><code>0x59</code></td>
-<td><code>0x42</code></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Team Member</th>
-<th>Subsystem ID</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Broadcast</td>
-<td><code>0x58 'X'</code></td>
-</tr>
-<tr>
-<td>Aarshon George</td>
-<td><code>0x61 'a'</code></td>
-</tr>
-<tr>
-<td>Alex Comeaux</td>
-<td><code>0x63 'c'</code></td>
-</tr>
-<tr>
-<td>Ian Anderson</td>
-<td><code>0x69 'i'</code></td>
-</tr>
-<tr>
-<td>Kushagra Dashora</td>
-<td><code>0x6B 'k'</code></td>
-</tr>
-</tbody>
-</table>
-<p>The following defines the various messages and their structures to be sent within the UART message protocol. The first message byte is used to identify the type of message, and the following 57 bytes contain the data.</p>
-<table>
-<thead>
-<tr>
-<th>Message type<br>byte[5]<br>(<code>char</code>)</th>
-<th>Description</th>
-<th>Ian<br>Role: Sensor<br><code>'i'</code></th>
-<th>Alex<br>Role: Actuator<br><code>'c'</code></th>
-<th>KD<br>Role: MQTT Server<br><code>'k'</code></th>
-<th>Aarshon<br>Role: HMI<br><code>'a'</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>print sensor X data Y</td>
-<td>Send</td>
-<td>~</td>
-<td>Receive</td>
-<td>Receive</td>
-</tr>
-<tr>
-<td>2</td>
-<td>move motor X param Y</td>
-<td>~</td>
-<td>Receive</td>
-<td>Send</td>
-<td>Send</td>
-</tr>
-<tr>
-<td>3</td>
-<td>subsystem status code X</td>
-<td>Send</td>
-<td>Send</td>
-<td>Receive</td>
-<td>Send</td>
-</tr>
-<tr>
-<td>4</td>
-<td>subsystem Z error msg</td>
-<td>Send</td>
-<td>Send</td>
-<td>Receive</td>
-<td>Send</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Message Type 1:</strong> Sensor Data Transmission<br />
-Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.</p>
-<table>
-<thead>
-<tr>
-<th>byte 1</th>
-<th>byte 2</th>
-<th>byte 3-4<br>big endian</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0x31</code></td>
-<td>X(<code>uint8_t</code>)</td>
-<td>Y(<code>uint16_t</code>)</td>
-</tr>
-<tr>
-<td>~</td>
-<td>sensor number</td>
-<td>data value</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Number Code</th>
-<th>Sensor</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>'1' <code>0x01</code></td>
-<td>wind speed</td>
-</tr>
-<tr>
-<td>'2' <code>0x02</code></td>
-<td>temperature</td>
-</tr>
-<tr>
-<td>'3' <code>0x03</code></td>
-<td>humidity</td>
-</tr>
-<tr>
-<td>'4' <code>0x04</code></td>
-<td>atm pressure</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Sender</th>
-<th>Destination</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ian <code>'i'</code></td>
-<td>broadcast <code>'X'</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Message Type 2:</strong> Shift Motor<br />
-Message type for sending a command to rotate base stepper "Y" degrees.</p>
-<table>
-<thead>
-<tr>
-<th>byte 1</th>
-<th>byte 2</th>
-<th>byte 3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0x32</code></td>
-<td>X(<code>uint8_t</code>)</td>
-<td>Y(<code>uint8_t</code>)</td>
-</tr>
-<tr>
-<td>~</td>
-<td>direction<br>0x01 = clockwise<br>0x02 = counterclockwise</td>
-<td>degree shift</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Senders</th>
-<th>Destination</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Aarshon <code>'a'</code><br>Kushagra <code>'k'</code></td>
-<td>Alex <code>'c'</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Message Type 3:</strong> Subsystem Status Code<br />
-Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.</p>
-<table>
-<thead>
-<tr>
-<th>byte 1</th>
-<th>byte 2</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0x33</code></td>
-<td>X(<code>uint8_t</code>)</td>
-</tr>
-<tr>
-<td>~</td>
-<td>error code</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>code number</th>
-<th>meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>'1' <code>0x01</code></td>
-<td>full funtionality</td>
-</tr>
-<tr>
-<td>'2' <code>0x02</code></td>
-<td>partial funtionality</td>
-</tr>
-<tr>
-<td>'3' <code>0x03</code></td>
-<td>no funtionality</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Senders</th>
-<th>Destination</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alex <code>'c'</code><br>Ian <code>'i'</code><br>Kushagra <code>'k'</code></td>
-<td>Aarshon <code>'a'</code></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Message Type 4:</strong> Subsystem Error Message<br />
-Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.</p>
-<table>
-<thead>
-<tr>
-<th>byte 1</th>
-<th>byte 2-58</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0x34</code></td>
-<td>Error Message char(<code>uint8_t</code>)</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th>Senders</th>
-<th>Destination</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alex <code>'c'</code><br>Ian <code>'i'</code><br>Kushagra <code>'k'</code></td>
-<td>Aarshon <code>'a'</code></td>
-</tr>
-</tbody>
-</table>
 
 
 
