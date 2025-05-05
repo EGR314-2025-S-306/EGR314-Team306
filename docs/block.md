@@ -18,15 +18,17 @@ The chain is powered from a single external supply (9V DC input), which is regul
 ![UART header](./assets/images/uart.png)
 
 1. External Power (+9-12V)
-2. UART Transmit Line (TX/RX)
-3. UART Ready to Send (inactive)
-4. UART Clear to Send (inactive)
-5. Subsystem Specific/No Connection
-6. Subsystem Specific/No Connection
-7. Subsystem Specific/No Connection
-8. External Ground
+1. UART Transmit Line (TX/RX)
+1. UART Ready to Send (inactive)
+1. UART Clear to Send (inactive)
+1. Subsystem Specific/No Connection
+1. Subsystem Specific/No Connection
+1. Subsystem Specific/No Connection
+1. External Ground
 
 ### Overview of Block Diagram
+
+Our team's required messages were determined at first by the information that immediately needed to be sent such as sensor data and motor positioning. We then moved on to adding troubleshooting functionality into the project to allow the user to easily access the diagnostics of the system. This messaging system allows for efficient and consistent communication between individual subsystems; allowing each subsystem to be self-sufficient while ensuring seamless connected functionality.
 
 In the final block diagram, power from a barrel jack adapter flows into each board’s regulator circuit (for example, a switching buck regulator on the HMI and Wi-Fi boards for 3.3V, and dual regulators on the Actuator board for 5V and 3.3V). The HMI Interface (Aarshon’s subsystem) features an ESP32-S3 microcontroller that reads a 4×4 matrix keypad for user input and drives a 0.96″ OLED display for output.
 
@@ -40,7 +42,7 @@ Finally, the Internet Communication Subsystem (Kushagra’s board) uses an ESP32
 
 ## Process Diagram
 
-All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.  
+All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops. This diagram was used to determine our team's subsystem order while providing clear examples of each of the message types.
 
 ``` mermaid
 sequenceDiagram
@@ -73,10 +75,10 @@ sequenceDiagram
     c->>c: Rotate Base 90° CW<br>trash msg
     
     loop Every 30 Seconds<br>Error Code/Message Broadcast
-        i->>c: System to Everyone<br>Subsystem Status Code 2 (partial malfunction)
-        c->>k: System to Everyone<br>Subsystem Status Code 2 (partial malfunction)
+        i->>c: System to Everyone<br>Subsystem Status Code 2<br>(partial malfunction)
+        c->>k: System to Everyone<br>Subsystem Status Code 2<br>(partial malfunction)
         k-->>w: Display Status Code
-        k->>a: System to Everyone<br>Subsystem Status Code 2 (partial malfunction)
+        k->>a: System to Everyone<br>Subsystem Status Code 2<br>(partial malfunction)
         a-->>u: Display Status Code
         a->>a: trash msg
     end
