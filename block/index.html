@@ -498,13 +498,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#daisy-chain-header-pin-assignment" class="md-nav__link">
-    Daisy Chain Header Pin Assignment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#overview-of-block-diagram" class="md-nav__link">
     Overview of Block Diagram
   </a>
@@ -647,13 +640,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#daisy-chain-header-pin-assignment" class="md-nav__link">
-    Daisy Chain Header Pin Assignment
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#overview-of-block-diagram" class="md-nav__link">
     Overview of Block Diagram
   </a>
@@ -710,8 +696,8 @@
 <p>The MacroChip Weather Station is organized into four interconnected subsystems, each handled by a different team member: the HMI Module, Sensor Suite, Solar Actuator, and Internet Communication module. These subsystems are linked in a daisy-chain bus topology.</p>
 <p>Physically, each custom PCB has an upstream and downstream 8-pin header that passes power and communication signals to the next board in line.</p>
 <p>The chain is powered from a single external supply (9V DC input), which is regulated on each board to the required voltage (5V or 3.3V depending on components). This simplifies wiring – we can power all modules from one source – and ensures that every board can easily connect in series during demonstrations.</p>
-<h4 id="daisy-chain-header-pin-assignment">Daisy Chain Header Pin Assignment</h4>
-<p><a class="glightbox" href="../assets/images/uart.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="UART header" src="../assets/images/uart.png" /></a></p>
+<p><strong>Daisy Chain Header Pin Assignment</strong><br />
+<a class="glightbox" href="../assets/images/uart.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="UART header" src="../assets/images/uart.png" /></a></p>
 <ol>
 <li>External Power (+9-12V)</li>
 <li>UART Transmit Line (TX/RX)</li>
@@ -737,31 +723,35 @@
     participant c as Alex
     participant k as Kushagra
     actor w as Web
-    w--&gt;&gt;k: Alignment frequency
-    k-&gt;&gt;a: Kushagra to Alex&lt;br&gt;Shift motor 90 deg counterclockwise
-    a-&gt;&gt;i: Kushagra to Alex&lt;br&gt;Shift motor 90 deg counterclockwise
-    i-&gt;&gt;c: Kushagra to Alex&lt;br&gt;Shift motor 90 deg counterclockwise
-    c-&gt;&gt;c: Rotate base 90 degrees ccw&lt;br&gt;trash msg
-    u--&gt;&gt;a: Shift base rotation
-    a-&gt;&gt;i: Aarshon to Alex&lt;br&gt;Shift motor 10 deg clockwise
-    i-&gt;&gt;c: Aarshon to Alex&lt;br&gt;Shift motor 10 deg clockwise
-    c-&gt;&gt;c: Rotate base 10 degrees cw&lt;br&gt;trash msg
-    loop every second
+
+    loop Every 5 Seconds]&lt;br&gt;[Sensor Broadcast
+        i-&gt;&gt;c: Ian to Everyone&lt;br&gt;Wind Speed is 4.73 mph
+        c-&gt;&gt;k: Ian to Everyone&lt;br&gt;Wind Speed is 4.73 mph
+        k--&gt;&gt;w: Display Wind Speed
+        k-&gt;&gt;a: Ian to Everyone&lt;br&gt;Wind Speed is 4.73 mph
+        a--&gt;&gt;u: Display Wind Speed
+        a-&gt;&gt;i: Ian to Everyone&lt;br&gt;Wind Speed is 4.73 mph
+        i-&gt;&gt;i: trash msg
+    end
+    loop Every Second
         i-&gt;&gt;c: Ian to Alex&lt;br&gt;Solar panel alignment
         c-&gt;&gt;c: Moves solar panel&lt;br&gt;trash msg
     end
-    c-&gt;&gt;k: Alex to Aarshon&lt;br&gt;Subsystem malfunction
-    k-&gt;&gt;a: Alex to Aarshon&lt;br&gt;Subsystem malfunction
-    a--&gt;&gt;u: Display error
-    a-&gt;&gt;a: trash msg
-    loop every 5 seconds]&lt;br&gt;[sensor broadcast
-        i-&gt;&gt;c: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
-        c-&gt;&gt;k: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
-        k--&gt;&gt;w: Wind Speed is 10 mph
-        k-&gt;&gt;a: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
-        a--&gt;&gt;u: Display data
-        a-&gt;&gt;i: Ian to Everyone&lt;br&gt;Wind Speed is 10 mph
-        i-&gt;&gt;i: trash msg
+
+    w--&gt;&gt;k: Rotate Base 90° Clockwise
+    k-&gt;&gt;a: Kushagra to Alex&lt;br&gt;Rotate Motor 90° Clockwise
+    u--&gt;&gt;a: Rotate Base 90° Clockwise
+    a-&gt;&gt;i: Kushagra/Aarshon to Alex&lt;br&gt;Rotate Motor 90° Clockwise
+    i-&gt;&gt;c: Kushagra/Aarshon to Alex&lt;br&gt;Rotate Motor 90° Clockwise
+    c-&gt;&gt;c: Rotate Base 90° CW&lt;br&gt;trash msg
+
+    loop Every 30 Seconds&lt;br&gt;Error Code/Message Broadcast
+        i-&gt;&gt;c: System to Everyone&lt;br&gt;Subsystem Status Code 2 (partial malfunction)
+        c-&gt;&gt;k: System to Everyone&lt;br&gt;Subsystem Status Code 2 (partial malfunction)
+        k--&gt;&gt;w: Display Status Code
+        k-&gt;&gt;a: System to Everyone&lt;br&gt;Subsystem Status Code 2 (partial malfunction)
+        a--&gt;&gt;u: Display Status Code
+        a-&gt;&gt;a: trash msg
     end</code></pre>
 <h2 id="top-5-software-design-changes">Top 5 Software Design Changes</h2>
 <p>Throughout development, the team encountered several necessary pivots and improvements to the software architecture. Below is a numbered list of the five most significant changes to our software design compared to the initial project proposal, along with explanations and supporting details:</p>
