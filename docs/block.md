@@ -14,7 +14,7 @@ Physically, each custom PCB has an upstream and downstream 8-pin header that pas
 
 The chain is powered from a single external supply (9V DC input), which is regulated on each board to the required voltage (5V or 3.3V depending on components). This simplifies wiring – we can power all modules from one source – and ensures that every board can easily connect in series during demonstrations.
 
-#### Daisy Chain Header Pin Assignment  
+**Daisy Chain Header Pin Assignment**  
 ![UART header](./assets/images/uart.png)
 
 1. External Power (+9-12V)
@@ -50,31 +50,35 @@ sequenceDiagram
     participant c as Alex
     participant k as Kushagra
     actor w as Web
-    w-->>k: Alignment frequency
-    k->>a: Kushagra to Alex<br>Shift motor 90 deg counterclockwise
-    a->>i: Kushagra to Alex<br>Shift motor 90 deg counterclockwise
-    i->>c: Kushagra to Alex<br>Shift motor 90 deg counterclockwise
-    c->>c: Rotate base 90 degrees ccw<br>trash msg
-    u-->>a: Shift base rotation
-    a->>i: Aarshon to Alex<br>Shift motor 10 deg clockwise
-    i->>c: Aarshon to Alex<br>Shift motor 10 deg clockwise
-    c->>c: Rotate base 10 degrees cw<br>trash msg
-    loop every second
+
+    loop Every 5 Seconds]<br>[Sensor Broadcast
+        i->>c: Ian to Everyone<br>Wind Speed is 4.73 mph
+        c->>k: Ian to Everyone<br>Wind Speed is 4.73 mph
+        k-->>w: Display Wind Speed
+        k->>a: Ian to Everyone<br>Wind Speed is 4.73 mph
+        a-->>u: Display Wind Speed
+        a->>i: Ian to Everyone<br>Wind Speed is 4.73 mph
+        i->>i: trash msg
+    end
+    loop Every Second
         i->>c: Ian to Alex<br>Solar panel alignment
         c->>c: Moves solar panel<br>trash msg
     end
-    c->>k: Alex to Aarshon<br>Subsystem malfunction
-    k->>a: Alex to Aarshon<br>Subsystem malfunction
-    a-->>u: Display error
-    a->>a: trash msg
-    loop every 5 seconds]<br>[sensor broadcast
-        i->>c: Ian to Everyone<br>Wind Speed is 10 mph
-        c->>k: Ian to Everyone<br>Wind Speed is 10 mph
-        k-->>w: Wind Speed is 10 mph
-        k->>a: Ian to Everyone<br>Wind Speed is 10 mph
-        a-->>u: Display data
-        a->>i: Ian to Everyone<br>Wind Speed is 10 mph
-        i->>i: trash msg
+
+    w-->>k: Rotate Base 90° Clockwise
+    k->>a: Kushagra to Alex<br>Rotate Motor 90° Clockwise
+    u-->>a: Rotate Base 90° Clockwise
+    a->>i: Kushagra/Aarshon to Alex<br>Rotate Motor 90° Clockwise
+    i->>c: Kushagra/Aarshon to Alex<br>Rotate Motor 90° Clockwise
+    c->>c: Rotate Base 90° CW<br>trash msg
+    
+    loop Every 30 Seconds<br>Error Code/Message Broadcast
+        i->>c: System to Everyone<br>Subsystem Status Code 2 (partial malfunction)
+        c->>k: System to Everyone<br>Subsystem Status Code 2 (partial malfunction)
+        k-->>w: Display Status Code
+        k->>a: System to Everyone<br>Subsystem Status Code 2 (partial malfunction)
+        a-->>u: Display Status Code
+        a->>a: trash msg
     end
 ```
 

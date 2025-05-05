@@ -25,8 +25,8 @@ Message type<br>byte[5]<br>(`char`) | Description | Ian<br>Role: Sensor<br>`'i'`
 ---------|---------------------------|---|---|---|---
 1 | print sensor X data Y            | Send | ~       | Receive | Receive
 2 | move motor X param Y             | ~    | Receive | Send    | Send
-3 | subsystem status code X          | Send | Send    | Receive | Send
-4 | subsystem Z error msg            | Send | Send    | Receive | Send
+3 | subsystem status code X          | Send | Send    | Receive | Send/Receive
+4 | subsystem Z error msg            | Send | Send    | Receive | Send/Receive
 
 **Message Type 1:** Sensor Data Transmission  
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
@@ -93,9 +93,7 @@ Alex `'c'`<br>Ian `'i'`<br>Kushagra `'k'` | Aarshon `'a'`
 **Sender and Receiver IDs:** Each subsystem has a unique ID embedded in the message so that nodes can identify messages. We used both character IDs and matching hex codes for clarity. For example, 'i' (0x69) represents the Sensor (Ian), 'c' (0x63) the Actuator (Alex), 'a' (0x61) the HMI (Aarshon), and 'k' (0x6B) the Wi-Fi/Cloud module (Kushagra). A special ID 'X' (0x58) is reserved for broadcast messages intended for all nodes.
 In each message, the third byte is the sender’s ID and the fourth byte is the intended recipient’s ID (or 'X' if broadcast). This addressing scheme was a design decision to make routing simple – every board can quickly check the Receiver ID byte against itself (or 'X') to know if it should process or forward the message.
 
-***(The message type design was informed by the need to support both binary data and human-readable info. We considered using purely binary codes for everything to save space, but given our 64-byte frame, we had room to include some ASCII for convenience. The compromise was to use numeric/char codes for known small values and plain text for longer messages only when necessary. This has worked well in practice, as it’s easy to tell message purpose at a glance in a debug log.)***
-
 **Data Payload:** Depending on the message type, the data section can range from 0 bytes (for a simple ping or acknowledgment) up to 58 bytes. Most of our messages are short (sensor readings fit in 2 bytes, status codes in 1 byte, small commands in a few bytes).
 We set an upper limit of 64 bytes total for a message frame, which is a reasonable size for our needs and prevents any runaway transmissions from blocking the bus. If a message’s end bytes are not received (due to interference or a reset), the protocol dictates that once 64 bytes total are read, the message is terminated anyway. This failsafe ensures that a missing terminator doesn’t lock the system waiting indefinitely.
 
-**End Bytes:** We use two specific end-of-message bytes (0x59 “Y” and 0x42 “B”) to mark the conclusion of a message frame. Thus every message effectively is wrapped by “AZ” at the start and “YB” at the end. These end bytes were also chosen to be distinct from common data values to reduce the chance of accidental occurrence. When a node sees “YB”, it knows the message is complete and can be processed (if addressed to it) or passed on. If a node doesn’t see “YB” where expected by the length, as mentioned, it will drop the message after 64 bytes to avoid lock-up.
+**End Bytes:** We use two specific end-of-message bytes (0x59 'Y' and 0x42 'B') to mark the conclusion of a message frame. Thus every message effectively is wrapped by “AZ” at the start and “YB” at the end. These end bytes were also chosen to be distinct from common data values to reduce the chance of accidental occurrence. When a node sees “YB”, it knows the message is complete and can be processed (if addressed to it) or passed on. If a node doesn’t see “YB” where expected by the length, as mentioned, it will drop the message after 64 bytes to avoid lock-up.
