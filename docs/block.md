@@ -82,7 +82,7 @@ sequenceDiagram
     end
 ```
 
-## Top 5 Software Design Changes
+## Software Design Changes Moving Forward
 
 Throughout development, the team encountered several necessary pivots and improvements to the software architecture. Below is a numbered list of the five most significant changes to our software design compared to the initial project proposal, along with explanations and supporting details:
 

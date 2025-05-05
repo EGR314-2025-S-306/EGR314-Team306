@@ -7,6 +7,8 @@ title: Message Structure & API
 All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same message structure which uses up to 64 bytes. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.  
 If any of the 4 prefix bytes are corrupted, the message is rejected. Messages are terminated after 64 bytes to stop an open loop upon failure to receive either of the two stop bytes.
 
+### Structure Overview
+
 0    | 1    | 2       | 3          | 4 - 61  | 62   | 63
 -----|------|---------|------------|---------|------|---
 `0x41` | `0x5A` | Send ID | Receive ID | Message | `0x59` | `0x42`
@@ -28,7 +30,8 @@ Message type<br>byte[5]<br>(`char`) | Description | Ian<br>Role: Sensor<br>`'i'`
 3 | subsystem status code X          | Send | Send    | Receive | Send/Receive
 4 | subsystem Z error msg            | Send | Send    | Receive | Send/Receive
 
-**Message Type 1:** Sensor Data Transmission  
+### **Message Type 1:** Sensor Data Transmission
+
 Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.
 
 byte 1 | byte 2        | byte 3-4<br>big endian
@@ -47,7 +50,8 @@ Sender | Destination
 ---|---
 Ian `'i'` | broadcast `'X'`
 
-**Message Type 2:** Shift Motor  
+### **Message Type 2:** Shift Motor
+
 Message type for sending a command to rotate base stepper "Y" degrees.
 
 byte 1 | byte 2       | byte 3
@@ -59,7 +63,8 @@ Senders | Destination
 ---|---
 Aarshon `'a'`<br>Kushagra `'k'` | Alex `'c'`
 
-**Message Type 3:** Subsystem Status Code  
+### **Message Type 3:** Subsystem Status Code
+
 Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.
 
 byte 1 | byte 2
@@ -77,7 +82,8 @@ Senders | Destination
 ---|---
 Alex `'c'`<br>Ian `'i'`<br>Kushagra `'k'` | Aarshon `'a'`
 
-**Message Type 4:** Subsystem Error Message  
+### **Message Type 4:** Subsystem Error Message
+
 Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.
 
 byte 1 | byte 2-58

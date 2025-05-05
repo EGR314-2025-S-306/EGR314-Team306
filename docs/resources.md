@@ -7,6 +7,9 @@ title: Resources
 **Final Assembly**  
 ![project](./assets/images/project_photo.jpg)
 
+**Project Poster**  
+![poster](./assets/images/poster.png)
+
 **Demo Video: Preliminary Presenation**  
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1kG3tjDgoXE?si=4WEde_MOiY4Au47Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
