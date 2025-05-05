@@ -93,7 +93,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#resources" class="md-skip">
+        <a href="#final-project-media" class="md-skip">
           Skip to content
         </a>
       
@@ -511,8 +511,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
@@ -541,8 +539,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -551,37 +547,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-hardware-design-files" class="md-nav__link">
-    1. Hardware Design Files:
+  <a href="#final-project-media" class="md-nav__link">
+    Final Project Media
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-firmware-source-code" class="md-nav__link">
-    2. Firmware Source Code:
+  <a href="#project-files" class="md-nav__link">
+    Project Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-demo-video" class="md-nav__link">
-    3. Demo Video:
+        
+          <li class="md-nav__item">
+  <a href="#ecad" class="md-nav__link">
+    eCAD
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-project-report-and-diagrams" class="md-nav__link">
-    4. Project Report and Diagrams:
+        
+          <li class="md-nav__item">
+  <a href="#mcad" class="md-nav__link">
+    mCAD
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-innovation-showcase-highlights" class="md-nav__link">
-    5. Innovation Showcase Highlights
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -629,8 +631,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -639,37 +639,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-hardware-design-files" class="md-nav__link">
-    1. Hardware Design Files:
+  <a href="#final-project-media" class="md-nav__link">
+    Final Project Media
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-firmware-source-code" class="md-nav__link">
-    2. Firmware Source Code:
+  <a href="#project-files" class="md-nav__link">
+    Project Files
+  </a>
+  
+    <nav class="md-nav" aria-label="Project Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code" class="md-nav__link">
+    Code
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#3-demo-video" class="md-nav__link">
-    3. Demo Video:
+        
+          <li class="md-nav__item">
+  <a href="#ecad" class="md-nav__link">
+    eCAD
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4-project-report-and-diagrams" class="md-nav__link">
-    4. Project Report and Diagrams:
+        
+          <li class="md-nav__item">
+  <a href="#mcad" class="md-nav__link">
+    mCAD
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5-innovation-showcase-highlights" class="md-nav__link">
-    5. Innovation Showcase Highlights
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -696,49 +702,37 @@
   
 
 
-<h1 id="resources">Resources</h1>
-<blockquote>
-<p>The Resources section provides access to the project’s supporting materials and documentation for anyone who wants to delve deeper or replicate aspects of our design. Below is a summary of what is available:</p>
-</blockquote>
-<h4 id="1-hardware-design-files">1. Hardware Design Files:</h4>
-<p>All PCB schematics and layout files (in KiCad format) for each subsystem board are provided. This includes the board for the HMI (keypad + OLED + ESP32), the Sensor suite board (with PIC MCU and sensor breakouts), the Actuator motor driver board (PIC MCU, motor drivers, regulators), and the Wi-Fi board (ESP32 module and regulator). These files allow others to examine our circuit design or even fabricate the boards. We also include 3D CAD models (in STEP format) of the mechanical assembly – showing how the solar panel is mounted and how the enclosures for sensors and electronics were arranged.</p>
-<p><strong>Download Hardware Files:</strong>
-- 🔗 <a href="./subfolder/EGR314_KD_Subsystem.zip">Internet Communication Subsystem PCB &amp; Schematic (Kushagra)</a><br />
-- 🔗 <a href="./subfolder/Ian_Sensor_PCB.zip">Sensor Suite Hardware Files (Ian)</a><br />
-- 🔗 <a href="./subfolder/Aarshon_HMI_PCB.zip">HMI PCB and OLED Mount (Aarshon)</a><br />
-- 🔗 <a href="./subfolder/Alex_Actuator_Board.zip">Actuator Driver Board Design (Alex)</a><br />
-- 🔗 <a href="./subfolder/Team_Assembly_CAD.zip">3D Printed Mechanical Assembly (STEP Models)</a></p>
-<h4 id="2-firmware-source-code">2. Firmware Source Code:</h4>
-<p>The complete source code for each microcontroller is available for download. This includes MPLAB X projects in C for the PIC18F27Q10 and PIC18F47Q10 subsystems, as well as the ESP32 code. The ESP32 code (for both HMI and Wi-Fi units) is written in MicroPython and organized into modules for sensor parsing, MQTT communication, and display updates. We provide a .zip file containing the Wi-Fi subsystem’s ESP32 firmware (for MQTT publishing), and similarly packaged code for the HMI ESP32 and PIC firmware hex files. Instructions are included for how to flash the code onto the respective devices, so that others can reproduce our setup. </p>
-<p><strong>Download Individual Firmware Projects:</strong>
-- 🔗 <a href="./subfolder/KD_Subsystem_Code.zip">Kushagra Dashora – Internet Communication</a><br />
-- 🔗 <a href="./subfolder/Ian_PIC_Sensor_Code.zip">Ian – Sensor Suite</a><br />
-- 🔗 <a href="./subfolder/Aarshon_ESP32_HMI_Code.zip">Aarshon – Human Machine Interface</a><br />
-- 🔗 <a href="./subfolder/Alex_PIC_Control_Code.zip">Alex – Actuator System</a></p>
-<h4 id="3-demo-video">3. Demo Video:</h4>
-<p>We have included a short video clip demonstrating the weather station in action. In the video, a user cycles through different data views on the HMI screen, and the solar panel automatically adjusts as a flashlight is moved around it (simulating the sun). This video is meant to provide a quick overview for those who couldn’t see the project in person. It’s linked via YouTube for easy streaming. </p>
-<p>** attach all of them here with labels **</p>
-<h4 id="4-project-report-and-diagrams">4. Project Report and Diagrams:</h4>
-<p>In addition to the content on this site, we offer a compiled PDF report containing our entire documentation (proposal, design report, and final paper). All important diagrams – such as the system block diagram, process flow (sequence diagram), and message structure table – are included in the report. This is useful for educators or students who want to study the project offline. We also include our team’s presentation slides used in our final presentation, which concisely summarize the project’s results and lessons. </p>
-<p>** attach all of them here with labels **</p>
-<h4 id="5-innovation-showcase-highlights">5. Innovation Showcase Highlights</h4>
-<p>To celebrate the end of our semester-long work, here are some photos from the Innovation Showcase event, where we demoed our live system to industry professionals, faculty, and fellow students.</p>
-<table>
-<thead>
-<tr>
-<th>Working Subsystem</th>
-<th>Team at Showcase</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a class="glightbox" href="./subfolder/Subsystem_Demo_Photo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Subsystem Demo" src="./subfolder/Subsystem_Demo_Photo.jpg" /></a></td>
-<td><a class="glightbox" href="./subfolder/Showcase_Team_Photo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Team Photo" src="./subfolder/Showcase_Team_Photo.jpg" /></a></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<p><strong><em>By making these resources available, we hope to encourage further learning and possibly inspire future projects. Whether it’s reusing our code for an IoT dashboard or examining our circuit for the solar tracker, these files are there to help others build upon what we learned.</em></strong></p>
+  <h1>Resources</h1>
+
+<h2 id="final-project-media">Final Project Media</h2>
+<p><strong>Final Assembly</strong><br />
+<a class="glightbox" href="../assets/images/project_photo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="project" src="../assets/images/project_photo.jpg" /></a></p>
+<p><strong>Demo Video: Preliminary Presenation</strong>  </p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1kG3tjDgoXE?si=4WEde_MOiY4Au47Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<p><strong>Team Photo</strong><br />
+<a class="glightbox" href="../assets/images/Showcase_Team_Photo.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="team" src="../assets/images/Showcase_Team_Photo.jpg" /></a></p>
+<h2 id="project-files">Project Files</h2>
+<h3 id="code">Code</h3>
+<ul>
+<li><a href="../assets/code/Ian_Anderson_Sensor_Suite_code.zip">Sensor Subsystem</a></li>
+<li><a href="">Actuator Subsystem</a></li>
+<li><a href="../assets/code/KD_Subsystem_Code.zip">MQTT Subsystem</a></li>
+<li><a href="../assets/code/HMI-GUI-Python.rar">HMI Subsystem</a></li>
+</ul>
+<h3 id="ecad">eCAD</h3>
+<ul>
+<li><a href="../assets/eCAD/EGR314_Ian_Subsytem.zip">Sensor Subsystem</a></li>
+<li><a href="">Actuator Subsystem</a></li>
+<li><a href="../assets/eCAD/EGR314_KD_Subsystem.zip">MQTT Subsystem</a></li>
+<li><a href="../assets/eCAD/EGR314_Aarshon_IndividualSub-3.0.zip">HMI Subsystem</a></li>
+</ul>
+<h3 id="mcad">mCAD</h3>
+<ul>
+<li><a href="../assets/mCAD/Ian_Anderson_anemometer_mCAD.zip">Sensor Subsystem</a></li>
+<li><a href="">Actuator Subsystem</a></li>
+</ul>
+<p><strong><em>By making these resources available, we hope to encourage further learning and possibly inspire future projects.</em></strong></p>
 
 
 
