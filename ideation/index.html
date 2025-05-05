@@ -540,7 +540,7 @@
       
         <li class="md-nav__item">
   <a href="#final-concept-selection" class="md-nav__link">
-    Final Concept Selection:
+    Final Concept Selection
   </a>
   
 </li>
@@ -749,7 +749,7 @@
       
         <li class="md-nav__item">
   <a href="#final-concept-selection" class="md-nav__link">
-    Final Concept Selection:
+    Final Concept Selection
   </a>
   
 </li>
@@ -806,9 +806,10 @@
 <h3 id="planned-workflow">Planned Workflow</h3>
 <p>The functionality of the weather station is divided among four team members, each contributing to an individual subsystem. One teammate will handle internet-based two-way communication using the ESP32 microcontroller, enabling data retrieval and updates from an API that stores local weather data. Another will design the human-machine interface (HMI), developing the interactive LCD display and control buttons for navigating the data and controlling the system. The third teammate will focus on the sensor subsystem, integrating temperature, humidity, ultraviolet, air pressure, air quality, and wind speed sensors to collect real-time environmental data for the purposes of demonstration. The fourth member will manage the actuator-based response, implementing a solar array that tracks sunlight using the acquired weather data.</p>
 <p>To ensure ease of use, the weather station uses visual cues, such as LED status indicators, and a simplified graphical interface on a 16x2 LCD screen. Guided by the "Suggested Guidelines for Designing Interactive Exhibits," the controls are ergonomically designed with large, easy-to-use buttons and an interface that avoids complexity. Durability, safety, and comfort are central to the design—each subsystem is weatherproofed, with sturdy enclosures to withstand environmental challenges like rain, wind, and mild debris. Safety features include automatic shutoff and several fuses to prevent overheating and protect against power surges.</p>
-<h2 id="final-concept-selection">Final Concept Selection:</h2>
-<p><strong>Final Concept :</strong> The chosen concept emphasizes an <strong>interactive weather station</strong> that not only measures weather parameters but also dynamically responds (via the solar panel tracker). We selected this design because it met multiple goals: it engages users with live data, includes a visually interesting movement (the panel tracking the “sun”), and teaches multiple STEM topics in one exhibit. The final decision was reached by consensus after evaluating which idea best satisfied our mission statement and the project requirements. We found that the weather station concept could incorporate most of the team’s ideas (sensors, displays, moving parts, connectivity) in a cohesive way, rather than building separate exhibits for each idea.</p>
-<p>Evolution from Initial Ideas: There were a few deviations between our early concept and the final implementation. Initially, the concept description imagined features like an LCD screen with big buttons, LED indicators, and possibly additional sensors (e.g., ultraviolet index, air quality) for comprehensive coverage.</p>
+<h2 id="final-concept-selection">Final Concept Selection</h2>
+<p>The chosen concept emphasizes an <strong>interactive weather station</strong> that not only measures weather parameters but also dynamically responds (via the solar panel tracker). We selected this design because it met multiple goals: it engages users with live data, includes a visually interesting movement (the panel tracking the “sun”), and teaches multiple STEM topics in one exhibit. The final decision was reached by consensus after evaluating which idea best satisfied our mission statement and the project requirements. We found that the weather station concept could incorporate most of the team’s ideas (sensors, displays, moving parts, connectivity) in a cohesive way, rather than building separate exhibits for each idea.</p>
+<p><strong>Evolution from Initial Ideas</strong><br />
+Our final product and the initial concept have numerous differences. Our major deviation was the overall change from a compartamentalized subsystems to a more central electronic housing with connectable peripherals. With the main goal being a system that has separated functionality between subsystems, this change allowed for easy connection and storage of the printed circuit boards while still allowing for mobile sensor design.</p>
 <p>In practice, we refined the scope to ensure reliability and clarity. For example, we replaced the simple 16×2 text LCD with a higher-resolution 128×64 OLED display for a more versatile and engaging interface (allowing graphics and better readability)</p>
 <p>Some envisioned sensors (such as UV and air quality) were not included in the final build due to time and budget constraints; instead we focused on core sensors (temperature, humidity, pressure, wind) that provide plenty of learning opportunities.</p>
 <p>The idea of retrieving local weather data from an online API for comparison was discussed early on, but the final design prioritized live data from our own sensors to keep the experience authentic and self-contained. Additionally, our approach to solar tracking shifted from possibly using external data or complex logic to a simpler, robust method: two photoresistors and a hardware comparator now determine the sun’s direction, which directly drives the panel alignment mechanism. </p>

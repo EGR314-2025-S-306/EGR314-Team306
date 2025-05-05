@@ -709,13 +709,14 @@
 <li>External Ground</li>
 </ol>
 <h3 id="overview-of-block-diagram">Overview of Block Diagram</h3>
+<p>Our team's required messages were determined at first by the information that immediately needed to be sent such as sensor data and motor positioning. We then moved on to adding troubleshooting functionality into the project to allow the user to easily access the diagnostics of the system. This messaging system allows for efficient and consistent communication between individual subsystems; allowing each subsystem to be self-sufficient while ensuring seamless connected functionality.</p>
 <p>In the final block diagram, power from a barrel jack adapter flows into each board’s regulator circuit (for example, a switching buck regulator on the HMI and Wi-Fi boards for 3.3V, and dual regulators on the Actuator board for 5V and 3.3V). The HMI Interface (Aarshon’s subsystem) features an ESP32-S3 microcontroller that reads a 4×4 matrix keypad for user input and drives a 0.96″ OLED display for output.</p>
 <p>The Sensor Suite (Ian’s subsystem) uses a PIC18F27Q10 8-bit microcontroller to interface with multiple environment sensors via I²C: a humidity/temperature sensor, a barometric pressure sensor, and a wind speed sensor (hall-effect based anemometer)</p>
 <p>The sensor board also includes two analog light sensors (photoresistors) whose signals feed into a comparator; this comparator outputs a single digital signal indicating which direction the solar panel should turn to face the brighter light</p>
 <p>The Actuator Subsystem (Alex’s module) is built around a PIC18F47Q10 microcontroller, chosen for its ample I/O and familiarity, which controls two types of motors for the solar panel: a stepper motor for panning the panel and a DC motor for any additional motion (e.g. tilting or a demo wind turbine). The stepper motor is driven through a ULN2003 driver array, and the DC motor uses an Infineon IFX9201 SG driver over an SPI interface.</p>
 <p>Finally, the Internet Communication Subsystem (Kushagra’s board) uses an ESP32-S3-WROOM module as well, focused on Wi-Fi connectivity. It receives data from the chain and publishes sensor readings to an MQTT server (updating a GitHub-hosted web dashboard), and can also inject commands from the web back into the chain.</p>
 <h2 id="process-diagram">Process Diagram</h2>
-<p>All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops.  </p>
+<p>All critical information is sent through UART and must follow the protocol below. Messages that are sent to everyone in the chain are trashed by the sender. Messages with a designated recipient are trashed by the recipient. Messages may be single commands or continuous loops. This diagram was used to determine our team's subsystem order while providing clear examples of each of the message types.</p>
 <pre class="mermaid"><code>sequenceDiagram
     actor u as User
     participant a as Aarshon
@@ -746,10 +747,10 @@
     c-&gt;&gt;c: Rotate Base 90° CW&lt;br&gt;trash msg
 
     loop Every 30 Seconds&lt;br&gt;Error Code/Message Broadcast
-        i-&gt;&gt;c: System to Everyone&lt;br&gt;Subsystem Status Code 2 (partial malfunction)
-        c-&gt;&gt;k: System to Everyone&lt;br&gt;Subsystem Status Code 2 (partial malfunction)
+        i-&gt;&gt;c: System to Everyone&lt;br&gt;Subsystem Status Code 2&lt;br&gt;(partial malfunction)
+        c-&gt;&gt;k: System to Everyone&lt;br&gt;Subsystem Status Code 2&lt;br&gt;(partial malfunction)
         k--&gt;&gt;w: Display Status Code
-        k-&gt;&gt;a: System to Everyone&lt;br&gt;Subsystem Status Code 2 (partial malfunction)
+        k-&gt;&gt;a: System to Everyone&lt;br&gt;Subsystem Status Code 2&lt;br&gt;(partial malfunction)
         a--&gt;&gt;u: Display Status Code
         a-&gt;&gt;a: trash msg
     end</code></pre>
