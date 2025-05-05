@@ -64,9 +64,10 @@ nav:
   - Team Charter: report.md
   - Ideation & Design Generation: ideation.md
   - Block Diagram & Process Diagram: block.md
-  - Appendix: appendix.md
-  - Showcase Poster: showcase-poster.md
+  - Message Protocol: api.md
+  - Showcase Poster: poster.md
   - Resources: resources.md
+  - Reflection: reflection.md
 
 copyright: "Copyright &copy; 2025 Macrochip"
 
