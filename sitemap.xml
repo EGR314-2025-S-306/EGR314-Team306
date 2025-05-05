@@ -6,7 +6,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/appendix/</loc>
+         <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/api/</loc>
          <lastmod>2025-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -26,12 +26,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/message-structure/</loc>
+         <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/poster/</loc>
          <lastmod>2025-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/reflection-version20/</loc>
+         <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/reflection/</loc>
          <lastmod>2025-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -42,11 +42,6 @@
     </url>
     <url>
          <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/resources/</loc>
-         <lastmod>2025-05-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://egr314-2025-s-306.github.io/EGR314-Team306/showcase-poster/</loc>
          <lastmod>2025-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
