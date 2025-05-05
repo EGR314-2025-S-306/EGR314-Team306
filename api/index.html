@@ -513,6 +513,47 @@
     API: Message Structure
   </a>
   
+    <nav class="md-nav" aria-label="API: Message Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-overview" class="md-nav__link">
+    Structure Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-1-sensor-data-transmission" class="md-nav__link">
+    Message Type 1: Sensor Data Transmission
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-2-shift-motor" class="md-nav__link">
+    Message Type 2: Shift Motor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-3-subsystem-status-code" class="md-nav__link">
+    Message Type 3: Subsystem Status Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-4-subsystem-error-message" class="md-nav__link">
+    Message Type 4: Subsystem Error Message
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -609,6 +650,47 @@
     API: Message Structure
   </a>
   
+    <nav class="md-nav" aria-label="API: Message Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structure-overview" class="md-nav__link">
+    Structure Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-1-sensor-data-transmission" class="md-nav__link">
+    Message Type 1: Sensor Data Transmission
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-2-shift-motor" class="md-nav__link">
+    Message Type 2: Shift Motor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-3-subsystem-status-code" class="md-nav__link">
+    Message Type 3: Subsystem Status Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-type-4-subsystem-error-message" class="md-nav__link">
+    Message Type 4: Subsystem Error Message
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -639,6 +721,7 @@
 <h2 id="api-message-structure">API: Message Structure</h2>
 <p>All important communication between subsystems is done over the UART daisy chain. UART messages all follow the same message structure which uses up to 64 bytes. This structure is started by two start bytes, followed by the sender ID byte and the recipient ID byte. The message information is held in the following bytes and can be up to 58 bytes in length. The message is terminated with two stop bytes.<br />
 If any of the 4 prefix bytes are corrupted, the message is rejected. Messages are terminated after 64 bytes to stop an open loop upon failure to receive either of the two stop bytes.</p>
+<h3 id="structure-overview">Structure Overview</h3>
 <table>
 <thead>
 <tr>
@@ -740,8 +823,8 @@ If any of the 4 prefix bytes are corrupted, the message is rejected. Messages ar
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 1:</strong> Sensor Data Transmission<br />
-Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.</p>
+<h3 id="message-type-1-sensor-data-transmission"><strong>Message Type 1:</strong> Sensor Data Transmission</h3>
+<p>Message type for sending measured wind speed, temperature, humidity, and air pressure to all other subsystems.</p>
 <table>
 <thead>
 <tr>
@@ -803,8 +886,8 @@ Message type for sending measured wind speed, temperature, humidity, and air pre
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 2:</strong> Shift Motor<br />
-Message type for sending a command to rotate base stepper "Y" degrees.</p>
+<h3 id="message-type-2-shift-motor"><strong>Message Type 2:</strong> Shift Motor</h3>
+<p>Message type for sending a command to rotate base stepper "Y" degrees.</p>
 <table>
 <thead>
 <tr>
@@ -840,8 +923,8 @@ Message type for sending a command to rotate base stepper "Y" degrees.</p>
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 3:</strong> Subsystem Status Code<br />
-Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.</p>
+<h3 id="message-type-3-subsystem-status-code"><strong>Message Type 3:</strong> Subsystem Status Code</h3>
+<p>Message type for sending status code of a subsystem to be displayed. Sender ID is used to determine affected subsystem.</p>
 <table>
 <thead>
 <tr>
@@ -896,8 +979,8 @@ Message type for sending status code of a subsystem to be displayed. Sender ID i
 </tr>
 </tbody>
 </table>
-<p><strong>Message Type 4:</strong> Subsystem Error Message<br />
-Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.</p>
+<h3 id="message-type-4-subsystem-error-message"><strong>Message Type 4:</strong> Subsystem Error Message</h3>
+<p>Message type for sending string about subsystem error. Sender ID is used to determine affected subsystem.</p>
 <table>
 <thead>
 <tr>
