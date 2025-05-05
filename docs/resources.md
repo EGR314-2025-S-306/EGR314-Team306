@@ -6,7 +6,12 @@
 #### 1. Hardware Design Files:
 All PCB schematics and layout files (in KiCad format) for each subsystem board are provided. This includes the board for the HMI (keypad + OLED + ESP32), the Sensor suite board (with PIC MCU and sensor breakouts), the Actuator motor driver board (PIC MCU, motor drivers, regulators), and the Wi-Fi board (ESP32 module and regulator). These files allow others to examine our circuit design or even fabricate the boards. We also include 3D CAD models (in STEP format) of the mechanical assembly – showing how the solar panel is mounted and how the enclosures for sensors and electronics were arranged.
 
-   ** attach all of them here with labels **
+**Download Hardware Files:**
+- 🔗 [Internet Communication Subsystem PCB & Schematic (Kushagra)](./subfolder/EGR314_KD_Subsystem.zip)  
+- 🔗 [Sensor Suite Hardware Files (Ian)](./subfolder/Ian_Sensor_PCB.zip)  
+- 🔗 [HMI PCB and OLED Mount (Aarshon)](./subfolder/Aarshon_HMI_PCB.zip)  
+- 🔗 [Actuator Driver Board Design (Alex)](./subfolder/Alex_Actuator_Board.zip)  
+- 🔗 [3D Printed Mechanical Assembly (STEP Models)](./subfolder/Team_Assembly_CAD.zip)
 
 #### 2. Firmware Source Code:
 The complete source code for each microcontroller is available for download. This includes MPLAB X projects in C for the PIC18F27Q10 and PIC18F47Q10 subsystems, as well as the ESP32 code. The ESP32 code (for both HMI and Wi-Fi units) is written in MicroPython and organized into modules for sensor parsing, MQTT communication, and display updates. We provide a .zip file containing the Wi-Fi subsystem’s ESP32 firmware (for MQTT publishing), and similarly packaged code for the HMI ESP32 and PIC firmware hex files. Instructions are included for how to flash the code onto the respective devices, so that others can reproduce our setup. 
