@@ -5,7 +5,8 @@ title: Resources
 ## Final Project Media
 
 **Final Assembly**  
-![project](./assets/images/project_photo.jpg)
+![project](./assets/images/project_photo.jpg)  
+![anemometer](./assets/images/sensor_project.jpg)
 
 **Project Poster**  
 ![poster](./assets/images/poster.png)
